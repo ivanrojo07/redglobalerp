@@ -1,4 +1,3 @@
-
 window.formulario =function (elemento) {
   	if (elemento.value == "Prospecto") {
 	  document.getElementById('cliente').style.display = 'none';

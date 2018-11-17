@@ -6,7 +6,7 @@
  */
 
 require('./bootstrap');
-require('./pestanas');
+
 
 // window.Vue = require('vue');
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Empleado extends Model
 {
     //
+    
 
     /**
      * The table associated with the model.
