@@ -87,27 +87,21 @@ $(function() {
 //    });
 // });
 window.deleteFunction = function (etiqueta) {
-event.preventDefault(); // prevent form submit
-var form = event.target.form; // storing the form
-swal({
-  title: "¿Estas seguro?",
-  text: "Si eliminas, no podras recuperar tu información.",
-  type: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#DD6B55",
-  confirmButtonText: "SI",
-  cancelButtonText: "¡NO!",
-  closeOnConfirm: false,
-  closeOnCancel: false
-},function(isConfirm){
-  if (!isConfirm) {
-	
-	swal("Cancelado", "", "error");
-  } else {
-	
-	document.getElementById(etiqueta).submit();          // submitting the form when user press yes
-  }
-});
+  event.preventDefault(); // prevent form submit
+  var form = event.target.form; // storing the form
+  swal({
+    title: "¿Estas seguro?",
+    text: "Si eliminas, no podras recuperar tu información.",
+    type: "warning",
+    buttons:{
+      cancel: true,
+      confirm: "aceptar",
+    }
+  }).then(res=>{
+    if (res) {
+      document.getElementById(etiqueta).submit();
+    }
+  });
 }
 $('li a').click(function(){
 	$(this.getAttribute('class')).addClass("active");
@@ -143,11 +137,11 @@ window.AgregarNuevoTab = function(url, nombre) {
         var anombre = obj[i].innerText.substring(0, obj[i].innerText.length - 2);
         if (anombre === nombre) {
             CambiarAtributoElementosTag("li", "tabsApp", "class", "");
-            CambiarAtributoElementosTag("div", "contenedortab", "class", "tab-pane fade");
-            obj[i].className = "nav-link active";
+            CambiarAtributoElementosTag("div", "contenedortab", "class", "tab-pane fade ");
+            obj[i].className = "nav-link";
             var nombre = $(obj[i].getElementsByTagName("a")[0]).attr("href");
             var iframen = document.getElementById(nombre.replace("#", ""));
-            iframen.className = "active show";
+            iframen.className = "fade";
             return false;
         }
     }
@@ -157,19 +151,22 @@ window.AgregarNuevoTab = function(url, nombre) {
     titulo.className= "nav-link"
     var heigh = parseInt($(window).height()) - 150;
     titulo.setAttribute("data-toggle", "tab");
+    titulo.id = "pes"+numTab;
+    console.log(titulo.id);
     titulo.setAttribute("href", "#tab" + numTab);
     titulo.innerHTML = nombre + "  <span class='close alignright' onclick='CerrarTab(this);'><i class='far fa-times-circle' ></i></span>";
     lblTab.appendChild(titulo);
     tabs.appendChild(lblTab);
     CambiarAtributoElementosTag("li", "tabsApp", "class", "");
-    lblTab.className = "nav-item active";
+    lblTab.className = "nav-item";
     var iframes = document.getElementById("contenedortab");
     var srcTab = document.createElement("div");
     srcTab.id = "tab" + numTab;
     srcTab.innerHTML = " <iframe src='" + url + "' style='height:" + heigh + "px'></iframe>";
-    CambiarAtributoElementosTag("div", "contenedortab", "class", "tab-pane fade");
-    srcTab.className = "nav-item active show";
+    CambiarAtributoElementosTag("div", "contenedortab", "class", "tab-pane fade ");
+    srcTab.className = "tab-pane fade active show";
     iframes.appendChild(srcTab);
+    $(`#pes${numTab}`).click();
 }
 
 window.CerrarTab = function (objeto) {

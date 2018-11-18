@@ -58,102 +58,130 @@
 					</div>
 					<div class="form-group col-sm-3">
 						<label class="control-label" for="rfc">*RFC:</label>
-						<input type="text" class="form-control" id="rfc" name="rfc" value="{{ $empleado->rfc }}" required="">
+						<input type="text" class="form-control" id="rfc" name="rfc" value="{{ $empleado->rfc }}" minlength="12" maxlength="13" pattern="^[A-Za-z]{4}[0-9]{6}[A-Za-z0-9]{3}" title="Siga el formato 4 letras seguidas por 6 digitos y 3 caracteres" style="text-transform:uppercase">
 					</div>
 				</div>
 				<div>
-					<ul class="nav nav-tabs">
-						<li class="nav-item"><a href="#" class="nav-link active">Generales</a></li>
-						<li class="nav-item"><a href="#" class="nav-link ">Laborales</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">Estudios</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">Emergencias</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">Vacaciones</a></li>
-						<li class="nav-item" style="display: none;" id="admin"><a href="#" class="nav-link">Administrativo</a></li>
-						<li class="nav-item" style="display: none;" id="chofer"><a href="#" class="nav-link">Licencia de manejo</a></li>
+					<ul class="nav nav-tabs" id="empleadoTabs" role="tablist">
+						<li class="nav-item"><a href="#generales" class="nav-link active" id="generalTab" data-toggle="tab" role="tab" aria-controls="generales" aria-selected="true">Generales</a></li>
+						<li class="nav-item"><a href="#laborales" class="nav-link {{$edit ? '' : 'disabled'}}"  id="laboralTab" data-toggle="tab" role="tab" aria-controls="laborales" aria-selected="false">Laborales</a></li>
+						<li class="nav-item"><a href="#estudios" class="nav-link {{$edit ? '' : 'disabled'}}" id="estudioTab" data-toggle="tab" role="tab" aria-controls="estudios" aria-selected="false">Estudios</a></li>
+						<li class="nav-item"><a href="#emergencias" class="nav-link {{$edit ? '' : 'disabled'}}"  id="emergenciaTab" data-toggle="tab" role="tab" aria-controls="emergencias" aria-selected="false">Emergencias</a></li>
+						<li class="nav-item"><a href="#vacaciones" class="nav-link {{$edit ? '' : 'disabled'}}" id="vacacionTab" data-toggle="tab" role="tab" aria-controls="vacaciones" aria-selected="false">Vacaciones</a></li>
+						<li class="nav-item" @if ($edit && $empleado->tipo != "Administrativo") style="display: none;" @endif id="admin"><a href="#administrativos" class="nav-link {{$edit ? '' : 'disabled'}}" id="administrativoTab" data-toggle="tab" role="tab" aria-controls="administrativos" aria-selected="false">Administrativo</a></li>
+						<li class="nav-item" @if ($edit && $empleado->tipo != "Chofer") style="display: none;" @endif id="chofer"><a href="#licencias" class="nav-link {{$edit ? '' : 'disabled'}}" id="licenciaTab" data-toggle="tab" role="tab" aria-controls="licencias" aria-selected="false">Licencia de manejo</a></li>
 					</ul>
-					<div class="card">
-						<div class="card-header">
-							<div class="row">
-								<div class="col-sm-4">
-									<h5>Datos Generales:</h5>
+					<div class="tab-content" id="empleadoTabContent">
+						<div class="tab-pane fade show active" id="generales" role="tabpanel" aria-labelledby="generales-tab">
+							<div class="card">
+								<div class="card-header">
+									<div class="row">
+										<div class="col-sm-4">
+											<h5>Datos Generales:</h5>
+										</div>
+									</div>
+								</div>
+								<div class="card-body">
+									<div class="row">
+										<div class="form-group col-sm-4">
+											<label class="control-label" for="telefono">Teléfono:</label>
+											<input type="text" class="form-control" name="telefono" id="telefono" value="{{ $empleado->telefono }}">
+										</div>
+										<div class="form-group col-sm-4">
+											<label class="control-label" for="movil">Celular:</label>
+											<input type="text" class="form-control" name="movil" id="movil" value="{{ $empleado->movil }}">
+										</div>
+										<div class="form-group col-sm-4">
+											<label class="control-label" for="email"><i class="fa fa-asterisk" aria-hidden="true"></i>Correo electrónico:</label>
+											<input type="text" class="form-control" name="email" id="email" value="{{ $empleado->email }}" required="">
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="nss">Número de Seguro Social (IMSS):</label>
+											<input type="text" class="form-control" name="nss" id="nss" value="{{ $empleado->nss }}">
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="curp">C.U.R.P.:</label>
+											<input type="text" class="form-control" name="curp" id="curp" value="{{ $empleado->curp }}">
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="infonavit">Número Infonavit:</label>
+											<input type="text" class="form-control" name="infonavit" id="infonavit" value="{{ $empleado->infonavit }}">
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="cp">Código Postal:</label>
+											<input type="text" class="form-control" name="cp" id="cp" value="{{ $empleado->cp }}">
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="calle">Calle:</label>
+											<input type="text" class="form-control" name="calle" id="calle" value="{{ $empleado->calle }}">
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="numext">Número Exterior:</label>
+											<input type="text" class="form-control" name="numext" id="numext" value="{{ $empleado->numext }}">
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="numint">Número Interior:</label>
+											<input type="text" class="form-control" name="numint" id="numint" value="{{ $empleado->numint }}">
+										</div><div class="form-group col-sm-3">
+											<label class="control-label" for="colonia">Colonia:</label>
+											<input type="text" class="form-control" name="colonia" id="colonia" value="{{ $empleado->colonia }}">
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="municipio">Delegación/Municipio:</label>
+											<input type="text" class="form-control" name="municipio" id="municipio" value="{{ $empleado->municipio }}">
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="estado">Estado:</label>
+											<input type="text" class="form-control" name="estado" id="estado" value="{{ $empleado->estado }}">
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="calles">Entre calles:</label>
+											<input type="text" class="form-control" name="calles" id="calles" placeholder="calle y calle" value="{{ $empleado->calles }}">
+										</div><div class="form-group col-sm-3">
+											<label class="control-label" for="referencia">Referencia:</label>
+											<input type="text" class="form-control" name="referencia" id="referencia" value="{{ $empleado->referencia }}">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 text-center">
+											<button type="submit" class="btn btn-success">
+											 	<strong>Guardar</strong>
+											</button>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class="card-body">
-							<div class="row">
-								<div class="form-group col-sm-4">
-									<label class="control-label" for="telefono">Teléfono:</label>
-									<input type="text" class="form-control" name="telefono" id="telefono" value="{{ $empleado->telefono }}">
-								</div>
-								<div class="form-group col-sm-4">
-									<label class="control-label" for="movil">Celular:</label>
-									<input type="text" class="form-control" name="movil" id="movil" value="{{ $empleado->movil }}">
-								</div>
-								<div class="form-group col-sm-4">
-									<label class="control-label" for="email"><i class="fa fa-asterisk" aria-hidden="true"></i>Correo electrónico:</label>
-									<input type="text" class="form-control" name="email" id="email" value="{{ $empleado->email }}" required="">
-								</div>
-							</div>
-							<div class="row">
-								<div class="form-group col-sm-3">
-									<label class="control-label" for="nss">Número de Seguro Social (IMSS):</label>
-									<input type="text" class="form-control" name="nss" id="nss" value="{{ $empleado->nss }}">
-								</div>
-								<div class="form-group col-sm-3">
-									<label class="control-label" for="curp">C.U.R.P.:</label>
-									<input type="text" class="form-control" name="curp" id="curp" value="{{ $empleado->curp }}">
-								</div>
-								<div class="form-group col-sm-3">
-									<label class="control-label" for="infonavit">Número Infonavit:</label>
-									<input type="text" class="form-control" name="infonavit" id="infonavit" value="{{ $empleado->infonavit }}">
-								</div>
-								<div class="form-group col-sm-3">
-									<label class="control-label" for="cp">Código Postal:</label>
-									<input type="text" class="form-control" name="cp" id="cp" value="{{ $empleado->cp }}">
-								</div>
-							</div>
-							<div class="row">
-								<div class="form-group col-sm-3">
-									<label class="control-label" for="calle">Calle:</label>
-									<input type="text" class="form-control" name="calle" id="calle" value="{{ $empleado->calle }}">
-								</div>
-								<div class="form-group col-sm-3">
-									<label class="control-label" for="numext">Número Exterior:</label>
-									<input type="text" class="form-control" name="numext" id="numext" value="{{ $empleado->numext }}">
-								</div>
-								<div class="form-group col-sm-3">
-									<label class="control-label" for="numint">Número Interior:</label>
-									<input type="text" class="form-control" name="numint" id="numint" value="{{ $empleado->numint }}">
-								</div><div class="form-group col-sm-3">
-									<label class="control-label" for="colonia">Colonia:</label>
-									<input type="text" class="form-control" name="colonia" id="colonia" value="{{ $empleado->colonia }}">
-								</div>
-							</div>
-							<div class="row">
-								<div class="form-group col-sm-3">
-									<label class="control-label" for="municipio">Delegación/Municipio:</label>
-									<input type="text" class="form-control" name="municipio" id="municipio" value="{{ $empleado->municipio }}">
-								</div>
-								<div class="form-group col-sm-3">
-									<label class="control-label" for="estado">Estado:</label>
-									<input type="text" class="form-control" name="estado" id="estado" value="{{ $empleado->estado }}">
-								</div>
-								<div class="form-group col-sm-3">
-									<label class="control-label" for="calles">Entre calles:</label>
-									<input type="text" class="form-control" name="calles" id="calles" placeholder="calle y calle" value="{{ $empleado->calles }}">
-								</div><div class="form-group col-sm-3">
-									<label class="control-label" for="referencia">Referencia:</label>
-									<input type="text" class="form-control" name="referencia" id="referencia" value="{{ $empleado->referencia }}">
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-12 text-center">
-									<button type="submit" class="btn btn-success">
-									 	<strong>Guardar</strong>
-									</button>
-								</div>
-							</div>
+						<div class="tab-pane fade" id="laborales" role="tabpanel" aria-labelledby="laborales-tab">
+							<iframe src="{{ $edit ? route('empleados.datoslaborales.index',['empleado'=>$empleado]) : '' }}"></iframe>
 						</div>
+						<div class="tab-pane fade" id="estudios" role="tabpanel" aria-labelledby="estudios-tab">
+							<iframe src="{{ $edit ? 'TODO' : '' }}"></iframe>
+						</div>
+						<div class="tab-pane fade" id="emergencias" role="tabpanel" aria-labelledby="emergencias-tab">
+							<iframe src="{{ $edit ? 'TODO' : '' }}"></iframe>
+						</div>
+						<div class="tab-pane fade" id="vacaciones" role="tabpanel" aria-labelledby="vacaciones-tab">
+							<iframe src="{{ $edit ? 'TODO' : '' }}"></iframe>
+						</div>
+						{{-- MOSTRAR ADMINISTRATIVO SOLO SI ES ADMINISTRATIVO --}}
+						@if ($edit && $empleado->tipo == "Administrativo")
+						<div class="tab-pane fade" id="administrativos" role="tabpanel" aria-labelledby="administrativos-tab">
+							<iframe src="{{ $edit ? 'TODO' : '' }}"></iframe>
+						</div>
+						@endif
+						{{-- MOSTRAR CHOFER SOLO SI ES CHOFER --}}
+						@if ($edit && $empleado->tipo == "Chofer")
+						<div class="tab-pane fade" id="licencias" role="tabpanel" aria-labelledby="licencias-tab">
+							<iframe src="{{ $edit ? 'TODO' : '' }}"></iframe>
+						</div>
+						@endif
 					</div>
 				</div>
 			</form>

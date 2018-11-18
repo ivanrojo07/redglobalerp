@@ -45,10 +45,16 @@ Route::resource('usuario', 'Usuario\UsuarioController');
 
 // EMPLEADOS
 Route::resource('empleados', 'Empleado\EmpleadoController');
-// Route::resource('empleados.datoslaborales', 'Empleado\EmpleadosDatosLabController');
+Route::resource('empleados.datoslaborales', 'Empleado\EmpleadoDatosLabController');
 // Route::resource('empleados.estudios', 'Empleado\EmpleadosEstudiosController');
 // Route::resource('empleados.emergencias', 'Empleado\EmpleadosEmergenciasController');
 // Route::resource('empleados.vacaciones', 'Empleado\EmpleadosVacacionesController');
 // Route::resource('empleados.faltas', 'Empleado\EmpleadosFaltasAdministrativasController');
 
+
+
+// PRECARGAS
+Route::resource('puestos','Precargas\TipoPuestoController');
+Route::resource('contratos','Precargas\TipoContratoController');
+Route::resource('bajas','Precargas\TipoBajasController');
 // Route::get('/home', 'HomeController@index')->name('home');
