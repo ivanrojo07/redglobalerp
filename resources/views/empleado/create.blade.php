@@ -1,6 +1,6 @@
 @extends('layouts.blank')
 @section('content')
-<div class="container-fluid">
+<div >
 	<div class="card">
 		<div class="card-header">
 			<h4>Empleados</h4>
@@ -159,7 +159,7 @@
 							</div>
 						</div>
 						<div class="tab-pane fade" id="laborales" role="tabpanel" aria-labelledby="laborales-tab">
-							<iframe src="{{ $edit ? route('empleados.datoslaborales.index',['empleado'=>$empleado]) : '' }}"></iframe>
+							<iframe style="width: 100%; height: 100%;" src="{{ $edit ? route('empleados.datoslaborales.index',['empleado'=>$empleado]) : '' }}"></iframe>
 						</div>
 						<div class="tab-pane fade" id="estudios" role="tabpanel" aria-labelledby="estudios-tab">
 							<iframe src="{{ $edit ? 'TODO' : '' }}"></iframe>

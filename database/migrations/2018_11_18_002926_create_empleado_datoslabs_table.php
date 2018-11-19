@@ -16,12 +16,13 @@ class CreateEmpleadoDatoslabsTable extends Migration
         Schema::create('empleado_datoslabs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('empleado_id')->unsigned();
-            $table->foreign('empleado_id')->references('id')->on('empleados')->onDelete('cascade');
-            $table->date('fechaactualizacion');
+            $table->foreign('empleado_id')->references('id')->on('empleados');
+            $table->dropForeign(['empleado_id']);
+            $table->date('fechaactualizacion')->nullable();
             $table->string('periodopaga');
             $table->string('regimen');
             $table->string('hcomida');
-            $table->string('lugartrabajo');
+            // $table->string('lugartrabajo');
             $table->integer('contrato_id')->unsigned()->nullable();
             $table->foreign('contrato_id')->references('id')->on('tipo_contratos');
             $table->integer('puesto_id')->unsigned()->nullable();

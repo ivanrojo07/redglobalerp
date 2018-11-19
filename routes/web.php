@@ -51,6 +51,8 @@ Route::resource('empleados.datoslaborales', 'Empleado\EmpleadoDatosLabController
 // Route::resource('empleados.vacaciones', 'Empleado\EmpleadosVacacionesController');
 // Route::resource('empleados.faltas', 'Empleado\EmpleadosFaltasAdministrativasController');
 
+//	ajax
+Route::get('buscarDL/{datoslab}','Empleado\EmpleadoDatosLabController@show'); 
 
 
 // PRECARGAS

@@ -10478,6 +10478,14 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.tab-content > .tab-pane {
+  display: none !important;
+}
+
+.tab-content > .active {
+  display: block !important;
+}
+
 /*.navbar.navbar-default.navbar-static-top{
 	background: #55688a;
 }
