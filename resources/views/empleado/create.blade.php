@@ -158,28 +158,28 @@
 								</div>
 							</div>
 						</div>
-						<div class="tab-pane fade" id="laborales" role="tabpanel" aria-labelledby="laborales-tab">
-							<iframe style="width: 100%; height: 100%;" src="{{ $edit ? route('empleados.datoslaborales.index',['empleado'=>$empleado]) : '' }}"></iframe>
+						<div class="tab-pane fade" id="laborales" role="tabpanel" style="height: 650px!important;" aria-labelledby="laborales-tab">
+							<iframe style="height: 650px!important;" id="laboralesframe" src="{{ $edit ? route('empleados.datoslaborales.index',['empleado'=>$empleado]) : '' }}"></iframe>
 						</div>
-						<div class="tab-pane fade" id="estudios" role="tabpanel" aria-labelledby="estudios-tab">
-							<iframe src="{{ $edit ? 'TODO' : '' }}"></iframe>
+						<div class="tab-pane fade" style="height: 650px!important;" id="estudios" role="tabpanel" aria-labelledby="estudios-tab">
+							<iframe style="height: 650px!important;" src="{{ $edit ? route('empleados.estudios.index',['empleado'=>$empleado]) : '' }}"></iframe>
 						</div>
-						<div class="tab-pane fade" id="emergencias" role="tabpanel" aria-labelledby="emergencias-tab">
-							<iframe src="{{ $edit ? 'TODO' : '' }}"></iframe>
+						<div class="tab-pane fade" id="emergencias" style="height: 650px!important;" role="tabpanel" aria-labelledby="emergencias-tab">
+							<iframe style="height: 650px!important;" src="{{ $edit ? route('empleados.emergencias.index',['empleado'=>$empleado]) : '' }}"></iframe>
 						</div>
-						<div class="tab-pane fade" id="vacaciones" role="tabpanel" aria-labelledby="vacaciones-tab">
-							<iframe src="{{ $edit ? 'TODO' : '' }}"></iframe>
+						<div class="tab-pane fade" id="vacaciones" style="height: 650px!important;" role="tabpanel" aria-labelledby="vacaciones-tab">
+							<iframe style="height: 650px!important;" src="{{ $edit ? route('empleados.vacacions.index',['empleado'=>$empleado]) : '' }}"></iframe>
 						</div>
 						{{-- MOSTRAR ADMINISTRATIVO SOLO SI ES ADMINISTRATIVO --}}
 						@if ($edit && $empleado->tipo == "Administrativo")
-						<div class="tab-pane fade" id="administrativos" role="tabpanel" aria-labelledby="administrativos-tab">
-							<iframe src="{{ $edit ? 'TODO' : '' }}"></iframe>
+						<div class="tab-pane fade" id="administrativos" style="height: 650px!important;" role="tabpanel" aria-labelledby="administrativos-tab">
+							<iframe style="height: 650px!important;" src="{{ $edit ? 'TODO' : '' }}"></iframe>
 						</div>
 						@endif
 						{{-- MOSTRAR CHOFER SOLO SI ES CHOFER --}}
 						@if ($edit && $empleado->tipo == "Chofer")
-						<div class="tab-pane fade" id="licencias" role="tabpanel" aria-labelledby="licencias-tab">
-							<iframe src="{{ $edit ? 'TODO' : '' }}"></iframe>
+						<div class="tab-pane fade" id="licencias" style="height: 650px!important;" role="tabpanel" aria-labelledby="licencias-tab">
+							<iframe style="height: 650px!important;" src="{{ $edit ? 'TODO' : '' }}"></iframe>
 						</div>
 						@endif
 					</div>
@@ -208,6 +208,9 @@
 			if(empleado === "Chofer"){
 				$("#chofer").show();
 			}
-		});
+		});	
+		document.getElementById("laboralesframe").width();
+		document.getElementById("laboralesframe").height();
+
 	</script>
 @endsection

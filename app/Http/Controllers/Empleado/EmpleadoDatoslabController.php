@@ -73,7 +73,7 @@ class EmpleadoDatoslabController extends Controller
     public function create(Empleado $empleado)
     {
         //
-        $datoslab = new EmpleadoDatosLab;
+        $datoslaborale = new EmpleadoDatosLab;
         $contratos = TipoContrato::get();
         $bajas = TipoBaja::get();
         $puestos = TipoPuesto::get();
@@ -84,7 +84,7 @@ class EmpleadoDatoslabController extends Controller
             'empleado'=>$empleado,
             'bajas'=>$bajas,
             'contratos'=>$contratos,
-            'datoslab'=>$datoslab,
+            'datoslaborale'=>$datoslaborale,
             'puestos'=>$puestos,
             'edit'=>$edit,
         ]);
@@ -175,9 +175,11 @@ class EmpleadoDatoslabController extends Controller
     //     $puestos=Puesto::where('id',$datos->puesto_id)->first();
     //   $puesto=$areas->nombre;
     //   }
+        $empleado = $datoslab->empleado;
 
     return view('empleado.datoslab.view',[
-                'datoslab'=>$datoslab,                
+                'datoslab'=>$datoslab,
+                'empleado'=>$empleado,                
                 ]);
     }
 
@@ -187,13 +189,14 @@ class EmpleadoDatoslabController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empleado $empleado, $actual)
+    public function edit(Empleado $empleado, EmpleadoDatoslab $datoslaborale)
     {
-    $actual1=EmpleadoDatosLab::where('id', $actual)->first();
+        // dd($datoslaborale);
+    // $actual1=EmpleadoDatosLab::where('id', $actual)->first();
 
        
-        $datoslab = new EmpleadosDatosLab;
-        $datoslab->fechacontratacion=$actual1->fechacontratacion;
+        // $datoslab = new EmpleadosDatosLab;
+        // $datoslab->fechacontratacion=$actual1->fechacontratacion;
        
         $contratos = TipoContrato::get();
         $bajas = TipoBaja::get();
@@ -202,16 +205,12 @@ class EmpleadoDatoslabController extends Controller
         // $bancos=Banco::get();
         $edit = true;
         return view('empleado.datoslab.create',[
-            'datoslab'=>$datoslab,
+            'datoslaborale'=>$datoslaborale,
             'bajas'=>$bajas,
             'contratos'=>$contratos,
             'empleado'=>$empleado,
-            'areas'=>$areas, 
             'puestos'=>$puestos,
-            'edit'=>$edit,
-            'sucursales'=>$sucursales,
-            'almacenes'=>$almacenes,
-            'bancos'=>$bancos]);
+            'edit'=>$edit]);
 
     }
 
@@ -222,54 +221,57 @@ class EmpleadoDatoslabController extends Controller
      * @param  \App\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empleado $empleado, $datoslaborale)
+    public function update(Request $request, Empleado $empleado, EmpleadoDatoslab $datoslaborale)
     {
-        dd($datoslaborale);
-        //$datoslab = EmpleadosDatosLab::findOrFail($datoslaborale);
-      $datoslab = new EmpleadoDatosLab;
+        $datoslaborale->update($request->all());
+        $datoslaborale->fechaactualizacion = date("Y-m-d");
+        $datoslaborale->save();
+      //   dd($datoslaborale);
+      //   //$datoslab = EmpleadosDatosLab::findOrFail($datoslaborale);
+      // $datoslab = new EmpleadoDatosLab;
 
-        $datoslab->fechacontratacion = $request->fechacontratacion;
+      //   $datoslab->fechacontratacion = $request->fechacontratacion;
         
-        $datoslab->fechaactualizacion = date("Y-m-d");
+      //   $datoslab->fechaactualizacion = date("Y-m-d");
 
-        $datoslab->area_id = $request->area_id;
-         //dd($request->all());
-        $datoslab->puesto_id = $request->puesto_id;
+      //   $datoslab->area_id = $request->area_id;
+      //    //dd($request->all());
+      //   $datoslab->puesto_id = $request->puesto_id;
 
 
-        $datoslab->salarionom = $request->salarionom;
-        $datoslab->salariodia = $request->salariodia ;
+      //   $datoslab->salarionom = $request->salarionom;
+      //   $datoslab->salariodia = $request->salariodia ;
         
-        $datoslab->periodopaga = $request->periodopaga ;
-        $datoslab->prestaciones = $request->prestaciones ;
-        $datoslab->regimen = $request->regimen ;
-        $datoslab->hentrada = $request->hentrada ;
-        $datoslab->hsalida = $request->hsalida ;
-        $datoslab->hcomida = $request->hcomida ;
-        $datoslab->lugartrabajo = $request->lugartrabajo ;
-        $datoslab->banco = $request->banco ;
-        $datoslab->cuenta = $request->cuenta ;
-        $datoslab->clabe = $request->clabe ;
-        $datoslab->fechabaja = $request->fechabaja ;
-        $datoslab->tipobaja_id = $request->tipobaja_id ;
-        $datoslab->comentariobaja = $request->comentariobaja ;
+      //   $datoslab->periodopaga = $request->periodopaga ;
+      //   $datoslab->prestaciones = $request->prestaciones ;
+      //   $datoslab->regimen = $request->regimen ;
+      //   $datoslab->hentrada = $request->hentrada ;
+      //   $datoslab->hsalida = $request->hsalida ;
+      //   $datoslab->hcomida = $request->hcomida ;
+      //   $datoslab->lugartrabajo = $request->lugartrabajo ;
+      //   $datoslab->banco = $request->banco ;
+      //   $datoslab->cuenta = $request->cuenta ;
+      //   $datoslab->clabe = $request->clabe ;
+      //   $datoslab->fechabaja = $request->fechabaja ;
+      //   $datoslab->tipobaja_id = $request->tipobaja_id ;
+      //   $datoslab->comentariobaja = $request->comentariobaja ;
 
-        $datoslab->contrato_id = $request->contrato_id ;
-        $datoslab->sucursal_id = $request->sucursal_id ;
-        $datoslab->almacen_id = $request->almacen_id ;
+      //   $datoslab->contrato_id = $request->contrato_id ;
+      //   $datoslab->sucursal_id = $request->sucursal_id ;
+      //   $datoslab->almacen_id = $request->almacen_id ;
 
-        if ($request->bonopuntualidad == 'on') {
-            # code...
-            $datoslab->bonopuntualidad = true;
-            // dd($request->all());
-        } else {
-            # code...
-            $datoslab->bonopuntualidad = false;
-        }
-        //$datoslab->update();
-        $datoslab->save($request->all());
+      //   if ($request->bonopuntualidad == 'on') {
+      //       # code...
+      //       $datoslab->bonopuntualidad = true;
+      //       // dd($request->all());
+      //   } else {
+      //       # code...
+      //       $datoslab->bonopuntualidad = false;
+      //   }
+      //   //$datoslab->update();
+      //   $datoslab->save($request->all());
         Alert::success('Datos laborales actualizados');
-        return redirect()->route('empleados.datoslaborales.index',['empleado'=>$empleado,'datoslab'=>$datoslab]);
+        return redirect()->route('empleados.datoslaborales.index',['empleado'=>$empleado,'datoslaborale'=>$datoslaborale]);
     }
 
     /**

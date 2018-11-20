@@ -53,4 +53,13 @@ class Empleado extends Model
     public function datosLab(){
         return $this->hasMany('App\EmpleadoDatosLab');
     }
+    public function estudio(){
+        return $this->hasOne('App\EmpleadoEstudio');
+    }
+    public function emergencia(){
+        return $this->hasOne('App\EmpleadoEmergencia');
+    }
+    public function vacaciones(){
+        return $this->hasMany('App\EmpleadoVacacion');
+    }
 }

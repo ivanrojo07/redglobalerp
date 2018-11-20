@@ -46,6 +46,9 @@ Route::resource('usuario', 'Usuario\UsuarioController');
 // EMPLEADOS
 Route::resource('empleados', 'Empleado\EmpleadoController');
 Route::resource('empleados.datoslaborales', 'Empleado\EmpleadoDatosLabController');
+Route::resource('empleados.estudios','Empleado\EmpleadoEstudioController');
+Route::resource('empleados.emergencias','Empleado\EmpleadoEmergenciaController');
+Route::resource('empleados.vacacions','Empleado\EmpleadoVacacionController');
 // Route::resource('empleados.estudios', 'Empleado\EmpleadosEstudiosController');
 // Route::resource('empleados.emergencias', 'Empleado\EmpleadosEmergenciasController');
 // Route::resource('empleados.vacaciones', 'Empleado\EmpleadosVacacionesController');
