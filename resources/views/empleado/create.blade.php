@@ -68,8 +68,9 @@
 						<li class="nav-item"><a href="#estudios" class="nav-link {{$edit ? '' : 'disabled'}}" id="estudioTab" data-toggle="tab" role="tab" aria-controls="estudios" aria-selected="false">Estudios</a></li>
 						<li class="nav-item"><a href="#emergencias" class="nav-link {{$edit ? '' : 'disabled'}}"  id="emergenciaTab" data-toggle="tab" role="tab" aria-controls="emergencias" aria-selected="false">Emergencias</a></li>
 						<li class="nav-item"><a href="#vacaciones" class="nav-link {{$edit ? '' : 'disabled'}}" id="vacacionTab" data-toggle="tab" role="tab" aria-controls="vacaciones" aria-selected="false">Vacaciones</a></li>
-						<li class="nav-item" @if ($edit && $empleado->tipo != "Administrativo") style="display: none;" @endif id="admin"><a href="#administrativos" class="nav-link {{$edit ? '' : 'disabled'}}" id="administrativoTab" data-toggle="tab" role="tab" aria-controls="administrativos" aria-selected="false">Administrativo</a></li>
-						<li class="nav-item" @if ($edit && $empleado->tipo != "Chofer") style="display: none;" @endif id="chofer"><a href="#licencias" class="nav-link {{$edit ? '' : 'disabled'}}" id="licenciaTab" data-toggle="tab" role="tab" aria-controls="licencias" aria-selected="false">Licencia de manejo</a></li>
+						<li class="nav-item"><a href="#faltas" class="nav-link" id="vacacionTab" data-toggle="tab" role="tab" aria-controls="faltas" aria-selected="false">Faltas</a></li>
+						<li class="nav-item" @if ($edit && $empleado->tipo != "Chofer") style="display: none;" @endif id="licenciasT"><a href="#licencias" class="nav-link {{$edit ? '' : 'disabled'}}" id="licenciaTab" data-toggle="tab" role="tab" aria-controls="licencias" aria-selected="false">Licencia de manejo</a></li>
+						<li class="nav-item" @if ($edit && $empleado->tipo != "Chofer") style="display: none;" @endif id="accidentesT"><a href="#accidentes" class="nav-link {{$edit ? '' : 'disabled'}}" id="licenciaTab" data-toggle="tab" role="tab" aria-controls="licencias" aria-selected="false">Accidente e incidencias</a></li>
 					</ul>
 					<div class="tab-content" id="empleadoTabContent">
 						<div class="tab-pane fade show active" id="generales" role="tabpanel" aria-labelledby="generales-tab">
@@ -170,16 +171,16 @@
 						<div class="tab-pane fade" id="vacaciones" style="height: 650px!important;" role="tabpanel" aria-labelledby="vacaciones-tab">
 							<iframe style="height: 650px!important;" src="{{ $edit ? route('empleados.vacacions.index',['empleado'=>$empleado]) : '' }}"></iframe>
 						</div>
-						{{-- MOSTRAR ADMINISTRATIVO SOLO SI ES ADMINISTRATIVO --}}
-						@if ($edit && $empleado->tipo == "Administrativo")
-						<div class="tab-pane fade" id="administrativos" style="height: 650px!important;" role="tabpanel" aria-labelledby="administrativos-tab">
-							<iframe style="height: 650px!important;" src="{{ $edit ? 'TODO' : '' }}"></iframe>
+						<div class="tab-pane fade" id="faltas" style="height: 650px!important;" role="tabpanel" aria-labelledby="faltas-tab">
+							<iframe style="height: 650px!important;" src="{{ $edit ? route('empleados.faltas.index',['empleado'=>$empleado]) : '' }}"></iframe>
 						</div>
-						@endif
 						{{-- MOSTRAR CHOFER SOLO SI ES CHOFER --}}
 						@if ($edit && $empleado->tipo == "Chofer")
 						<div class="tab-pane fade" id="licencias" style="height: 650px!important;" role="tabpanel" aria-labelledby="licencias-tab">
-							<iframe style="height: 650px!important;" src="{{ $edit ? 'TODO' : '' }}"></iframe>
+							<iframe style="height: 650px!important;" src="{{ $edit ? route("empleados.licencias.index",['empleado'=>$empleado]) : '' }}"></iframe>
+						</div>
+						<div class="tab-pane fade" id="accidentes" style="height: 650px!important;" role="tabpanel" aria-labelledby="accidentes-tab">
+							<iframe style="height: 650px!important;" src="{{ $edit ? route('empleados.accidentes.index',['empleado'=>$empleado]) : '' }}"></iframe>
 						</div>
 						@endif
 					</div>
@@ -199,14 +200,12 @@
 @section('script')
 	<script type="text/javascript">
 		$('#tipo').change(function(e){
-			$("#admin").hide();
-			$("#chofer").hide();
+			$("#licenciasT").hide();
+			$("#accidentesT").hide();
 			var empleado = $("#tipo").val();
-			if(empleado === "Administrativo"){
-				$("#admin").show();
-			}
 			if(empleado === "Chofer"){
-				$("#chofer").show();
+				$("#licenciasT").show();
+				$("#accidentesT").show();
 			}
 		});	
 		document.getElementById("laboralesframe").width();

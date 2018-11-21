@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Precargas;
 use App\TipoBaja;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class TipoBajasController extends Controller
 {
@@ -59,6 +60,7 @@ class TipoBajasController extends Controller
     {
         //
         TipoBaja::create($request->all());
+        Alert::success('Información Agregada', 'Se ha registrado correctamente la información');
         return redirect()->route('bajas.index');
     }
 
@@ -97,6 +99,7 @@ class TipoBajasController extends Controller
     {
         //
         $baja->update($request->all());
+        Alert::success('Información actualizada', 'Se ha actualizado correctamente la información');
         return redirect()->route('bajas.index');
     }
 
@@ -110,6 +113,7 @@ class TipoBajasController extends Controller
     {
         //
         $baja->delete();
+        Alert::success('Información eliminada', 'Se ha eliminado correctamente la información');
         return redirect()->route('bajas.index');
     }
     public function buscar(Request $request){

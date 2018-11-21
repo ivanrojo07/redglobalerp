@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers\Precargas;
 
-use App\TipoContrato;
+use App\TipoLicencia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 
-class TipoContratoController extends Controller
+class TipoLicenciaController extends Controller
 {
-    public function __construct(){
-        $this->titulo = 'Tipo de Contrato';
-        $this->agregar = 'contratos.create';
-        $this->guardar = 'contratos.store';
-        $this->editar ='contratos.edit';
-        $this->actualizar = 'contratos.update';
-        $this->borrar ='contratos.destroy';
-        $this->buscar = 'buscarcontrato';
+     public function __construct(){
+        $this->titulo = 'Tipo de Licencia';
+        $this->agregar = 'licencias.create';
+        $this->guardar = 'licencias.store';
+        $this->editar ='licencias.edit';
+        $this->actualizar = 'licencias.update';
+        $this->borrar ='licencias.destroy';
+        $this->buscar = 'buscarlicencia';
         // $this->middleware(function ($request, $next) {
         //     if(Auth::check()) {
         //         foreach (Auth::user()->perfil->componentes as $componente)
@@ -35,8 +35,8 @@ class TipoContratoController extends Controller
     public function index()
     {
         //
-        $contratos = TipoContrato::paginate(10);
-        return view('precargas.index',['precargas'=>$contratos, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
+        $licencias = TipoLicencia::paginate(10);
+        return view('precargas.index',['precargas'=>$licencias, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 
     /**
@@ -59,18 +59,18 @@ class TipoContratoController extends Controller
     public function store(Request $request)
     {
         //
-        TipoContrato::create($request->all());
+        TipoLicencia::create($request->all());
         Alert::success('Información Agregada', 'Se ha registrado correctamente la información');
-        return redirect()->route('contratos.index');
+        return redirect()->route('licencias.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\TipoContrato  $tipoContrato
+     * @param  \App\TipoLicencia  $tipoLicencia
      * @return \Illuminate\Http\Response
      */
-    public function show(TipoContrato $contrato)
+    public function show(TipoLicencia $licencia)
     {
         //
     }
@@ -78,13 +78,13 @@ class TipoContratoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\TipoContrato  $tipoContrato
+     * @param  \App\TipoLicencia  $tipoLicencia
      * @return \Illuminate\Http\Response
      */
-    public function edit(TipoContrato $contrato)
+    public function edit(TipoLicencia $licencia)
     {
         //
-        return view('precargas.edit',['precarga'=>$contrato, 'titulo'=>$this->titulo,'actualizar'=>$this->actualizar]);
+        return view('precargas.edit',['precarga'=>$licencia, 'titulo'=>$this->titulo,'actualizar'=>$this->actualizar]);
 
     }
 
@@ -92,34 +92,34 @@ class TipoContratoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\TipoContrato  $tipoContrato
+     * @param  \App\TipoLicencia  $tipoLicencia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TipoContrato $contrato)
+    public function update(Request $request, TipoLicencia $licencia)
     {
         //
-        $contrato->update($request->all());
+        $licencia->update($request->all());
         Alert::success('Información actualizada', 'Se ha actualizado correctamente la información');
-        return redirect()->route('contratos.index');
+        return redirect()->route('licencias.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\TipoContrato  $tipoContrato
+     * @param  \App\TipoLicencia  $tipoLicencia
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TipoContrato $contrato)
+    public function destroy(TipoLicencia $licencia)
     {
         //
-        $contrato->delete();
+        $licencia->delete();
         Alert::success('Información eliminada', 'Se ha eliminado correctamente la información');
-        return redirect()->route('contratos.index');
+        return redirect()->route('licencias.index');
     }
     public function buscar(Request $request){
         $query = $request->input('query');
         $wordsquery = explode(' ',$query);
-        $tipoBaja = TipoContrato::where(function ($q) use($wordsquery){
+        $tipoBaja = TipoLicencia::where(function ($q) use($wordsquery){
             foreach ($wordsquery as $word) {
                 # code...
                 $q->orWhere('nombre','LIKE',"%$word%")
@@ -129,8 +129,8 @@ class TipoContratoController extends Controller
         return view('precargas.index',['precargas'=>$tipoBaja, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 
-    public function getContratos(){
-        $contratos = TipoContrato::get();
-        return view('precargas.select',['precargas'=>$contratos]);
+    public function getLicencias(){
+        $licencias = TipoLicencia::get();
+        return view('precargas.select',['precargas'=>$licencias]);
     }
 }

@@ -49,6 +49,9 @@ Route::resource('empleados.datoslaborales', 'Empleado\EmpleadoDatosLabController
 Route::resource('empleados.estudios','Empleado\EmpleadoEstudioController');
 Route::resource('empleados.emergencias','Empleado\EmpleadoEmergenciaController');
 Route::resource('empleados.vacacions','Empleado\EmpleadoVacacionController');
+Route::resource('empleados.faltas','Empleado\EmpleadoFaltaController');
+Route::resource('empleados.licencias','Empleado\EmpleadoLicenciaController');
+Route::resource('empleados.accidentes','Empleado\EmpleadoAccidenteController');
 // Route::resource('empleados.estudios', 'Empleado\EmpleadosEstudiosController');
 // Route::resource('empleados.emergencias', 'Empleado\EmpleadosEmergenciasController');
 // Route::resource('empleados.vacaciones', 'Empleado\EmpleadosVacacionesController');
@@ -62,4 +65,5 @@ Route::get('buscarDL/{datoslab}','Empleado\EmpleadoDatosLabController@show');
 Route::resource('puestos','Precargas\TipoPuestoController');
 Route::resource('contratos','Precargas\TipoContratoController');
 Route::resource('bajas','Precargas\TipoBajasController');
+Route::resource('licencias','Precargas\TipoLicenciaController');
 // Route::get('/home', 'HomeController@index')->name('home');
