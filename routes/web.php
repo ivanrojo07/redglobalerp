@@ -57,9 +57,16 @@ Route::resource('empleados.accidentes','Empleado\EmpleadoAccidenteController');
 // Route::resource('empleados.vacaciones', 'Empleado\EmpleadosVacacionesController');
 // Route::resource('empleados.faltas', 'Empleado\EmpleadosFaltasAdministrativasController');
 
+// CLIENTES
+Route::resource('clientes','Cliente\ClienteController');
+Route::get('clientes/form/{tipo}','Cliente\ClienteController@form');
+
+
 //	ajax
 Route::get('buscarDL/{datoslab}','Empleado\EmpleadoDatosLabController@show'); 
 
+
+// 
 
 // PRECARGAS
 Route::resource('puestos','Precargas\TipoPuestoController');

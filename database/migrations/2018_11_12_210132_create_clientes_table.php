@@ -33,7 +33,7 @@ class CreateClientesTable extends Migration
             $table->string('telefono');
             $table->string('email');
 
-            $table->integer('cliente_credential_id')->unsigned();
+            $table->integer('cliente_credential_id')->unsigned()->nullable();
             $table->foreign('cliente_credential_id')->references('id')->on('cliente_credentials');
 
             $table->timestamps();

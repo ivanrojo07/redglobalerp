@@ -18,7 +18,7 @@ class CreateClienteBancosTable extends Migration
             $table->integer('cliente_id')->unsigned();
             $table->foreign('cliente_id')->references('id')->on('clientes');
 
-            $table->string('nombre');
+            $table->string('nombre_b');
             $table->string('plaza');
             $table->string('sucursal');
             $table->string('cuenta');

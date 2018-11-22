@@ -18,9 +18,10 @@ class CreateClienteLegalsTable extends Migration
             $table->integer('cliente_id')->unsigned();
             $table->foreign('cliente_id')->references('id')->on('clientes');
             
-            $table->string('nombre');
+            $table->string('nombre_l');
             $table->string('firma')->nullable();
-            $table->date('fecha');
+            $table->string('rfc')->nullable();
+            $table->date('fecha_l');
             $table->timestamps();
         });
     }
