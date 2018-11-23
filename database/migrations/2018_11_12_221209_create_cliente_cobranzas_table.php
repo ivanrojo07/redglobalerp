@@ -19,7 +19,7 @@ class CreateClienteCobranzasTable extends Migration
             $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->string('nombre');
             $table->string('puesto');
-            $table->string('telefono');
+            $table->string('telefono_cobro')->nullable();
             $table->string('correo');
             $table->string('dia_revision_factura');
             $table->string('dia_pago');

@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Cliente;
 
 use App\Cliente;
+use App\ClienteBanco;
+use App\ClienteCobranza;
+use App\ClienteLegal;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use UxWeb\SweetAlert\SweetAlert as Alert;
 
 class ClienteController extends Controller
 {
@@ -56,7 +60,20 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request->all());
+        if ($request->tipo_cliente == "nacional") {
+            $request['pais'] = "México";
+        }
+        // dd($request->all());
+        $cliente = Cliente::create($request->all());
+        $cobranza = new ClienteCobranza($request->all());
+        $cliente->cobranza()->save($cobranza);
+        $banco = new ClienteBanco($request->all());
+        $cliente->banco()->save($banco);
+        $legal= new ClienteLegal($request->all());
+        $cliente->legal()->save($legal);
+        Alert::success($cliente->razon_social.' guardado exitosamente','Por favor sigue agregando información');
+        return redirect()->route('clientes.index');
+
     }
 
     /**

@@ -124,7 +124,7 @@
 					</div>
 					<div class="col-4">
 						<label class="control-label">{{ __('Número telefonico y extensión') }}</label>
-						<input class="form-control" type="text" name="telefono">
+						<input class="form-control" type="text" name="telefono_cobro">
 					</div>
 				</div>
 				<div class="row form-group">

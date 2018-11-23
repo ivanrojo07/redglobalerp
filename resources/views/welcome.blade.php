@@ -86,7 +86,49 @@
                             @break
                             @endif
                         @endforeach
+                        {{-- PRECARGAS FALTA AUTH --}}
+                        <li class="dropdown">
+                            <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"><i class="fa fa-briefcase" aria-hidden="true"></i> Precargas <span class="caret"></span> </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/puestos')}}','Puestos')">
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i> Tipo de puestos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/contratos')}}','Contratos')">
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i> Tipo de contratos
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/bajas')}}','Bajas')">
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i> Tipo de bajas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/licencias')}}','Licencias')">
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i> Tipo de licencias
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"><i class="fa fa-briefcase" aria-hidden="true"></i> Clientes <span class="caret"></span> </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/clientes')}}','Clientes')">
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i> Clientes
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/clientes/create')}}','Nuevo Cliente')">
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i> Nuevo Cliente
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

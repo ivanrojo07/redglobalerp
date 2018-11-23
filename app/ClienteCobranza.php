@@ -11,7 +11,7 @@ class ClienteCobranza extends Model
     protected $fillable=[
     	'nombre',
     	'puesto',
-    	'telefono',
+    	'telefono_cobro',
     	'correo',
     	'dia_revision_factura',
     	'dia_pago',
