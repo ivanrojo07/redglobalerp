@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Empleado;
 
 use App\Empleado;
+use Carbon\Carbon;
 use App\EmpleadoVacacion;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -32,7 +33,31 @@ class EmpleadoVacacionController extends Controller
     {
         //
         $vacaciones = $empleado->vacaciones;
-        return view('empleado.vacacion.view',['empleado'=>$empleado, 'vacaciones'=>$vacaciones]);
+        $fecha_contratacion=$empleado->datosLab->first()->fechacontratacion;
+        $antiguedad= new Carbon($fecha_contratacion);
+        $antiguedad= $antiguedad->age;
+        $diastotales = 0;
+        if ($antiguedad == 1) {
+            $diastotales = 6;
+        }
+        elseif($antiguedad == 2){
+            $diastotales = 8;
+
+        }
+        elseif($antiguedad == 3){
+            $diastotales = 10;
+        }
+        elseif($antiguedad == 4){
+            $diastotales = 12;
+        }
+        elseif($antiguedad >= 5){
+            $diastotales = 14;
+        }
+        else{
+            $diastotales = 0;
+        }
+        // dd($antiguedad->age);
+        return view('empleado.vacacion.view',['empleado'=>$empleado, 'vacaciones'=>$vacaciones,'']);
     }
 
     /**

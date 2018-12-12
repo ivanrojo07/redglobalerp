@@ -19,11 +19,11 @@ class CreateEmpleadoVacacionsTable extends Migration
             $table->foreign('empleado_id')->references('id')->on('empleados');
             $table->date('fechainicio')->nullable();
             $table->date('fechafin')->nullable();
-            $table->string('diastomados')->nullable();
-            $table->string('diasrestantes')->nullable();
-            $table->string('periodo1')->nullable();
-            $table->string('periodo2')->nullable();
-            $table->string('diastotal')->nullable();
+            $table->string('diasdisfrutar')->nullable();
+            // $table->string('diasrestantes')->nullable();
+            // $table->string('periodo1')->nullable();
+            // $table->string('periodo2')->nullable();
+            // $table->string('diastotal')->nullable();
             $table->timestampsTz();
         });
     }

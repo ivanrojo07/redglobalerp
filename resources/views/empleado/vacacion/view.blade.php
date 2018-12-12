@@ -9,6 +9,10 @@
 				@csrf
 				<div class="row form-group">
 					<div class="col-3">
+						<label class="control-label" for="contratacion" id="lbl_vacaciones">Fecha de contratación:</label>
+						<input type="date" class="form-control disabled" id="contratacion" readonly="" name="contratacion" value="{{$empleado->datosLab->first()->fechacontratacion}}">
+					</div>
+					<div class="col-3">
 						<label class="control-label" for="fechainicio" id="lbl_vacaciones">Fecha de Inicio:</label>
 						<input type="date" class="form-control" id="id_vacaciones" name="fechainicio">
 					</div>
