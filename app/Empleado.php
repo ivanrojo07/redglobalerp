@@ -62,9 +62,17 @@ class Empleado extends Model
     public function vacaciones(){
         return $this->hasMany('App\EmpleadoVacacion');
     }
+    public function permisos()
+    {
+        return $this->hasMany('App\EmpleadoPermiso');
+    }
     public function faltas(){
         return $this->hasMany('App\EmpleadoFalta');
     } 
+    public function disciplinas()
+    {
+        return $this->hasMany('App\EmpleadoDisciplina');
+    }
     public function licencias(){
         if($this->tipo == "Chofer"){
             return $this->hasMany('App\EmpleadoLicencia');

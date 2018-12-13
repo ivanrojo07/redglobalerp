@@ -7,9 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class EmpleadoFalta extends Model
 {
     //
-    protected $fillable=['id','empleado_id','fecha','comentarios','problema','tipofalta','reporto'];
-    
-    public $sortable=['id','fecha','tipofalta','reporto','problema'];
+    protected $fillable=['id','empleado_id','fecha','tipofalta','motivo'];
     
     protected $hidden=['created_at','updated_at'];
     

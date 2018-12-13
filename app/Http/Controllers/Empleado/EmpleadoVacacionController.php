@@ -36,6 +36,7 @@ class EmpleadoVacacionController extends Controller
         $fecha_contratacion=$empleado->datosLab->first()->fechacontratacion;
         $antiguedad= new Carbon($fecha_contratacion);
         $antiguedad= $antiguedad->age;
+        
         $diastotales = 0;
         if ($antiguedad == 1) {
             $diastotales = 6;
@@ -56,8 +57,15 @@ class EmpleadoVacacionController extends Controller
         else{
             $diastotales = 0;
         }
-        // dd($antiguedad->age);
-        return view('empleado.vacacion.view',['empleado'=>$empleado, 'vacaciones'=>$vacaciones,'']);
+
+        $diasdisfrutados= 0;
+        foreach ($empleado->vacaciones as $vacacion) {
+            $diasdisfrutados += $vacacion->diasdisfrutar;
+
+        }
+
+        // dd($diastotales);
+        return view('empleado.vacacion.view',['empleado'=>$empleado, 'vacaciones'=>$vacaciones,'antiguedad'=>$antiguedad,'diastotales'=>$diastotales,'diasdisfrutados'=>$diasdisfrutados]);
     }
 
     /**

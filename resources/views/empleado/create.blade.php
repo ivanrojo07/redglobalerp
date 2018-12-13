@@ -68,7 +68,9 @@
 						<li class="nav-item"><a href="#estudios" class="nav-link {{$edit ? '' : 'disabled'}}" id="estudioTab" data-toggle="tab" role="tab" aria-controls="estudios" aria-selected="false">Estudios</a></li>
 						<li class="nav-item"><a href="#emergencias" class="nav-link {{$edit ? '' : 'disabled'}}"  id="emergenciaTab" data-toggle="tab" role="tab" aria-controls="emergencias" aria-selected="false">Emergencias</a></li>
 						<li class="nav-item"><a href="#vacaciones" class="nav-link {{$edit ? '' : 'disabled'}}" id="vacacionTab" data-toggle="tab" role="tab" aria-controls="vacaciones" aria-selected="false">Vacaciones</a></li>
-						<li class="nav-item"><a href="#faltas" class="nav-link" id="vacacionTab" data-toggle="tab" role="tab" aria-controls="faltas" aria-selected="false">Faltas</a></li>
+						<li class="nav-item"><a href="#faltas" class="nav-link" id="faltasTab" data-toggle="tab" role="tab" aria-controls="faltas" aria-selected="false">Faltas</a></li>
+						<li class="nav-item"><a href="#permisos" class="nav-link" id="permisosTab" data-toggle="tab" role="tab" aria-controls="permisos" aria-selected="false">Permisos</a></li>
+						<li class="nav-item"><a href="#disciplinas" class="nav-link" id="disciplinasTab" data-toggle="tab" role="tab" aria-controls="disciplinas" aria-selected="false">Disciplina</a></li>
 						<li class="nav-item" @if ($edit && $empleado->tipo != "Chofer") style="display: none;" @endif id="licenciasT"><a href="#licencias" class="nav-link {{$edit ? '' : 'disabled'}}" id="licenciaTab" data-toggle="tab" role="tab" aria-controls="licencias" aria-selected="false">Licencia de manejo</a></li>
 						<li class="nav-item" @if ($edit && $empleado->tipo != "Chofer") style="display: none;" @endif id="accidentesT"><a href="#accidentes" class="nav-link {{$edit ? '' : 'disabled'}}" id="licenciaTab" data-toggle="tab" role="tab" aria-controls="licencias" aria-selected="false">Accidente e incidencias</a></li>
 					</ul>
@@ -173,6 +175,12 @@
 						</div>
 						<div class="tab-pane fade" id="faltas" style="height: 650px!important;" role="tabpanel" aria-labelledby="faltas-tab">
 							<iframe style="height: 650px!important;" src="{{ $edit ? route('empleados.faltas.index',['empleado'=>$empleado]) : '' }}"></iframe>
+						</div>
+						<div class="tab-pane fade" id="permisos" style="height: 650px!important;" role="tabpanel" aria-labelledby="permisos-tab">
+							<iframe style="height: 650px!important;" src="{{ $edit ? route('empleados.permisos.index',['empleado'=>$empleado]) : '' }}"></iframe>
+						</div>
+						<div class="tab-pane fade" id="disciplinas" style="height: 650px!important;" role="tabpanel" aria-labelledby="disciplinas-tab">
+							<iframe style="height: 650px!important;" src="{{ $edit ? route('empleados.disciplinas.index',['empleado'=>$empleado]) : '' }}"></iframe>
 						</div>
 						{{-- MOSTRAR CHOFER SOLO SI ES CHOFER --}}
 						@if ($edit && $empleado->tipo == "Chofer")

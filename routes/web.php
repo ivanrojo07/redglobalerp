@@ -52,6 +52,9 @@ Route::resource('empleados.vacacions','Empleado\EmpleadoVacacionController');
 Route::resource('empleados.faltas','Empleado\EmpleadoFaltaController');
 Route::resource('empleados.licencias','Empleado\EmpleadoLicenciaController');
 Route::resource('empleados.accidentes','Empleado\EmpleadoAccidenteController');
+Route::resource('empleados.permisos','Empleado\EmpleadoPermisoController');
+Route::resource('empleados.disciplinas','Empleado\EmpleadoDisciplinaController');
+
 // Route::resource('empleados.estudios', 'Empleado\EmpleadosEstudiosController');
 // Route::resource('empleados.emergencias', 'Empleado\EmpleadosEmergenciasController');
 // Route::resource('empleados.vacaciones', 'Empleado\EmpleadosVacacionesController');
