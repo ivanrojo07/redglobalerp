@@ -54,7 +54,7 @@ Route::resource('empleados.licencias','Empleado\EmpleadoLicenciaController');
 Route::resource('empleados.accidentes','Empleado\EmpleadoAccidenteController');
 Route::resource('empleados.permisos','Empleado\EmpleadoPermisoController');
 Route::resource('empleados.disciplinas','Empleado\EmpleadoDisciplinaController');
-
+Route::resource('empleados.beneficiario','Empleado\EmpleadoBeneficiarioController',['only'=>['index','create','store','edit','update']]);
 // Route::resource('empleados.estudios', 'Empleado\EmpleadosEstudiosController');
 // Route::resource('empleados.emergencias', 'Empleado\EmpleadosEmergenciasController');
 // Route::resource('empleados.vacaciones', 'Empleado\EmpleadosVacacionesController');

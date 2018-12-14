@@ -89,6 +89,42 @@
 									</div>
 									<div class="row">
 										<div class="form-group col-sm-3">
+											<label for="nacionalidad" class="control-label">Nacionalidad:</label>
+											<dd>{{$empleado->nacionalidad}}</dd>
+										</div>
+										<div class="form-group col-sm-3">
+											<label for="edo_civil" class="control-label">Estado civil:</label>
+											<dd>{{$empleado->edo_civil}}</dd>
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="padre">Nombre completo del padre:</label>
+											<dd>{{$empleado->padre}}</dd>
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="madre">Nombre completo de la madre:</label>
+											<dd>{{$empleado->madre}}</dd>
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="conyugue">Nombre completo del conyugue (en caso de tenerlo):</label>
+											<dd>{{ $empleado->conyugue }}</dd>
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="dependientes">Número de dependientes económicos:</label>
+											<dd>{{ $empleado->dependientes }}</dd>
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="ref_pers">Nombre completo de la referencia personal:</label>
+											<dd>{{ $empleado->ref_pers }}</dd>
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="tel_ref_pers">Teléfono de la referencia personal:</label>
+											<dd>{{ $empleado->tel_ref_pers }}</dd>
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group col-sm-3">
 											<label class="control-label" for="nss">Número de Seguro Social (IMSS):</label>
 											<dd>{{ $empleado->nss }}</dd>
 										</div>

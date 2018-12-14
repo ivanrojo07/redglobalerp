@@ -23,6 +23,14 @@ class Empleado extends Model
     	'apmaterno',
     	'email',
     	'tipo',
+        'nacionalidad',
+        'edo_civil',
+        'padre',
+        'madre',
+        'conyugue',
+        'dependientes',
+        'ref_pers',
+        'tel_ref_pers',
     	'rfc',
     	'telefono',
     	'movil',
@@ -82,5 +90,9 @@ class Empleado extends Model
          if($this->tipo == "Chofer"){
             return $this->hasMany('App\EmpleadoAccidente');
         }
+    }
+
+    public function beneficiario(){
+        return $this->hasOne('App\EmpleadoBeneficiario');
     }
 }

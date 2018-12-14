@@ -34,7 +34,8 @@
 						<select type="select" class="form-control" name="tipo" id="tipo" required>
 							<option value="">Seleccione</option>
 							<option value="Administrativo" {{ ($edit && $empleado->tipo == "Administrativo") ? "selected" :'' }}>Administrativo</option>
-							<option value="Chofer" {{($edit && $empleado->tipo == "Chofer") ? "selected" :'' }}>Chofer</option>
+							<option value="AyudanteG" {{ ($edit && $empleado->tipo == "AyudanteG") ? "selected" :'' }}>Ayudantes Generales</option>
+							<option value="Operador" {{($edit && $empleado->tipo == "Operador") ? "selected" :'' }}>Operadores</option>
 						</select>
 
 					</div>
@@ -68,9 +69,9 @@
 						<li class="nav-item"><a href="#estudios" class="nav-link {{$edit ? '' : 'disabled'}}" id="estudioTab" data-toggle="tab" role="tab" aria-controls="estudios" aria-selected="false">Estudios</a></li>
 						<li class="nav-item"><a href="#emergencias" class="nav-link {{$edit ? '' : 'disabled'}}"  id="emergenciaTab" data-toggle="tab" role="tab" aria-controls="emergencias" aria-selected="false">Emergencias</a></li>
 						<li class="nav-item"><a href="#vacaciones" class="nav-link {{$edit ? '' : 'disabled'}}" id="vacacionTab" data-toggle="tab" role="tab" aria-controls="vacaciones" aria-selected="false">Vacaciones</a></li>
-						<li class="nav-item"><a href="#faltas" class="nav-link" id="faltasTab" data-toggle="tab" role="tab" aria-controls="faltas" aria-selected="false">Faltas</a></li>
-						<li class="nav-item"><a href="#permisos" class="nav-link" id="permisosTab" data-toggle="tab" role="tab" aria-controls="permisos" aria-selected="false">Permisos</a></li>
-						<li class="nav-item"><a href="#disciplinas" class="nav-link" id="disciplinasTab" data-toggle="tab" role="tab" aria-controls="disciplinas" aria-selected="false">Disciplina</a></li>
+						<li class="nav-item"><a href="#faltas" class="nav-link {{$edit ? '' : 'disabled'}}" id="faltasTab" data-toggle="tab" role="tab" aria-controls="faltas" aria-selected="false">Faltas</a></li>
+						<li class="nav-item"><a href="#permisos" class="nav-link {{$edit ? '' : 'disabled'}}" id="permisosTab" data-toggle="tab" role="tab" aria-controls="permisos" aria-selected="false">Permisos</a></li>
+						<li class="nav-item"><a href="#disciplinas" class="nav-link {{$edit ? '' : 'disabled'}}" id="disciplinasTab" data-toggle="tab" role="tab" aria-controls="disciplinas" aria-selected="false">Disciplina</a></li>
 						<li class="nav-item" @if ($edit && $empleado->tipo != "Chofer") style="display: none;" @endif id="licenciasT"><a href="#licencias" class="nav-link {{$edit ? '' : 'disabled'}}" id="licenciaTab" data-toggle="tab" role="tab" aria-controls="licencias" aria-selected="false">Licencia de manejo</a></li>
 						<li class="nav-item" @if ($edit && $empleado->tipo != "Chofer") style="display: none;" @endif id="accidentesT"><a href="#accidentes" class="nav-link {{$edit ? '' : 'disabled'}}" id="licenciaTab" data-toggle="tab" role="tab" aria-controls="licencias" aria-selected="false">Accidente e incidencias</a></li>
 					</ul>
@@ -97,6 +98,54 @@
 										<div class="form-group col-sm-4">
 											<label class="control-label" for="email"><i class="fa fa-asterisk" aria-hidden="true"></i>Correo electrónico:</label>
 											<input type="text" class="form-control" name="email" id="email" value="{{ $empleado->email }}" required="">
+										</div>
+									</div>
+									<div class="row">
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="nacionalidad">Nacionalidad:</label>
+											<select name="nacionalidad" class="form-control" id="nacionalidad">
+												<option value="">Seleccione la nacionalidad</option>
+												<option value="Mexicana" {{ ($edit && $empleado->nacionalidad == "Mexicana") ? "selected" :'' }}>Mexicana</option>
+												<option value="Extranjera" {{ ($edit && $empleado->nacionalidad == "Extranjera") ? "selected" :'' }}>Extranjera</option>
+											</select>
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="edo_civil">Estado civil:</label>
+											<select name="edo_civil" class="form-control" id="edo_civil">
+												<option value="">Seleccione el estado civil</option>
+												<option value="Soltero" {{ ($edit && $empleado->edo_civil == "Soltero") ? "selected" :'' }}>Soltero/a</option>
+												<option value="Comprometido" {{ ($edit && $empleado->edo_civil == "Comprometido") ? "selected" :'' }}>Comprometido/a</option>
+												<option value="Casado" {{ ($edit && $empleado->edo_civil == "Casado") ? "selected" :'' }}>Casado/a</option>
+												<option value="Divorciado" {{ ($edit && $empleado->edo_civil == "Divorciado") ? "selected" :'' }}>Divorciado/a</option>
+												<option value="Viudo" {{ ($edit && $empleado->edo_civil == "Viudo") ? "selected" :'' }}>Viudo/a</option>
+											</select>
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="padre">Nombre completo del padre:</label>
+											<input type="text" class="form-control" name="padre" id="padre" value="{{ $empleado->padre }}">
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="madre">Nombre completo de la madre:</label>
+											<input type="text" class="form-control" name="madre" id="madre" value="{{ $empleado->madre }}">
+										</div>
+										
+									</div>
+									<div class="row">
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="conyugue">Nombre completo del conyugue <br> (en caso de tenerlo):</label>
+											<input type="text" class="form-control" name="conyugue" id="conyugue" value="{{ $empleado->conyugue }}">
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="dependientes">Número de dependientes económicos:</label>
+											<input type="number" min="0" step="1" class="form-control" name="dependientes" id="dependientes" value="{{ $empleado->dependientes }}">
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="ref_pers">Nombre completo de la referencia personal:</label>
+											<input type="text" class="form-control" name="ref_pers" id="ref_pers" value="{{ $empleado->ref_pers }}">
+										</div>
+										<div class="form-group col-sm-3">
+											<label class="control-label" for="tel_ref_pers">Teléfono de la referencia personal:</label>
+											<input type="text" class="form-control" name="tel_ref_pers" id="tel_ref_pers" value="{{ $empleado->tel_ref_pers }}">
 										</div>
 									</div>
 									<div class="row">
@@ -211,7 +260,7 @@
 			$("#licenciasT").hide();
 			$("#accidentesT").hide();
 			var empleado = $("#tipo").val();
-			if(empleado === "Chofer"){
+			if(empleado === "Operador"){
 				$("#licenciasT").show();
 				$("#accidentesT").show();
 			}
