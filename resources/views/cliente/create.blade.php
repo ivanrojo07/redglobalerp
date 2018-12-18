@@ -47,7 +47,27 @@
 					@if ($tipo_cliente == "nacional")
 						<div class="col-3">
 							<label class="control-label">Regimen en el que tributa</label>
-							<input class="form-control" type="text" name="regimen_tributario">
+							<select class="form-control" name="regimen_tributario" required>
+								<option value="">Seleccione uno</option>
+								<option value="610 Residentes en el Extranjero sn Establecimiento Permanente en México">610 Residentes en el Extranjero sn Establecimiento Permanente en México</option>
+								<option value="611 Ingresos por Dividendos (socios y accionistas)">611 Ingresos por Dividendos (socios y accionistas)</option>
+								<option value="612 Personas Físicas con Actividades Empresariales y Profesionales">612 Personas Físicas con Actividades Empresariales y Profesionales</option>
+								<option value="614 Ingresos por intereses">614 Ingresos por intereses</option>
+								<option value="616 Sin obligaciones fiscales">616 Sin obligaciones fiscales</option>
+								<option value="620 Sicuedades Coperativas de Produccion que optan por diferir sus ingresos">620 Sicuedades Coperativas de Produccion que optan por diferir sus ingresos</option>
+								<option value="621 Incorporación Fiscal">621 Incorporación Fiscal</option>
+								<option value="621 Incorporación Fiscal">621 Incorporación Fiscal</option>
+								<option value="622 Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras">622 Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras</option>
+								<option value="622 Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras">622 Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras</option>
+								<option value="623 Opcional para Grupos de Sociedades">623 Opcional para Grupos de Sociedades</option>
+								<option value="624 Coordinados">624 Coordinados</option>
+								<option value="628 Hidrocarburos">628 Hidrocarburos</option>
+								<option value="607 Régimen de Enajenación o Adquisición de Bienes">607 Régimen de Enajenación o Adquisición de Bienes</option>
+								<option value="629 De los Regímenes Fiscales Preferentes y de las Empresas Multinacionales">629 De los Regímenes Fiscales Preferentes y de las Empresas Multinacionales</option>
+								<option value="630 Enajenación de acciones en bolsa de valores">630 Enajenación de acciones en bolsa de valores</option>
+								<option value="615 Régimen de los ingresos por obtención de premios">615 Régimen de los ingresos por obtención de premios</option>
+							</select>
+							{{-- <input class="form-control" type="text" name="regimen_tributario"> --}}
 						</div>
 					@endif
 				</div>
@@ -193,17 +213,73 @@
 						</div>
 						<div class="col-4">
 							<label class="control-label">Metodo de pago</label>
-							<input class="form-control" type="text" name="metodo_pago">
+							<select class="form-control" name="metodo_pago"required>
+								<option value="">Seleccione el metodo de pago</option>
+								<option value="PUE Pago en una sola exhibición">PUE Pago en una sola exhibición</option>
+								<option value="PPD Pago en parcialidades o diferido">PPD Pago en parcialidades o diferido</option>
+							</select>
+							{{-- <input class="form-control" type="text" name="metodo_pago"> --}}
 						</div>
 					</div>
 					<div class="row form-group">
 						<div class="col-4">
 							<label class="control-label">Forma de pago</label>
-							<input class="form-control" type="text" name="forma_pago">
+							<select class="form-control" name="forma_pago" required>
+								<option value="">Seleccione su forma de pago</option>
+								<option value="01 Efectivo">01 Efectivo</option>
+								<option value="02 Cheque nominativo">02 Cheque nominativo</option>
+								<option value="03 Transferencia electrónica de fondos">03 Transferencia electrónica de fondos</option>
+								<option value="04 Tarjeta de crédito">04 Tarjeta de crédito</option>
+								<option value="05 Monedero electrónico">05 Monedero electrónico</option>
+								<option value="06 Dinero electrónico">06 Dinero electrónico</option>
+								<option value="08 Vales de despensa">08 Vales de despensa</option>
+								<option value="12 Dación de pago">12 Dación de pago</option>
+								<option value="12 Dación de pago">12 Dación de pago</option>
+								<option value="13 Pago por subrogación">13 Pago por subrogación</option>
+								<option value="14 Pago por consignación">14 Pago por consignación</option>
+								<option value="15 Condonación">15 Condonación</option>
+								<option value="17 Compensación">17 Compensación</option>
+								<option value="23 Novación">23 Novación</option>
+								<option value="24 Confusión">24 Confusión</option>
+								<option value="25 Remisión de deuda">25 Remisión de deuda</option>
+								<option value="26 Prescripción o caducidad">26 Prescripción o caducidad</option>
+								<option value="27 A satisfaccion del acreedor">27 A satisfaccion del acreedor</option>
+								<option value="28 Tarjeta de débito">28 Tarjeta de débito</option>
+								<option value="29 Tarjeta de servicios">29 Tarjeta de servicios</option>
+								<option value="30 Aplicación de anticipos">30 Aplicación de anticipos</option>
+								<option value="31 Intermediario pagos">31 Intermediario pagos</option>
+								<option value="99 Por definir">99 Por definir</option>
+							</select>
+							{{-- <input class="form-control" type="text" name="forma_pago"> --}}
 						</div>
 						<div class="col-4">
 							<label class="control-label">Uso del CFDI</label>
-							<input class="form-control" type="text" name="uso_cfdi">
+							<select class="form-control" name="uso_cfdi" required>
+								<option value="">Seleccione el uso del cfdi</option>
+								<option value="G01 Adquisición de mercancias">G01 Adquisición de mercancias</option>
+								<option value="G02 Devoluciones, descuentos o bonificaciones">G02 Devoluciones, descuentos o bonificaciones</option>
+								<option value="G03 Gastos en general">G03 Gastos en general</option>
+								<option value="I01 Construcciones">I01 Construcciones</option>
+								<option value="I02 Mobilario y equipo de oficina por inversiones">I02 Mobilario y equipo de oficina por inversiones</option>
+								<option value="I03 Equipo de transporte">I03 Equipo de transporte</option>
+								<option value="I04 Equipo de computo y accesorios">I04 Equipo de computo y accesorios</option>
+								<option value="I05 Dados, troqueles, moldes, matrices y herramental">I05 Dados, troqueles, moldes, matrices y herramental</option>
+								<option value="I06 Comunicaciones telefónicas">I06 Comunicaciones telefónicas</option>
+								<option value="I07 Comunicaciones satelitales">I07 Comunicaciones satelitales</option>
+								<option value="I08 Otra maquinaria y equipo">I08 Otra maquinaria y equipo</option>
+								<option value="D01 Honorarios médicos, dentales y gastos hospitalarios">D01 Honorarios médicos, dentales y gastos hospitalarios</option>
+								<option value="D02 Gastos médicos por incapacidaad o discapacidad">D02 Gastos médicos por incapacidaad o discapacidad</option>
+								<option value="D03 Gastos funerales">D03 Gastos funerales</option>
+								<option value="D04 Donativos">D04 Donativos</option>
+								<option value="D05 Intereses reales efectivamente pagados por créditos hipotecarios(casa habitación)">D05 Intereses reales efectivamente pagados por créditos hipotecarios(casa habitación)</option>
+								<option value="D06 Aportaciones voluntarias al SAR">D06 Aportaciones voluntarias al SAR</option>
+								<option value="D07 Primas por seguros de gastos médicos">D07 Primas por seguros de gastos médicos</option>
+								<option value="D08 Gastos de transportación escolar obligatoria">D08 Gastos de transportación escolar obligatoria</option>
+								<option value="D09 Depósitos en cuentas para el ahorro, primas que tengan como base planes de pensiones">D09 Depósitos en cuentas para el ahorro, primas que tengan como base planes de pensiones</option>
+								<option value="D10 Pagos por servicios educativos (colegiaturas)">D10 Pagos por servicios educativos (colegiaturas)</option>
+								<option value="P01 Por definir">P01 Por definir</option>
+							</select>
+							{{-- <input class="form-control" type="text" name="uso_cfdi"> --}}
 						</div>
 					</div>
 				@endif

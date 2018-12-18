@@ -77,27 +77,27 @@ class ClienteController extends Controller
         $cliente->legal()->save($legal);
         if ($request->hasFile('cif_tax_nit_rut') &&  $request->file('cif_tax_nit_rut')->isValid()) {
             $cif_tax_nit_rut = Storage::putFileAs(
-                'public/cif_tax_nit_rut'.$cliente->id, $request->file('cif_tax_nit_rut'), $request->cif_tax_nit_rut->getClientOriginalName()
+                'cif_tax_nit_rut'.$cliente->id, $request->file('cif_tax_nit_rut'), $request->cif_tax_nit_rut->getClientOriginalName()
             );
         }
         if ($request->hasFile('comp_dom') &&  $request->file('comp_dom')->isValid()) {
             $comp_dom = Storage::putFileAs(
-                'public/comp_dom'.$cliente->id, $request->file('comp_dom'), $request->comp_dom->getClientOriginalName()
+                'comp_dom'.$cliente->id, $request->file('comp_dom'), $request->comp_dom->getClientOriginalName()
             );
         }
         if ($request->hasFile('acta_constitutiva') &&  $request->file('acta_constitutiva')->isValid()) {
             $acta_constitutiva = Storage::putFileAs(
-                'public/acta_constitutiva'.$cliente->id, $request->file('acta_constitutiva'),  $request->acta_constitutiva->getClientOriginalName()
+                'acta_constitutiva'.$cliente->id, $request->file('acta_constitutiva'),  $request->acta_constitutiva->getClientOriginalName()
             );
         }
         if ($request->hasFile('identificacion_rep_legal') &&  $request->file('identificacion_rep_legal')->isValid()) {
             $identificacion_rep_legal = Storage::putFileAs(
-                'public/identificacion_rep_legal'.$cliente->id, $request->file('identificacion_rep_legal'), $request->identificacion_rep_legal->getClientOriginalName()
+                'identificacion_rep_legal'.$cliente->id, $request->file('identificacion_rep_legal'), $request->identificacion_rep_legal->getClientOriginalName()
             );
         }
         if ($request->hasFile('carta_poder') &&  $request->file('carta_poder')->isValid()) {
             $carta_poder = Storage::putFileAs(
-                'public/carta_poder'.$cliente->id, $request->file('carta_poder'), $request->carta_poder->getClientOriginalName()
+                'carta_poder'.$cliente->id, $request->file('carta_poder'), $request->carta_poder->getClientOriginalName()
             );
         }
         $documento = new ClienteDocumento([
