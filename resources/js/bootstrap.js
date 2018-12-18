@@ -65,6 +65,11 @@ if (token) {
 // });
 require('./pestanas');
 require('./empleados');
+require('./plugins/piexif');
+require('./plugins/sortable');
+require('./plugins/purify');
+require('./fileinput');
+// require('./locales/es');
 // import swal from 'sweetalert';
 
 require('sweetalert');

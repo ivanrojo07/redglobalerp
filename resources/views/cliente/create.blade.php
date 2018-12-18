@@ -5,7 +5,7 @@
 			<h4>Cliente:</h4>
 		</div>
 		<div class="card-body">
-			<form method="POST" action="{{ $edit ? route('clientes.update',['cliente'=>$cliente]) : route('clientes.store') }}">
+			<form method="POST" action="{{ $edit ? route('clientes.update',['cliente'=>$cliente]) : route('clientes.store') }}" enctype="multipart/form-data">
 				@csrf
 				@if ($edit)
 					@method('PUT')
@@ -209,7 +209,7 @@
 				@endif
 				{{-- INFORMACIÓN REPRESENTANTE LEGAL --}}
 				<div class="row mt-3 card-header justify-content-center">
-					<h5>{{ __('Informaciónd el representante legal') }}</h5>
+					<h5>{{ __('Información del representante legal') }}</h5>
 				</div>
 				<div class="row form-group mt-3">
 						<div class="col-4">
@@ -226,15 +226,40 @@
 							<label class="control-label">Fecha</label>
 							<input class="form-control" type="date" name="fecha_l">
 						</div>
+				</div>
+				<div class="row mt-3 card-header justify-content-center">
+					<h5>{{ __('Documentos') }}</h5>
+				</div>
+				<div class="row form-group mt-3">
+					<div class="col-3">
+						<label class="control-label">{{ __('Constancia de situación fiscal (CIF actualizado):') }}</label>
+						<input id="input-b1" name="cif_tax_nit_rut" type="file" class="file form-control" data-browse-on-zone-click="true">
 					</div>
-					<div class="row form-group justify-content-center">
-						<button type="submit" class="btn btn-success">
-							<strong>
-								<i class="far fa-save"></i> 
-								{{ __('Guardar') }}
-							</strong>
-						</Button>
+					<div class="col-3">
+						<label class="control-label">{{ __('Comprobante de domicilio (Reciente, no más de 3 meses de antigüedad):') }}</label>
+						<input id="input-b1" name="comp_dom" type="file" class="file form-control" data-browse-on-zone-click="true">
 					</div>
+					<div class="col-3">
+						<label class="control-label">{{ __('Acta constitutiva:') }}</label>
+						<input id="input-b1" name="acta_constitutiva" type="file" class="file form-control" data-browse-on-zone-click="true">
+					</div>
+					<div class="col-3">
+						<label class="control-label">{{ __('Identificación del Representante legal de la empresa:') }}</label>
+						<input id="input-b1" name="identificacion_rep_legal" type="file" class="file form-control" data-browse-on-zone-click="true">
+					</div>
+					<div class="col-3">
+						<label class="control-label">{{ __('Carta poder de la empresa:') }}</label>
+						<input id="input-b1" name="carta_poder" type="file" class="file form-control" data-browse-on-zone-click="true">
+					</div>
+				</div>
+				<div class="row form-group justify-content-center">
+					<button type="submit" class="btn btn-success">
+						<strong>
+							<i class="far fa-save"></i> 
+							{{ __('Guardar') }}
+						</strong>
+					</Button>
+				</div>
 				@endif
 			</form>
 		</div>

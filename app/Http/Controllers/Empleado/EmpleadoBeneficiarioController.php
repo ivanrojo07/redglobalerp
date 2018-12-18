@@ -6,6 +6,8 @@ use App\Empleado;
 use App\EmpleadoBeneficiario;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use UxWeb\SweetAlert\SweetAlert as Alert;
+
 
 class EmpleadoBeneficiarioController extends Controller
 {
@@ -47,6 +49,10 @@ class EmpleadoBeneficiarioController extends Controller
     public function store(Empleado $empleado,Request $request)
     {
         //
+        $beneficiario = new EmpleadoBeneficiario($request->all());
+        $empleado->beneficiario()->save($beneficiario);
+        Alert::success('Beneficiario creado correctamente', 'Siga agregando información al empleado');
+        return redirect()->route('empleados.beneficiario.index',['empleado'=>$empleado]);
     }
 
     /**
@@ -69,6 +75,7 @@ class EmpleadoBeneficiarioController extends Controller
     public function edit(Empleado $empleado, EmpleadoBeneficiario $beneficiario)
     {
         //
+        return view('empleado.beneficiario.form',['empleado'=>$empleado,'beneficiario'=>$beneficiario,'edit'=>true]);
     }
 
     /**
@@ -81,6 +88,10 @@ class EmpleadoBeneficiarioController extends Controller
     public function update(Request $request, Empleado $empleado, EmpleadoBeneficiario $beneficiario)
     {
         //
+        $beneficiario->update($request->all());
+        Alert::success('Beneficiario actualizado correctamente', 'Siga agregando información al empleado');
+        return redirect()->route('empleados.beneficiario.index',['empleado'=>$empleado]);
+
     }
 
     /**

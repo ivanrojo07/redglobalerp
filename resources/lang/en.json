@@ -29,8 +29,14 @@
    	"Clave internacional para transferencias": "International key for transfers",
    	"ABA":"ABA",
    	"SWIFT":"SWIFT",
-   	"Informaciónd el representante legal":"Representant legal",
+   	"Información del representante legal":"Representant legal",
    	"Firma":"Sign",
-    "Guardar": "Save"
+    "Guardar": "Save",
+    "Documentos":"Documents",
+    "Constancia de situación fiscal (CIF actualizado):":"Photocopy of registration document before the Fiscal Authority (TAX, NIT, RUC):",
+    "Comprobante de domicilio (Reciente, no más de 3 meses de antigüedad):":"Photocopy of proof of address of the company",
+    "Acta constitutiva:":"Photocopy of Constitutive Act:",
+    "Identificación del Representante legal de la empresa:":"Photocopy of the identification of the legal Representative of the company:",
+    "Carta poder de la empresa:":"Photocopy of the company's power of attorney:"
   
 }

@@ -65,6 +65,7 @@
 				<div>
 					<ul class="nav nav-tabs" id="empleadoTabs" role="tablist">
 						<li class="nav-item"><a href="#generales" class="nav-link active" id="generalTab" data-toggle="tab" role="tab" aria-controls="generales" aria-selected="true">Generales</a></li>
+						<li class="nav-item"><a href="#beneficiario" class="nav-link {{$edit ? '' : 'disabled'}}"  id="beneficiarioTab" data-toggle="tab" role="tab" aria-controls="beneficiario" aria-selected="false">Beneficiario</a></li>
 						<li class="nav-item"><a href="#laborales" class="nav-link {{$edit ? '' : 'disabled'}}"  id="laboralTab" data-toggle="tab" role="tab" aria-controls="laborales" aria-selected="false">Laborales</a></li>
 						<li class="nav-item"><a href="#estudios" class="nav-link {{$edit ? '' : 'disabled'}}" id="estudioTab" data-toggle="tab" role="tab" aria-controls="estudios" aria-selected="false">Estudios</a></li>
 						<li class="nav-item"><a href="#emergencias" class="nav-link {{$edit ? '' : 'disabled'}}"  id="emergenciaTab" data-toggle="tab" role="tab" aria-controls="emergencias" aria-selected="false">Emergencias</a></li>
@@ -209,6 +210,9 @@
 									</div>
 								</div>
 							</div>
+						</div>
+						<div class="tab-pane fade" id="beneficiario" role="tabpanel" style="height: 650px!important;" aria-labelledby="beneficiario-tab">
+							<iframe style="height: 650px!important;" id="laboralesframe" src="{{ $edit ? route('empleados.beneficiario.index',['empleado'=>$empleado]) : '' }}"></iframe>
 						</div>
 						<div class="tab-pane fade" id="laborales" role="tabpanel" style="height: 650px!important;" aria-labelledby="laborales-tab">
 							<iframe style="height: 650px!important;" id="laboralesframe" src="{{ $edit ? route('empleados.datoslaborales.index',['empleado'=>$empleado]) : '' }}"></iframe>

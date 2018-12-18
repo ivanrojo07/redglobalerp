@@ -27,7 +27,13 @@
     </div>
  <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    {{-- <script src="{{ asset('js/plugins/piexif.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/sortable.min.js') }}"></script>
+    <script src="{{ asset('js/plugins/purify.min.js') }}"></script>
+    <script src="{{ asset('js/fileinput.min.js') }}"></script>
+    <script src="{{ asset('js/locales/es.js') }}"></script> --}}
     @include('sweet::alert')
+
     @yield('script')
 </body>
 </html>

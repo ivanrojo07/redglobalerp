@@ -63,6 +63,11 @@ Route::resource('empleados.beneficiario','Empleado\EmpleadoBeneficiarioControlle
 // CLIENTES
 Route::resource('clientes','Cliente\ClienteController');
 Route::get('clientes/form/{tipo}','Cliente\ClienteController@form');
+Route::get('cif_tax/{cliente}','Cliente\ClienteController@cif')->name('cif_tax');
+Route::get('compdom/{cliente}','Cliente\ClienteController@compDom')->name('compdom');
+Route::get('actacons/{cliente}','Cliente\ClienteController@actaCons')->name('actacons');
+Route::get('idrepresentante/{cliente}','Cliente\ClienteController@repLeg')->name('idrepresentante');
+Route::get('cartapoder/{cliente}','Cliente\ClienteController@cartaPod')->name('cartapoder');
 
 
 //	ajax

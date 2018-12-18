@@ -38,4 +38,8 @@ class Cliente extends Model
     {
     	return $this->hasOne('App\ClienteLegal');
     }
+    public function documento()
+    {
+        return $this->hasOne('App\ClienteDocumento');
+    }
 }

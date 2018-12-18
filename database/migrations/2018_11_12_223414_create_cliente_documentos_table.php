@@ -20,7 +20,7 @@ class CreateClienteDocumentosTable extends Migration
 
             $table->string('cif_tax_nit_rut');
             $table->string('comp_dom');
-            $table->string('acta_constitutiva')->nullable();
+            $table->string('acta_constitutiva');
             $table->string('identificacion_rep_legal');
             $table->string('carta_poder')->nullable();
             $table->timestamps();
