@@ -88,7 +88,6 @@
 		
 		@endif
 	</div>
-	
 @endsection
 @section('script')
 	{{-- expr --}}

@@ -329,7 +329,7 @@
 					</div>
 				</div>
 				<div class="row form-group justify-content-center">
-					<button type="submit" class="btn btn-success">
+					<button type="submit" class="btn btn-success btn-lg">
 						<strong>
 							<i class="far fa-save"></i> 
 							{{ __('Guardar') }}

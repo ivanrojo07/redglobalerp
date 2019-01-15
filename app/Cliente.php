@@ -42,4 +42,17 @@ class Cliente extends Model
     {
         return $this->hasOne('App\ClienteDocumento');
     }
+    public function proyectos()
+    {
+        return $this->hasMany('App\Proyecto');
+    }
+    public function dirFiscales()
+    {
+        return $this->hasMany('App\ClienteFiscal');
+    }
+
+    public function crms(){
+        return $this->morphMany('App\ClienteCRM','cliente');
+    }
+
 }

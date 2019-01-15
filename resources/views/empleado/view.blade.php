@@ -1,6 +1,5 @@
 @extends('layouts.blank')
 @section('content')
-<div class="container-fluid">
 	<div class="card">
 		<div class="card-header">
 			<h4>Empleados</h4>
@@ -59,8 +58,7 @@
 						<li class="nav-item"><a href="#faltas" class="nav-link" id="faltasTab" data-toggle="tab" role="tab" aria-controls="faltas" aria-selected="false">Faltas</a></li>
 						<li class="nav-item"><a href="#permisos" class="nav-link" id="permisosTab" data-toggle="tab" role="tab" aria-controls="permisos" aria-selected="false">Permisos</a></li>
 						<li class="nav-item"><a href="#disciplinas" class="nav-link" id="disciplinasTab" data-toggle="tab" role="tab" aria-controls="disciplinas" aria-selected="false">Disciplina</a></li>
-						<li class="nav-item" @if ($empleado->tipo != "Chofer") style="display: none;" @endif 
-						<li class="nav-item" @if ( $empleado->tipo != "Chofer") style="display: none;" @endif id="licenciasT"><a href="#licencias" class="nav-link" id="licenciaTab" data-toggle="tab" role="tab" aria-controls="licencias" aria-selected="false">Licencia de manejo</a></li>
+						<li class="nav-item" @if ($empleado->tipo != "Chofer") style="display: none;" @endif id="licenciasT"><a href="#licencias" class="nav-link" id="licenciaTab" data-toggle="tab" role="tab" aria-controls="licencias" aria-selected="false">Licencia de manejo</a></li>
 						<li class="nav-item" @if ($empleado->tipo != "Chofer") style="display: none;" @endif id="accidentesT"><a href="#accidentes" class="nav-link" id="licenciaTab" data-toggle="tab" role="tab" aria-controls="licencias" aria-selected="false">Accidente e incidencias</a></li>
 					</ul>
 					<div class="tab-content" id="empleadoTabContent">
@@ -225,5 +223,4 @@
 			</form>
 		</div>
 	</div>
-</div>
 @endsection

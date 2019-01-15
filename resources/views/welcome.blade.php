@@ -110,6 +110,11 @@
                                         <i class="fa fa-user-plus" aria-hidden="true"></i> Tipo de licencias
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/nat_productos')}}','Naturaleza del producto')">
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i> Naturaleza del producto
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li class="dropdown">

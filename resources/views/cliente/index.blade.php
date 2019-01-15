@@ -35,6 +35,7 @@
 								<th>
 									<div class="row">
 										<div class="col-6 d-flex flex-column">
+											<a class="btn btn-primary" href="{{ route('clientes.show',['cliente'=>$cliente]) }}">Ver cliente</a>
 											@if ($cliente->documento['cif_tax_nit_rut'])
 												{{-- expr --}}
 												<a class="btn btn-primary" href="{{ route('cif_tax',['cliente'=>$cliente]) }}" role="button">{{$cliente->tipo_cliente == "nacional" ? "CFI" : "TAX, NIT, RUC"}}</a>

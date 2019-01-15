@@ -16,6 +16,16 @@ use UxWeb\SweetAlert\SweetAlert as Alert;
 class ClienteController extends Controller
 {
     /**
+     * Create a new controller instance.
+     * 
+     * @return void
+     */
+    // public function __construct()
+    //  {
+    //      $this->middleware('auth:cliente');
+    //  } 
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -147,6 +157,7 @@ class ClienteController extends Controller
     public function show(Cliente $cliente)
     {
         //
+        return view('cliente.show',['cliente'=>$cliente]);
     }
 
     /**

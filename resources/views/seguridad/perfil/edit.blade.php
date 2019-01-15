@@ -1,7 +1,5 @@
 @extends('layouts.blank')
 @section('content')
-
-<div class="container">
     <div class="card">
         <div class="card-header">
             <div class="row">
@@ -86,7 +84,6 @@
             </div>
         </form>
     </div>
-</div>
 @endsection
 @section('script')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

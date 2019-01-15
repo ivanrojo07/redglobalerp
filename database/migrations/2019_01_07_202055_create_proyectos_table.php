@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClienteCredentialsTable extends Migration
+class CreateProyectosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateClienteCredentialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cliente_credentials', function (Blueprint $table) {
+        Schema::create('proyectos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cliente_id')->unique()->unsigned()->nullable();
+            $table->unsignedInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('clientes');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('nombre')->nullable();
+            $table->string('responsable');
+            $table->string('telefono');
+            $table->string('correo');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateClienteCredentialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cliente_credentials');
+        Schema::dropIfExists('proyectos');
     }
 }

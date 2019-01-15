@@ -1,6 +1,5 @@
 @extends('layouts.blank')
 @section('content')
-<div >
 	<div class="card">
 		<div class="card-header">
 			<h4>Empleados</h4>
@@ -256,7 +255,6 @@
             </div>
 		</div>
 	</div>
-</div>
 @endsection
 @section('script')
 	<script type="text/javascript">

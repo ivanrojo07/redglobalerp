@@ -69,6 +69,18 @@ require('./plugins/piexif');
 require('./plugins/sortable');
 require('./plugins/purify');
 require('./fileinput');
+
+// function resizeIframe(obj) {
+// 	obj.style.width = "100%";
+// 	obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+// }
+// window.addEventListener('DOMContentLoaded', function(e) {
+
+// 	var iframes = document.querySelectorAll("iframe");
+// 	for( var i = 0; i < iframes.length; i++) {
+// 	    _.debounce(resizeIframe( iframes[i] ),500);
+// 	}
+// } );
 // require('./locales/es');
 // import swal from 'sweetalert';
 

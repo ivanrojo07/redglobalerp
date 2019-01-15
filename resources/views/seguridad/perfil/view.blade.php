@@ -1,7 +1,5 @@
 @extends('layouts.blank')
 @section('content')
-
-<div class="container">
     <div class="card">
         <div class="card-header">
             <div class="row">
@@ -88,8 +86,6 @@
             @endforeach
         </div>
     </div>
-</div>
-    
 <script type="text/javascript">
 
     $(document).ready(function() {

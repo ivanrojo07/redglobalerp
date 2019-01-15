@@ -28,6 +28,7 @@ Route::get('/home', function () {
 		return redirect()->route('login');
 	}
 })->name('home');
+Route::get('/cliente','Cliente\ClienteController@index');
 
 // AUTH
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -62,6 +63,9 @@ Route::resource('empleados.beneficiario','Empleado\EmpleadoBeneficiarioControlle
 
 // CLIENTES
 Route::resource('clientes','Cliente\ClienteController');
+Route::resource('clientes.proyectos','Cliente\ClienteProyectosController');
+Route::resource('clientes.crms','Cliente\ClienteCRMController');
+Route::resource('clientes.dirfiscals','Cliente\ClienteDirFiscalsController');
 Route::get('clientes/form/{tipo}','Cliente\ClienteController@form');
 Route::get('cif_tax/{cliente}','Cliente\ClienteController@cif')->name('cif_tax');
 Route::get('compdom/{cliente}','Cliente\ClienteController@compDom')->name('compdom');
@@ -72,13 +76,10 @@ Route::get('cartapoder/{cliente}','Cliente\ClienteController@cartaPod')->name('c
 
 //	ajax
 Route::get('buscarDL/{datoslab}','Empleado\EmpleadoDatosLabController@show'); 
-
-
-// 
-
 // PRECARGAS
 Route::resource('puestos','Precargas\TipoPuestoController');
 Route::resource('contratos','Precargas\TipoContratoController');
 Route::resource('bajas','Precargas\TipoBajasController');
 Route::resource('licencias','Precargas\TipoLicenciaController');
+Route::resource('nat_productos','Precargas\NatProductoController');
 // Route::get('/home', 'HomeController@index')->name('home');
