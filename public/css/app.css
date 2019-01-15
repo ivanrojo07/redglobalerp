@@ -11,7 +11,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
@@ -54,11 +53,6 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  overflow:   scroll;
-}
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent; /* make scrollbar transparent */
 }
 
 article,
@@ -74,7 +68,6 @@ section {
   display: block;
 }
 
-
 body {
   margin: 0;
   font-family: "Nunito", sans-serif;
@@ -84,7 +77,6 @@ body {
   color: #212529;
   text-align: left;
   background-color: #f8fafc;
- 
 }
 
 [tabindex="-1"]:focus {
@@ -10500,6 +10492,20 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+  /* make scrollbar transparent */
 }
 
 .navbar-laravel {

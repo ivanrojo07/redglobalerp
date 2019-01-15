@@ -102,7 +102,7 @@
 				<iframe src="{{ route('clientes.dirfiscals.index',['cliente'=>$cliente]) }}" style="height: 650px!important;" id="fiscalesFrame"></iframe>
 			</div>
 			<div class="tab-pane fade" id="contactos" role="tabpanel" aria-labelledby="contactos-tab">
-				{{-- <iframe src="#" id="contactosFrame"></iframe> --}}
+				<iframe src="{{ route('clientes.contactos.index',['cliente'=>$cliente]) }}" style="height: 650px!important;" id="contactosFrame"></iframe>
 			</div>
 			<div class="tab-pane fade" id="comerciales" role="tabpanel" aria-labelledby="comerciales-tab">
 				<div class="card">

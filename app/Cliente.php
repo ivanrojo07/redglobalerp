@@ -54,5 +54,9 @@ class Cliente extends Model
     public function crms(){
         return $this->morphMany('App\ClienteCRM','cliente');
     }
+    public function contactos()
+    {
+        return $this->hasMany('App\ClienteContacto');
+    }
 
 }

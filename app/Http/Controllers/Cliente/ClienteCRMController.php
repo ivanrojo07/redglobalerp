@@ -6,6 +6,8 @@ use App\ClienteCRM;
 use App\Cliente;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use UxWeb\SweetAlert\SweetAlert as Alert;
+
 
 class ClienteCRMController extends Controller
 {
@@ -41,6 +43,7 @@ class ClienteCRMController extends Controller
         //
         $crm = new ClienteCRM($request->all());
         $cliente->crms()->save($crm);
+        Alert::success('Registro guardado exitosamente');
         return redirect()->route('clientes.crms.index',['cliente'=>$cliente]);
     }
 

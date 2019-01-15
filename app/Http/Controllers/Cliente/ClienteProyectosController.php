@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Proyecto;
 use App\Producto;
 use Illuminate\Http\Request;
+use UxWeb\SweetAlert\SweetAlert as Alert;
+
 
 class ClienteProyectosController extends Controller
 {
@@ -68,6 +70,7 @@ class ClienteProyectosController extends Controller
             ]);
             $proyecto->productos()->save($producto);
         }
+         Alert::success('Proyecto guardado exitosamente','Por favor, espere a que nuestra area de ventas cree las cotizaciones correspondientes.');
         return redirect()->route('clientes.proyectos.index',['cliente'=>$cliente]);
     }
 

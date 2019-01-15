@@ -66,6 +66,7 @@ Route::resource('clientes','Cliente\ClienteController');
 Route::resource('clientes.proyectos','Cliente\ClienteProyectosController');
 Route::resource('clientes.crms','Cliente\ClienteCRMController');
 Route::resource('clientes.dirfiscals','Cliente\ClienteDirFiscalsController');
+Route::resource('clientes.contactos','Cliente\ClienteContactoController');
 Route::get('clientes/form/{tipo}','Cliente\ClienteController@form');
 Route::get('cif_tax/{cliente}','Cliente\ClienteController@cif')->name('cif_tax');
 Route::get('compdom/{cliente}','Cliente\ClienteController@compDom')->name('compdom');
