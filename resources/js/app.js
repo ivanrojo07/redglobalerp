@@ -20,6 +20,9 @@ window.Vue = require('vue');
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('productos-component', require('./components/ProductosComponent.vue').default);
+Vue.component('servaereo-component', require('./components/ServaereoComponent.vue').default);
+Vue.component('cargoaereo-component', require('./components/CargoaereoComponent.vue').default);
+Vue.component('gastoaereo-component', require('./components/GastoaereoComponent.vue').default);
 
 // // const files = require.context('./', true, /\.vue$/i)
 

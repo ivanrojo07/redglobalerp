@@ -38,8 +38,8 @@
 											@csrf
 											@method('DELETE')
 											<a class="btn btn-danger btn-sm ml-2" onclick="confirmar('eliminar{{$fiscal->id}}')" type="submit">
-											<i class="fas fa-trash-alt"></i><strong>Eliminar</strong>
-										</a>
+												<i class="fas fa-trash-alt"></i><strong>Eliminar</strong>
+											</a>
 										</form>
 									</div>
 								</td>

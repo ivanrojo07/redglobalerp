@@ -16,7 +16,7 @@ class ProyectoController extends Controller
     public function index()
     {
         //
-        $proyectos = Proyecto::paginate(10);
+        $proyectos = Proyecto::orderBy('created_at','desc')->paginate(5);
         return view('proyecto.index',['proyectos'=>$proyectos]);
     }
 

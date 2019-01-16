@@ -77,6 +77,10 @@ Route::get('cartapoder/{cliente}','Cliente\ClienteController@cartaPod')->name('c
 // PROYECTOS
 Route::resource('proyectos','Proyecto\ProyectoController');
 
+// SERVICIOS
+Route::get('{proyecto}/maritimo','Tarifas\MaritimoController@create')->name('proyectos.maritimos.create');
+Route::get('{proyecto}/aereo','Tarifas\AereoController@create')->name('proyectos.aereos.create');
+
 //	ajax
 Route::get('buscarDL/{datoslab}','Empleado\EmpleadoDatosLabController@show'); 
 // PRECARGAS
