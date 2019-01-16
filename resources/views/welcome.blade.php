@@ -88,46 +88,58 @@
                         @endforeach
                         {{-- PRECARGAS FALTA AUTH --}}
                         <li class="dropdown">
-                            <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"><i class="fa fa-briefcase" aria-hidden="true"></i> Precargas <span class="caret"></span> </a>
+                            <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"><i class="fas fa-upload"></i> Precargas <span class="caret"></span> </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
                                     <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/puestos')}}','Puestos')">
-                                        <i class="fa fa-user-plus" aria-hidden="true"></i> Tipo de puestos
+                                        <i class="fas fa-upload"></i> Tipo de puestos
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/contratos')}}','Contratos')">
-                                        <i class="fa fa-user-plus" aria-hidden="true"></i> Tipo de contratos
+                                        <i class="fas fa-upload"></i> Tipo de contratos
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/bajas')}}','Bajas')">
-                                        <i class="fa fa-user-plus" aria-hidden="true"></i> Tipo de bajas
+                                        <i class="fas fa-upload"></i> Tipo de bajas
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/licencias')}}','Licencias')">
-                                        <i class="fa fa-user-plus" aria-hidden="true"></i> Tipo de licencias
+                                        <i class="fas fa-upload"></i> Tipo de licencias
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/nat_productos')}}','Naturaleza del producto')">
-                                        <i class="fa fa-user-plus" aria-hidden="true"></i> Naturaleza del producto
+                                        <i class="fas fa-upload"></i> Naturaleza del producto
                                     </a>
                                 </li>
                             </ul>
                         </li>
+                        {{-- CLIENTES --}}
                         <li class="dropdown">
-                            <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"><i class="fa fa-briefcase" aria-hidden="true"></i> Clientes <span class="caret"></span> </a>
+                            <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"><i class="far fa-user-circle"></i> Clientes <span class="caret"></span> </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
                                     <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/clientes')}}','Clientes')">
-                                        <i class="fa fa-user-plus" aria-hidden="true"></i> Clientes
+                                        <i class="fas fa-user-friends"></i> Clientes
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/clientes/create')}}','Nuevo Cliente')">
-                                        <i class="fa fa-user-plus" aria-hidden="true"></i> Nuevo Cliente
+                                        <i class="fas fa-user-plus"></i> Nuevo Cliente
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        {{-- PROYECTOS --}}
+                        <li class="dropdown">
+                            <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"> <i class="fas fa-truck-loading"></i> Proyectos</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/proyectos') }}','Proyectos')">
+                                       <i class="fas fa-people-carry"></i> Proyectos
                                     </a>
                                 </li>
                             </ul>

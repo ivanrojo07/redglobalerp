@@ -12,7 +12,7 @@
 				<li class="nav-item"><a href="#contactos" class="nav-link" id="contactoTab" data-toggle="tab" role="tab" aria-controls="contactos" aria-selected="true">Datos de Contacto</a></li>
 				<li class="nav-item"><a href="#comerciales" class="nav-link" id="comercialTab" data-toggle="tab" role="tab" aria-controls="comerciales" aria-selected="true">Condiciones Comerciales</a></li>
 				<li class="nav-item"><a href="#proyectos" class="nav-link" id="proyectoTab" data-toggle="tab" role="tab" aria-controls="proyectos" aria-selected="true">Proyectos</a></li>
-				<li class="nav-item"><a href="#seguimiento" class="nav-link" id="seguimientoTab" data-toggle="tab" role="tab" aria-controls="seguimiento" aria-selected="true">Seguimiento</a></li>
+				{{-- <li class="nav-item"><a href="#seguimiento" class="nav-link" id="seguimientoTab" data-toggle="tab" role="tab" aria-controls="seguimiento" aria-selected="true">Seguimiento</a></li> --}}
 				<li class="nav-item"><a href="#crm" class="nav-link" id="crmTab" data-toggle="tab" role="tab" aria-controls="crm" aria-selected="true">C.R.M.</a></li>
 			</ul>
 		</div>

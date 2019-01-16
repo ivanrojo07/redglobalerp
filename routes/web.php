@@ -74,6 +74,8 @@ Route::get('actacons/{cliente}','Cliente\ClienteController@actaCons')->name('act
 Route::get('idrepresentante/{cliente}','Cliente\ClienteController@repLeg')->name('idrepresentante');
 Route::get('cartapoder/{cliente}','Cliente\ClienteController@cartaPod')->name('cartapoder');
 
+// PROYECTOS
+Route::resource('proyectos','Proyecto\ProyectoController');
 
 //	ajax
 Route::get('buscarDL/{datoslab}','Empleado\EmpleadoDatosLabController@show'); 
