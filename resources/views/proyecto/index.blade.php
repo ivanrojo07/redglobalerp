@@ -82,8 +82,8 @@
 									</div>
 									<div class="d-flex justify-content-around">
 										<a href="{{ route('proyectos.aereos.create',['proyecto'=>$proyecto]) }}" class="btn btn-info btn-sm ml-1 mt-2">Cotizar tarifa de servicio aereo</a>
-										<a href="#" class="btn btn-secondary btn-sm ml-1 mt-2">Cotizar tarifa de servicio terrestre</a>
-										<a href="#" class="btn btn-success btn-sm ml-1 mt-2">Cotizar tarifa de servicio maritimo</a>
+										<a href="{{ route('proyectos.terrestres.create',['proyecto'=>$proyecto]) }}" class="btn btn-secondary btn-sm ml-1 mt-2">Cotizar tarifa de servicio terrestre</a>
+										<a href="{{ route('proyectos.maritimos.create',['proyecto'=>$proyecto]) }}" class="btn btn-success btn-sm ml-1 mt-2">Cotizar tarifa de servicio maritimo</a>
 										
 									</div>
 								</td>

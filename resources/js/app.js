@@ -20,10 +20,20 @@ window.Vue = require('vue');
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('productos-component', require('./components/ProductosComponent.vue').default);
+
+// SERVICIO AEREO
 Vue.component('servaereo-component', require('./components/ServaereoComponent.vue').default);
 Vue.component('cargoaereo-component', require('./components/CargoaereoComponent.vue').default);
 Vue.component('gastoaereo-component', require('./components/GastoaereoComponent.vue').default);
 
+// SERVICIO TERRESTRE
+Vue.component('servterrestre-component', require('./components/ServterrestreComponent.vue').default);
+Vue.component('cargoterrestre-component', require('./components/CargoterrestreComponent.vue').default);
+
+// SERVICIO MARITIMO
+Vue.component('servmaritimo-component', require('./components/ServmaritimoComponent.vue').default);
+Vue.component('cargomaritimo-component', require('./components/CargomaritimoComponent.vue').default);
+Vue.component('gastomaritimo-component', require('./components/GastomaritimoComponent.vue').default);
 // // const files = require.context('./', true, /\.vue$/i)
 
 // // files.keys().map(key => {

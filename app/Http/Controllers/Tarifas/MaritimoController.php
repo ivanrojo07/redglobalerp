@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Proyecto;
 use Illuminate\Http\Request;
 
-class MariticoController extends Controller
+class MaritimoController extends Controller
 {
     //
     public function create(Proyecto $proyecto)
     {
-    	dd($proyecto);
+    	return view('proyecto.maritimo.create',['proyecto'=>$proyecto]);
     }
 }
