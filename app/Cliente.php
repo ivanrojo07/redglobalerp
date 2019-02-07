@@ -59,4 +59,8 @@ class Cliente extends Model
         return $this->hasMany('App\ClienteContacto');
     }
 
+    public function credential(){
+        return $thhis->belongsTo('App\ClienteCredential');
+    }
+
 }

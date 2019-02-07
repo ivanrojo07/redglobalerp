@@ -292,14 +292,14 @@
 							<label class="control-label">{{ __('Nombre') }}</label>
 							<input class="form-control" type="text" name="nombre_l">
 						</div>
-						@if ($tipo_cliente == "nacional")
+						{{-- @if ($tipo_cliente == "nacional") --}}
 							<div class="col-4">
-								<label class="control-label">RFC del representante</label>
+								<label class="control-label">{{__("RFC del representante")}}</label>
 								<input class="form-control" type="text" name="rfc">
 							</div>
-						@endif
+						{{-- @endif --}}
 						<div class="col-4">
-							<label class="control-label">Fecha</label>
+							<label class="control-label">{{__("Fecha")}}</label>
 							<input class="form-control" type="date" name="fecha_l">
 						</div>
 				</div>
@@ -323,10 +323,10 @@
 						<label class="control-label">{{ __('Identificación del Representante legal de la empresa:') }}</label>
 						<input id="input-b1" name="identificacion_rep_legal" type="file" class="file form-control" data-browse-on-zone-click="true">
 					</div>
-					<div class="col-3">
+					{{-- <div class="col-3">
 						<label class="control-label">{{ __('Carta poder de la empresa:') }}</label>
 						<input id="input-b1" name="carta_poder" type="file" class="file form-control" data-browse-on-zone-click="true">
-					</div>
+					</div> --}}
 				</div>
 				<div class="row form-group justify-content-center">
 					<button type="submit" class="btn btn-success btn-lg">

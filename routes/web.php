@@ -28,8 +28,25 @@ Route::get('/home', function () {
 		return redirect()->route('login');
 	}
 })->name('home');
-Route::get('/cliente','Cliente\ClienteController@index');
 
+// Rutas de autenticación del cliente
+
+
+Route::prefix('client')->group(function(){
+	Route::get('/login','Auth\ClienteLoginController@showLoginForm')->name('cliente.login');
+	Route::post('/login','Auth\ClienteLoginController@login')->name('cliente.login.submit');
+	Route::get('/','ClienteCredentialsController@index')->name('cliente.dashboard');
+	Route::post('/logout','Auth\ClienteLoginController@logout')->name('cliente.logout');
+
+	// Reestablecer las contraseñas 
+	Route::post('/password/email','Auth\ClienteForgotPasswordController@sendResetLinkEmail')->name('cliente.password.email');
+	Route::get('/password/reset','Auth\ClienteForgotPasswordController@showLinkRequestForm')->name('cliente.password.request');
+	Route::post('/password/reset','Auth\ClienteResetPasswordController@reset');
+	Route::get('/password/reset/{token}','Auth\ClienteResetPasswordController@showResetForm')->name('cliente.password.reset');
+
+});
+
+Route::get('/cliente','Cliente\ClienteController@index');
 // AUTH
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');

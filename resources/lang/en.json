@@ -16,7 +16,7 @@
    	"Número telefonico":"Phone number",
    	"Correo electronico":"Email",
    	"Datos de contacto para cobros":"Contact of payment",
-   	"Nombre":"Name",
+   	"Nombre":"Full Name",
    	"Puesto o area":"Area",
    	"Número telefonico y extensión":"Phone number and extension",
    	"Días de recepción de facturas":"Reception documents",
@@ -37,6 +37,8 @@
     "Comprobante de domicilio (Reciente, no más de 3 meses de antigüedad):":"Photocopy of proof of address of the company",
     "Acta constitutiva:":"Photocopy of Constitutive Act:",
     "Identificación del Representante legal de la empresa:":"Photocopy of the identification of the legal Representative of the company:",
-    "Carta poder de la empresa:":"Photocopy of the company's power of attorney:"
+    "Carta poder de la empresa:":"Photocopy of the company's power of attorney:",
+    "RFC del representante":"",
+    "Fecha":"Date"
   
 }

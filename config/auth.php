@@ -112,7 +112,7 @@ return [
             'expire' => 60,
         ], 
         'clientes' => [
-            'provider' => 'clientess',
+            'provider' => 'clientes',
             'table' => 'password_resets',
             'expire' => 60,
         ],

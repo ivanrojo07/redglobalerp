@@ -15,8 +15,8 @@ class CreateClienteCredentialsTable extends Migration
     {
         Schema::create('cliente_credentials', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cliente_id')->unique()->unsigned()->nullable();
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            // $table->integer('cliente_id')->unique()->unsigned()->nullable();
+            // $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');

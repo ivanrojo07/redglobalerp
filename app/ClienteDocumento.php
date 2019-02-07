@@ -13,7 +13,7 @@ class ClienteDocumento extends Model
     	'comp_dom',
     	'acta_constitutiva',
     	'identificacion_rep_legal',
-    	'carta_poder'
+    	// 'carta_poder'
     ];
     public function cliente(){
     	return $this->belongsTo('App\Cliente','cliente_id');

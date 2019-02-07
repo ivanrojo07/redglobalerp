@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\ClienteResetPasswordNotification;
 
 class ClienteCredential extends Authenticatable
 {
@@ -18,7 +19,6 @@ class ClienteCredential extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'cliente_id',
         'name', 
         'email', 
         'password',
@@ -34,8 +34,19 @@ class ClienteCredential extends Authenticatable
     ];
 
 
-    public function empleado()
+    public function cliente()
     {
-        return $this->belongsTo('App\Cliente');
+        return $this->hasOne('App\Cliente');
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ClienteResetPasswordNotification($token));
     }
 }
