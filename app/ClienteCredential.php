@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ClienteResetPasswordNotification;
+use App\Notifications\ClienteCredentialNotification;
 
 class ClienteCredential extends Authenticatable
 {
@@ -48,5 +49,16 @@ class ClienteCredential extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ClienteResetPasswordNotification($token));
+    }
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendCredentialNotification($contrasena)
+    {
+        // dd($this);
+        $this->notify(new ClienteCredentialNotification($this, $contrasena));
     }
 }

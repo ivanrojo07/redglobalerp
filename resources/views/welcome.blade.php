@@ -126,13 +126,42 @@
                                         <i class="fas fa-user-friends"></i> Clientes
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/clientes/create')}}','Nuevo Cliente')">
-                                        <i class="fas fa-user-plus"></i> Nuevo Cliente
+                                <li class="dropdown-submenu">
+                                    <a  class="dropdown-item" tabindex="-1" href="#">
+                                        <i class="fas fa-id-card-alt"></i> Credenciales
                                     </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item">
+                                            <a tabindex="-1" href="#" onclick="AgregarNuevoTab('{{ url('/empleado/credencials/create')}}',' Nueva credencial al cliente')" style="color: black;">
+                                                <i class="far fa-id-card"></i> Nueva Credencial
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-item">
+                                            <a tabindex="-1" href="#" onclick="AgregarNuevoTab('{{ url('/empleado/credencials')}}','Credenciales')"  style="color: black;">
+                                                <i class="far fa-id-card"></i> Ver credenciales
+                                            </a>
+                                        </li>
+                                        {{-- <li class="dropdown-submenu">
+                                          <a class="dropdown-item" href="#">Even More..</a>
+                                          <ul class="dropdown-menu">
+                                              <li class="dropdown-item"><a href="#">3rd level</a></li>
+                                                <li class="dropdown-submenu"><a class="dropdown-item" href="#">another level</a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                    <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                    <li class="dropdown-item"><a href="#">4th level</a></li>
+                                                </ul>
+                                              </li>
+                                                <li class="dropdown-item"><a href="#">3rd level</a></li>
+                                          </ul>
+                                        </li>
+                                        <li class="dropdown-item"><a href="#">Second level</a></li>
+                                        <li class="dropdown-item"><a href="#">Second level</a></li> --}}
+                                    </ul>
                                 </li>
                             </ul>
                         </li>
+
                         {{-- PROYECTOS --}}
                         <li class="dropdown">
                             <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"> <i class="fas fa-truck-loading"></i> Proyectos</a>

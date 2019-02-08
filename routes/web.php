@@ -78,6 +78,12 @@ Route::resource('empleados.beneficiario','Empleado\EmpleadoBeneficiarioControlle
 // Route::resource('empleados.vacaciones', 'Empleado\EmpleadosVacacionesController');
 // Route::resource('empleados.faltas', 'Empleado\EmpleadosFaltasAdministrativasController');
 
+// EMPLEADOS VER CLIENTES
+Route::prefix('empleado')->group(function(){
+	Route::resource('credencials','Empleado\Cliente\ClienteCredentialsController');
+});
+
+
 // CLIENTES
 Route::resource('clientes','Cliente\ClienteController');
 Route::resource('clientes.proyectos','Cliente\ClienteProyectosController');
