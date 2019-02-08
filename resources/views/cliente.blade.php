@@ -73,11 +73,19 @@
 
         <main class="py-4">
             <div class="container-fluid" style="width: 100%; height: 100%;">
-                <ul id="tabsApp" class="nav nav-tabs" role="tab-list"></ul>
-                <div id="contenedortab" class="tab-content"></div>
+                <iframe src="{{ Auth::guard('cliente')->user()->cliente ? route('clientes.show',['cliente'=>Auth::guard('cliente')->user()->cliente]) : route('clientes.create') }}" style="height: 630px;"></iframe>
             </div>
-            @yield('content')
+            {{-- @include('cliente.create', ['edit' => false,'tipo_cliente'=>null]) --}}
+            {{-- @yield('content') --}}
+            {{-- @dump(Auth::guard('cliente')->user()->cliente)
+            @dump(Auth::guard('web')->user()) --}}
         </main>
     </div>
 </body>
+<script>
+    $(window).resize(function () {
+        var heigh = parseInt($(window).height()) - 150;
+        $("iframe").height(heigh);
+    });
+</script>
 </html>

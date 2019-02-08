@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 use UxWeb\SweetAlert\SweetAlert as Alert;
+use Auth;
 
 class ClienteController extends Controller
 {
@@ -115,11 +116,15 @@ class ClienteController extends Controller
             'comp_dom'=>$comp_dom,
             'acta_constitutiva'=>$acta_constitutiva,
             'identificacion_rep_legal'=>$identificacion_rep_legal,
-            'carta_poder'=>$carta_poder
+            // 'carta_poder'=>$carta_poder
         ]);
         $cliente->documento()->save($documento);
+        if(Auth::guard('cliente')->user()){
+            $cliente->cliente_credential_id = Auth::guard('cliente')->user()->id;
+            $cliente->save();
+        }
         Alert::success($cliente->razon_social.' guardado exitosamente','Por favor sigue agregando información');
-        return redirect()->route('clientes.index');
+        return redirect()->route('clientes.show',['cliente'=>$cliente]);
 
     }
     public function cif(Cliente $cliente)

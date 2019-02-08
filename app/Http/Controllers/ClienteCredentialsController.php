@@ -23,6 +23,15 @@ class ClienteCredentialsController extends Controller
      */
     public function index()
     {
-        return view('cliente');
+        $cliente = auth('cliente')->user()->cliente;
+        if ($cliente) {
+            // dd('Si hay cliente');
+            return view('cliente');
+        } else {
+            return view('cliente');
+            // dd('No hay cliente');
+            return redirect()->route('clientes.create');
+
+        }
     }
 }
