@@ -24,6 +24,7 @@ class CreateClienteDocumentosTable extends Migration
             $table->string('identificacion_rep_legal');
             // $table->string('carta_poder')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

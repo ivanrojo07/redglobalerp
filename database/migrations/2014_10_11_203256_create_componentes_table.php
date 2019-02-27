@@ -19,6 +19,7 @@ class CreateComponentesTable extends Migration
             $table->foreign('modulo_id')->references('id')->on('modulos');
             $table->string('nombre');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

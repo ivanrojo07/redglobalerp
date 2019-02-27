@@ -21,6 +21,7 @@ class CreateEmpleadoFaltasTable extends Migration
             $table->string('tipofalta');
             $table->text('motivo');
             $table->timestampsTz();
+            $table->softDeletes();
         });
     }
 

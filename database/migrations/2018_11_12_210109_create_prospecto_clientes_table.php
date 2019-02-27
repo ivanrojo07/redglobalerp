@@ -23,6 +23,7 @@ class CreateProspectoClientesTable extends Migration
             $table->integer('cliente_credential_id')->unsigned();
             $table->foreign('cliente_credential_id')->references('id')->on('cliente_credentials');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -34,6 +34,7 @@ class CreateEmpleadoEmergenciasTable extends Migration
             $table->string('telefonocontac3')->nullable();
             $table->string('movilcontac3')->nullable();
             $table->timestampsTz();
+            $table->softDeletes();
         });
     }
 

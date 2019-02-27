@@ -46,12 +46,12 @@ class ClienteCredentialNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('Recibio este correo porque se creo una nueva cuenta para usar los servicios de Red Global Cargo.')
+                    ->line('Se creo una nueva cuenta para usar los servicios de Red Global Cargo.')
                     ->line('Usuario: '.$this->cliente->name)
                     ->line('Correo electronico: '.$this->cliente->email)
                     ->line('Contraseña: '.$this->contrasena)
-                    ->action('Entrar a tu portal', url('/client'))
-                    ->line('Gracias por interesarse en los servicios de Red Global Cargo.');
+                    ->action('Entra a tu portal', url('/client'))
+                    ->line('Gracias por usar los servicios de Red Global Cargo.');
     }
 
     /**

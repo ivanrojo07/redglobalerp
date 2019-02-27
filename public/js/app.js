@@ -2360,9 +2360,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProductosComponent.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MercanciaComponent.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ProductosComponent.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MercanciaComponent.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -2507,14 +2507,105 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      productos: []
+      mercancias: [],
+      commodities: [],
+      servicios: []
     };
   },
   watch: {
-    productos: {
+    mercancias: {
       handler: function handler(val, oldVal) {
         for (var i = val.length - 1; i >= 0; i--) {
           if (val[i].alto != "" && val[i].ancho != "" && val[i].profundo != "") {
@@ -2523,6 +2614,11 @@ __webpack_require__.r(__webpack_exports__);
 
           if (val[i].peso_br) {
             val[i].peso_total = val[i].peso_br;
+          }
+
+          if (val[i].tipo_servicio) {
+            // console.log(val[i].tipo_servicio);
+            this.getServicios(val[i].tipo_servicio);
           }
         }
       },
@@ -2533,46 +2629,89 @@ __webpack_require__.r(__webpack_exports__);
     nuevoProducto: function nuevoProducto() {
       var producto = {
         nombre: "",
+        line1_origen: "",
+        line2_origen: "",
+        cp_origen: "",
+        line1_destino: "",
+        line2_destino: "",
+        cp_destino: "",
+        naturaleza: "",
         alto: "",
         ancho: "",
         profundo: "",
         medidas: "",
-        naturaleza: "",
         peso_br: "",
         medida_peso: "",
         bultos: "",
-        origen: "",
-        destino: "",
         peso_total: "",
         volumen_total: "",
-        observaciones: ""
+        tipo_servicio: "",
+        observaciones: "",
+        serv_extra: []
       };
-      this.productos.push(producto);
+      this.mercancias.push(producto);
     },
     removerProducto: function removerProducto(index) {
-      if (this.productos.length > 1) {
-        this.productos.splice(index, 1);
+      if (this.mercancias.length > 1) {
+        this.mercancias.splice(index, 1);
       }
+    },
+    getCommodities: function getCommodities() {
+      var _this = this;
+
+      var url = "../../getCommodities";
+      axios.get(url).then(function (res) {
+        _this.commodities = res.data.commodities;
+      }).catch(function (err) {
+        console.log('err', err);
+      });
+    },
+    getServicios: function getServicios(servicio) {
+      var _this2 = this;
+
+      var url = "../../getServicios/".concat(servicio);
+      axios.get(url).then(function (res) {
+        _this2.servicios = res.data.servicios;
+      }).catch(function (err) {
+        console.log('err', err);
+      });
+    },
+    nuevoServicio: function nuevoServicio(mercancia) {
+      var serv = {
+        servicio_id: "",
+        comentario: ""
+      };
+      mercancia.serv_extra.push(serv);
+    },
+    eliminarServicio: function eliminarServicio(mercancia, index) {
+      mercancia.serv_extra.splice(index, 1);
     }
   },
   mounted: function mounted() {
     var producto = {
       nombre: "",
+      line1_origen: "",
+      line2_origen: "",
+      cp_origen: "",
+      line1_destino: "",
+      line2_destino: "",
+      cp_destino: "",
+      naturaleza: "",
       alto: "",
       ancho: "",
       profundo: "",
       medidas: "",
-      naturaleza: "",
       peso_br: "",
       medida_peso: "",
       bultos: "",
-      origen: "",
-      destino: "",
       peso_total: "",
       volumen_total: "",
-      observaciones: ""
+      tipo_servicio: "",
+      observaciones: "",
+      serv_extra: []
     };
-    this.productos.push(producto);
+    this.mercancias.push(producto);
+    this.getCommodities();
     console.log('Component mounted.');
   }
 });
@@ -38852,9 +38991,9 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProductosComponent.vue?vue&type=template&id=0c04ebd5&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MercanciaComponent.vue?vue&type=template&id=3b36423a&":
 /*!*********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ProductosComponent.vue?vue&type=template&id=0c04ebd5& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/MercanciaComponent.vue?vue&type=template&id=3b36423a& ***!
   \*********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -38869,167 +39008,619 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container-fluid" },
     [
-      _c("div", { staticClass: "mt-3 mb-3 d-flex justify-content-start" }, [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-secondary",
-            attrs: { type: "button" },
-            on: {
-              click: function($event) {
-                _vm.nuevoProducto()
-              }
-            }
-          },
-          [_vm._v("Nuevo Producto")]
-        )
+      _c("div", { staticClass: "card-header" }, [
+        _c("div", { staticClass: "d-flex bd-highlight" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "ml-auto p-2 bd-highlight" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-secondary",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    _vm.nuevoProducto()
+                  }
+                }
+              },
+              [
+                _c("i", { staticClass: "fas fa-plus" }),
+                _vm._v(" Nueva Mercancia")
+              ]
+            )
+          ])
+        ])
       ]),
       _vm._v(" "),
-      _vm._l(_vm.productos, function(prod, index) {
-        return _c("div", { staticClass: "card mb-3" }, [
-          _c("div", { staticClass: "card-header" }, [
-            _c("div", { staticClass: "d-flex bd-highlight" }, [
-              _c("div", { staticClass: "p-2 w-100 bd-highlight" }, [
-                _c("h5", [_vm._v("Producto " + _vm._s(index + 1) + ":")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "p-2 flex-shrink-1 bd-highlight" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "close",
-                    attrs: { type: "button", "aria-label": "Close" },
-                    on: {
-                      click: function($event) {
-                        _vm.removerProducto(index)
-                      }
-                    }
-                  },
-                  [
-                    _c("span", { attrs: { "aria-hidden": "true" } }, [
-                      _vm._v("×")
-                    ])
-                  ]
-                )
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-3" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v(
-                    "\n                        Nombre:\n                    "
-                  )
+      _vm._l(_vm.mercancias, function(mercancia, index) {
+        return _c(
+          "div",
+          { staticClass: "card" },
+          [
+            _c("div", { staticClass: "card-header" }, [
+              _c("div", { staticClass: "d-flex bd-highlight" }, [
+                _c("div", { staticClass: "p-2 w-100 bd-highlight" }, [
+                  _c("h5", [
+                    _c("i", { staticClass: "fas fa-box" }),
+                    _vm._v(
+                      " Mercancia " +
+                        _vm._s(index + 1) +
+                        ":\n                    "
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
+                _c("div", { staticClass: "p-2 flex-shrink-1 bd-highlight" }, [
+                  _c(
+                    "button",
                     {
-                      name: "model",
-                      rawName: "v-model",
-                      value: prod.nombre,
-                      expression: "prod.nombre"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", name: "nombre[]", required: "" },
-                  domProps: { value: prod.nombre },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                      staticClass: "close",
+                      attrs: { type: "button", "aria-label": "Close" },
+                      on: {
+                        click: function($event) {
+                          _vm.removerProducto(index)
+                        }
                       }
-                      _vm.$set(prod, "nombre", $event.target.value)
+                    },
+                    [
+                      _c("span", { attrs: { "aria-hidden": "true" } }, [
+                        _vm._v("×")
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("div", { staticClass: "form-row form-group" }, [
+                _vm._m(1, true),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-4 form-group" }, [
+                  _vm._m(2, true),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: mercancia.nombre,
+                        expression: "mercancia.nombre"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "nombre[" + index + "]",
+                      required: ""
+                    },
+                    domProps: { value: mercancia.nombre },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(mercancia, "nombre", $event.target.value)
+                      }
                     }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-6" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v(
-                    "\n                        Volumen:\n                    "
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-4 form-group" }, [
+                  _vm._m(3, true),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: mercancia.naturaleza,
+                          expression: "mercancia.naturaleza"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        id: "naturaleza",
+                        name: "naturaleza[" + index + "]",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            mercancia,
+                            "naturaleza",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "" } }, [
+                        _vm._v("Seleccione una opción")
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.commodities, function(commodity) {
+                        return _c(
+                          "option",
+                          {
+                            attrs: { title: commodity.descripcion },
+                            domProps: { value: commodity.nombre }
+                          },
+                          [_vm._v(_vm._s(commodity.nombre))]
+                        )
+                      })
+                    ],
+                    2
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "input-group mb-3" }, [
+                _c("div", { staticClass: "col-4 form-group" }, [
+                  _vm._m(4, true),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: mercancia.tipo_servicio,
+                          expression: "mercancia.tipo_servicio"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        id: "tipo_servicio",
+                        name: "tipo_servicio[" + index + "]",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            mercancia,
+                            "tipo_servicio",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "" } }, [
+                        _vm._v("Seleccione una opción")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Terrestre FTL" } }, [
+                        _vm._v("Terrestre FTL")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Terrestre LTL" } }, [
+                        _vm._v("Terrestre LTL")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Maritimo FCL" } }, [
+                        _vm._v("Maritimo FCL")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Maritimo LCL" } }, [
+                        _vm._v("Maritimo LCL")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Aereo" } }, [
+                        _vm._v("Aereo")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(5, true),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-4 form-group" }, [
+                  _vm._m(6, true),
+                  _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: prod.alto,
-                        expression: "prod.alto"
+                        value: mercancia.linea1_origen,
+                        expression: "mercancia.linea1_origen"
                       }
                     ],
                     staticClass: "form-control",
                     attrs: {
-                      type: "number",
-                      step: "0.01",
-                      min: "0.01",
-                      required: "",
-                      placeholder: "alto",
-                      "aria-label": "alto",
-                      name: "alto[]",
-                      "aria-describedby": "x-addon1"
+                      type: "text",
+                      name: "linea1_origen[" + index + "]",
+                      required: ""
                     },
-                    domProps: { value: prod.alto },
+                    domProps: { value: mercancia.linea1_origen },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(prod, "alto", $event.target.value)
+                        _vm.$set(
+                          mercancia,
+                          "linea1_origen",
+                          $event.target.value
+                        )
                       }
                     }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(0, true),
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-4 form-group" }, [
+                  _c("label", [_vm._v("Linea 2")]),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: prod.ancho,
-                        expression: "prod.ancho"
+                        value: mercancia.linea2_destino,
+                        expression: "mercancia.linea2_destino"
                       }
                     ],
                     staticClass: "form-control",
                     attrs: {
-                      type: "number",
-                      step: "0.01",
-                      min: "0.01",
-                      required: "",
-                      placeholder: "ancho",
-                      "aria-label": "ancho",
-                      name: "ancho[]",
-                      "aria-describedby": "x-addon2"
+                      type: "text",
+                      name: "linea2_origen[" + index + "]"
                     },
-                    domProps: { value: prod.ancho },
+                    domProps: { value: mercancia.linea2_destino },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(prod, "ancho", $event.target.value)
+                        _vm.$set(
+                          mercancia,
+                          "linea2_destino",
+                          $event.target.value
+                        )
                       }
                     }
-                  }),
-                  _vm._v(" "),
-                  _vm._m(1, true),
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-4 form-group" }, [
+                  _vm._m(7, true),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: prod.profundo,
-                        expression: "prod.profundo"
+                        value: mercancia.cp_origen,
+                        expression: "mercancia.cp_origen"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "cp_origen[" + index + "]",
+                      required: ""
+                    },
+                    domProps: { value: mercancia.cp_origen },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(mercancia, "cp_origen", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _vm._m(8, true),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-4 form-group" }, [
+                  _vm._m(9, true),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: mercancia.linea1_destino,
+                        expression: "mercancia.linea1_destino"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "linea1_destino[" + index + "]",
+                      required: ""
+                    },
+                    domProps: { value: mercancia.linea1_destino },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          mercancia,
+                          "linea1_destino",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-4 form-group" }, [
+                  _c("label", [_vm._v("Linea 2")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: mercancia.linea2_destino,
+                        expression: "mercancia.linea2_destino"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "linea2_destino[" + index + "]"
+                    },
+                    domProps: { value: mercancia.linea2_destino },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          mercancia,
+                          "linea2_destino",
+                          $event.target.value
+                        )
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-4 form-group" }, [
+                  _vm._m(10, true),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: mercancia.cp_destino,
+                        expression: "mercancia.cp_destino"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      name: "cp_destino[" + index + "]",
+                      required: ""
+                    },
+                    domProps: { value: mercancia.cp_destino },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(mercancia, "cp_destino", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _vm._m(11, true),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-6" }, [
+                  _vm._m(12, true),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group mb-3" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: mercancia.alto,
+                          expression: "mercancia.alto"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "number",
+                        step: "0.01",
+                        min: "0.01",
+                        required: "",
+                        placeholder: "alto",
+                        "aria-label": "alto",
+                        name: "alto[" + index + "]",
+                        "aria-describedby": "x-addon1"
+                      },
+                      domProps: { value: mercancia.alto },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(mercancia, "alto", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(13, true),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: mercancia.ancho,
+                          expression: "mercancia.ancho"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "number",
+                        step: "0.01",
+                        min: "0.01",
+                        required: "",
+                        placeholder: "ancho",
+                        "aria-label": "ancho",
+                        name: "ancho[" + index + "]",
+                        "aria-describedby": "x-addon2"
+                      },
+                      domProps: { value: mercancia.ancho },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(mercancia, "ancho", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _vm._m(14, true),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: mercancia.profundo,
+                          expression: "mercancia.profundo"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "number",
+                        step: "0.01",
+                        min: "0.01",
+                        required: "",
+                        placeholder: "profundidad",
+                        "aria-label": "profundo",
+                        name: "profundo[" + index + "]",
+                        "aria-describedby": "x-addon2"
+                      },
+                      domProps: { value: mercancia.profundo },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(mercancia, "profundo", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-3" }, [
+                  _vm._m(15, true),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: mercancia.medidas,
+                          expression: "mercancia.medidas"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "medidas[" + index + "]", required: "" },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            mercancia,
+                            "medidas",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "" } }, [
+                        _vm._v("Seleccione la unidad de medida")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "km" } }, [
+                        _vm._v("Kilómetro")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "hm" } }, [
+                        _vm._v("Hectómetro")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "dam" } }, [
+                        _vm._v("Decámetro")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "m" } }, [
+                        _vm._v("Metro")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "dm" } }, [
+                        _vm._v("Decimetro")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "cm" } }, [
+                        _vm._v("Centimetro")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "mm" } }, [
+                        _vm._v("Milímetro")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-3" }, [
+                  _vm._m(16, true),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: mercancia.peso_br,
+                        expression: "mercancia.peso_br"
                       }
                     ],
                     staticClass: "form-control",
@@ -39037,504 +39628,550 @@ var render = function() {
                       type: "number",
                       step: "0.01",
                       min: "0.01",
-                      required: "",
-                      placeholder: "profundidad",
-                      "aria-label": "profundo",
-                      name: "profundo[]",
-                      "aria-describedby": "x-addon2"
+                      name: "peso_br[" + index + "]",
+                      required: ""
                     },
-                    domProps: { value: prod.profundo },
+                    domProps: { value: mercancia.peso_br },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(prod, "profundo", $event.target.value)
+                        _vm.$set(mercancia, "peso_br", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-3" }, [
+                  _vm._m(17, true),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: mercancia.medida_peso,
+                          expression: "mercancia.medida_peso"
+                        }
+                      ],
+                      staticClass: "form-control mb-3",
+                      attrs: {
+                        name: "medida_peso[" + index + "]",
+                        required: ""
+                      },
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            mercancia,
+                            "medida_peso",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "" } }, [
+                        _vm._v("Seleccione la unidad de medida")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "kg" } }, [
+                        _vm._v("Kilógramo")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "hg" } }, [
+                        _vm._v("Hectógramo")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "dag" } }, [
+                        _vm._v("Decágramo")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "g" } }, [
+                        _vm._v("Gramo")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "dg" } }, [
+                        _vm._v("Decigramo")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "cg" } }, [
+                        _vm._v("Centigramo")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "mg" } }, [
+                        _vm._v("Milígramo")
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-3" }, [
+                  _vm._m(18, true),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: mercancia.bultos,
+                        expression: "mercancia.bultos"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "number",
+                      step: "0.1",
+                      min: "0.1",
+                      name: "bultos[" + index + "]",
+                      required: ""
+                    },
+                    domProps: { value: mercancia.bultos },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(mercancia, "bultos", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-2" }, [
+                  _vm._m(19, true),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group mb-3" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: mercancia.peso_total,
+                          expression: "mercancia.peso_total"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "number",
+                        step: "0.1",
+                        min: "0.1",
+                        name: "peso_total[" + index + "]",
+                        required: ""
+                      },
+                      domProps: { value: mercancia.peso_total },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(mercancia, "peso_total", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "input-group-append" }, [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "input-group-text",
+                          attrs: { id: "basic-addon2" }
+                        },
+                        [_vm._v(_vm._s(mercancia.medida_peso))]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-2" }, [
+                  _vm._m(20, true),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group mb-3" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: mercancia.volumen_total,
+                          expression: "mercancia.volumen_total"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "number",
+                        step: "0.1",
+                        min: "0.1",
+                        name: "volumen_total[" + index + "]",
+                        "aria-describedby": "basic-addon2",
+                        required: ""
+                      },
+                      domProps: { value: mercancia.volumen_total },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            mercancia,
+                            "volumen_total",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "input-group-append" }, [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "input-group-text",
+                          attrs: { id: "basic-addon2" }
+                        },
+                        [
+                          _vm._v(
+                            _vm._s(
+                              mercancia.medidas == ""
+                                ? mercancia.medidas
+                                : mercancia.medidas + "³"
+                            )
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ]),
+                _vm._v(" "),
+                _vm._m(21, true),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-12" }, [
+                  _c("label", [_vm._v("Observaciones:")]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: mercancia.observaciones,
+                        expression: "mercancia.observaciones"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { name: "observaciones[" + index + "]" },
+                    domProps: { value: mercancia.observaciones },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          mercancia,
+                          "observaciones",
+                          $event.target.value
+                        )
                       }
                     }
                   })
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-3" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v(
-                    "\n                        Unidad:\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: prod.medidas,
-                        expression: "prod.medidas"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { name: "medidas[]", required: "" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          prod,
-                          "medidas",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "" } }, [
-                      _vm._v("Seleccione la unidad de medida")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "km" } }, [
-                      _vm._v("Kilómetro")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "hm" } }, [
-                      _vm._v("Hectómetro")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "dam" } }, [
-                      _vm._v("Decámetro")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "m" } }, [_vm._v("Metro")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "dm" } }, [
-                      _vm._v("Decimetro")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "cm" } }, [
-                      _vm._v("Centimetro")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "mm" } }, [
-                      _vm._v("Milímetro")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-3" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v(
-                    "\n                        Naturaleza del envio:\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: prod.naturaleza,
-                        expression: "prod.naturaleza"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: { name: "naturaleza[]", required: "" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          prod,
-                          "naturaleza",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "" } }, [
-                      _vm._v("Seleccione la naturaleza del producto")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "Perecedero" } }, [
-                      _vm._v("Perecedero")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "Electronicos" } }, [
-                      _vm._v("Electronicos")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "Ropa" } }, [
-                      _vm._v("Ropa")
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "option",
-                      { attrs: { value: "Material de construcción" } },
-                      [_vm._v("Material de construcción")]
-                    )
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-3" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v(
-                    "\n                        Peso Bruto:\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: prod.peso_br,
-                      expression: "prod.peso_br"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "number",
-                    step: "0.01",
-                    min: "0.01",
-                    name: "peso_br[]",
-                    required: ""
-                  },
-                  domProps: { value: prod.peso_br },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(prod, "peso_br", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-3" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v(
-                    "\n                        Unidad:\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: prod.medida_peso,
-                        expression: "prod.medida_peso"
-                      }
-                    ],
-                    staticClass: "form-control mb-3",
-                    attrs: { name: "medida_peso[]", required: "" },
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          prod,
-                          "medida_peso",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
-                    }
-                  },
-                  [
-                    _c("option", { attrs: { value: "" } }, [
-                      _vm._v("Seleccione la unidad de medida")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "kg" } }, [
-                      _vm._v("Kilógramo")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "hg" } }, [
-                      _vm._v("Hectógramo")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "dag" } }, [
-                      _vm._v("Decágramo")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "g" } }, [_vm._v("Gramo")]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "dg" } }, [
-                      _vm._v("Decigramo")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "cg" } }, [
-                      _vm._v("Centigramo")
-                    ]),
-                    _vm._v(" "),
-                    _c("option", { attrs: { value: "mg" } }, [
-                      _vm._v("Milígramo")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-3" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v(
-                    "\n                        Número de bultos:\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: prod.bultos,
-                      expression: "prod.bultos"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: {
-                    type: "number",
-                    step: "0.1",
-                    min: "0.1",
-                    name: "bultos[]",
-                    required: ""
-                  },
-                  domProps: { value: prod.bultos },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(prod, "bultos", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-4" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v(
-                    "\n                        Origen:\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: prod.origen,
-                      expression: "prod.origen"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { type: "text", name: "origen[]", required: "" },
-                  domProps: { value: prod.origen },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(prod, "origen", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-4" }, [
-                _c("label", { staticClass: "control-label" }, [
-                  _vm._v(
-                    "\n                        Destino:\n                    "
-                  )
-                ]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: prod.destino,
-                      expression: "prod.destino"
-                    }
-                  ],
-                  staticClass: "form-control mb-3",
-                  attrs: { type: "text", name: "destino[]", required: "" },
-                  domProps: { value: prod.destino },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(prod, "destino", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-2" }, [
-                _c("label", [_vm._v("Peso Total:")]),
-                _vm._v(" "),
-                _c("div", { staticClass: "input-group mb-3" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: prod.peso_total,
-                        expression: "prod.peso_total"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "number",
-                      step: "0.1",
-                      min: "0.1",
-                      name: "peso_total[]",
-                      required: ""
-                    },
-                    domProps: { value: prod.peso_total },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(prod, "peso_total", $event.target.value)
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "input-group-append" }, [
-                    _c(
-                      "span",
-                      {
-                        staticClass: "input-group-text",
-                        attrs: { id: "basic-addon2" }
-                      },
-                      [_vm._v(_vm._s(prod.medida_peso))]
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-header" }, [
+              _c("div", { staticClass: "d-flex bd-highlight" }, [
+                _c("div", { staticClass: "p-2 w-75 bd-highlight" }, [
+                  _c("h5", [
+                    _c("i", { staticClass: "fas fa-truck-loading" }),
+                    _vm._v(
+                      " Servicios extras para mercancia " +
+                        _vm._s(index + 1) +
+                        ":\n                    "
                     )
                   ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-2" }, [
-                _c("label", [_vm._v("Volumen Total:")]),
+                ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "input-group mb-3" }, [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: prod.volumen_total,
-                        expression: "prod.volumen_total"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "number",
-                      step: "0.1",
-                      min: "0.1",
-                      name: "volumen_total[]",
-                      "aria-describedby": "basic-addon2",
-                      required: ""
-                    },
-                    domProps: { value: prod.volumen_total },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
+                _c("div", { staticClass: "p-2 flex-shrink-1 bd-highlight" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.nuevoServicio(mercancia)
                         }
-                        _vm.$set(prod, "volumen_total", $event.target.value)
                       }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "input-group-append" }, [
+                    },
+                    [
+                      _c("i", { staticClass: "fas fa-plus" }),
+                      _vm._v(" Agregar servicio ")
+                    ]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._l(mercancia.serv_extra, function(servicio) {
+              return _c("div", { staticClass: "card-body" }, [
+                _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-4 form-group" }, [
+                    _vm._m(22, true),
+                    _vm._v(" "),
                     _c(
-                      "span",
+                      "select",
                       {
-                        staticClass: "input-group-text",
-                        attrs: { id: "basic-addon2" }
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: servicio.servicio_id,
+                            expression: "servicio.servicio_id"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { name: "servicios[" + index + "][]" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              servicio,
+                              "servicio_id",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        }
                       },
                       [
-                        _vm._v(
-                          _vm._s(
-                            prod.medidas == ""
-                              ? prod.medidas
-                              : prod.medidas + "³"
+                        _c("option", { attrs: { value: "" } }, [
+                          _vm._v("Seleccione el servicio")
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.servicios, function(serv) {
+                          return _c(
+                            "option",
+                            {
+                              attrs: { title: "servicio.descripcion" },
+                              domProps: { value: serv.id }
+                            },
+                            [_vm._v(_vm._s(serv.nombre))]
                           )
-                        )
+                        })
+                      ],
+                      2
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-6 form-group" }, [
+                    _c("label", [
+                      _vm._v(
+                        "\n                        Comentario\n                    "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: servicio.comentario,
+                          expression: "servicio.comentario"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { name: "comentario_serv[" + index + "][]" },
+                      domProps: { value: servicio.comentario },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(servicio, "comentario", $event.target.value)
+                        }
+                      }
+                    })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-2 form-group b-2" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.eliminarServicio(mercancia, index)
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "far fa-times-circle" }, [
+                          _vm._v("Eliminar servicio")
+                        ])
                       ]
                     )
                   ])
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "col-12" }, [
-                _c("label", [_vm._v("Observaciones:")]),
-                _vm._v(" "),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: prod.observaciones,
-                      expression: "prod.observaciones"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { name: "observaciones[]" },
-                  domProps: { value: prod.observaciones },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(prod, "observaciones", $event.target.value)
-                    }
-                  }
-                })
               ])
-            ])
-          ])
-        ])
+            })
+          ],
+          2
+        )
       })
     ],
     2
   )
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "p-2 bd-highlight" }, [
+      _c("h4", { staticClass: "title" }, [
+        _c("i", { staticClass: "fas fa-boxes" }),
+        _vm._v(" Mercancias:")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 mb-2" }, [
+      _c("h4", { staticClass: "title" }, [
+        _vm._v(
+          "\n                        Datos generales de la mercancia:\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Nombre de la mercancia:\n                    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Naturaleza del producto/Commodity:\n                    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Tipo de servicio:\n                    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 mb-2" }, [
+      _c("h4", { staticClass: "title" }, [
+        _vm._v(
+          "\n                        Dirección de origen\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Linea 1")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Código Postal")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 mb-2" }, [
+      _c("h4", { staticClass: "title" }, [
+        _vm._v(
+          "\n                        Dirección de destino\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Linea 1")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Código Postal")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 mb-2" }, [
+      _c("h4", { staticClass: "title" }, [
+        _vm._v(
+          "\n                        Dimensiones y peso de la mercancia\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "control-label" }, [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Volumen:\n                    ")
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -39557,6 +40194,81 @@ var staticRenderFns = [
         { staticClass: "input-group-text", attrs: { id: "x-addon2" } },
         [_vm._v("x")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "control-label" }, [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Unidad:\n                    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "control-label" }, [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Peso Bruto:\n                    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "control-label" }, [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Unidad:\n                    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { staticClass: "control-label" }, [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Número de bultos:\n                    ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Peso Total:")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Volumen Total:")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 mb-2" }, [
+      _c("h4", { staticClass: "title" }, [
+        _vm._v(
+          "\n                        Observaciones de la mercancia\n                    "
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Servicio\n                    ")
     ])
   }
 ]
@@ -51188,7 +51900,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 //  */
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-Vue.component('productos-component', __webpack_require__(/*! ./components/ProductosComponent.vue */ "./resources/js/components/ProductosComponent.vue").default); // SERVICIO AEREO
+Vue.component('mercancias-component', __webpack_require__(/*! ./components/MercanciaComponent.vue */ "./resources/js/components/MercanciaComponent.vue").default); // SERVICIO AEREO
 
 Vue.component('servaereo-component', __webpack_require__(/*! ./components/ServaereoComponent.vue */ "./resources/js/components/ServaereoComponent.vue").default);
 Vue.component('cargoaereo-component', __webpack_require__(/*! ./components/CargoaereoComponent.vue */ "./resources/js/components/CargoaereoComponent.vue").default);
@@ -51651,17 +52363,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/ProductosComponent.vue":
+/***/ "./resources/js/components/MercanciaComponent.vue":
 /*!********************************************************!*\
-  !*** ./resources/js/components/ProductosComponent.vue ***!
+  !*** ./resources/js/components/MercanciaComponent.vue ***!
   \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ProductosComponent_vue_vue_type_template_id_0c04ebd5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProductosComponent.vue?vue&type=template&id=0c04ebd5& */ "./resources/js/components/ProductosComponent.vue?vue&type=template&id=0c04ebd5&");
-/* harmony import */ var _ProductosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProductosComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/ProductosComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _MercanciaComponent_vue_vue_type_template_id_3b36423a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MercanciaComponent.vue?vue&type=template&id=3b36423a& */ "./resources/js/components/MercanciaComponent.vue?vue&type=template&id=3b36423a&");
+/* harmony import */ var _MercanciaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MercanciaComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/MercanciaComponent.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -51671,9 +52383,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ProductosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ProductosComponent_vue_vue_type_template_id_0c04ebd5___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ProductosComponent_vue_vue_type_template_id_0c04ebd5___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _MercanciaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MercanciaComponent_vue_vue_type_template_id_3b36423a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MercanciaComponent_vue_vue_type_template_id_3b36423a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -51683,38 +52395,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/ProductosComponent.vue"
+component.options.__file = "resources/js/components/MercanciaComponent.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/ProductosComponent.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/components/MercanciaComponent.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************!*\
-  !*** ./resources/js/components/ProductosComponent.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/components/MercanciaComponent.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ProductosComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProductosComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductosComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MercanciaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./MercanciaComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MercanciaComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MercanciaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/ProductosComponent.vue?vue&type=template&id=0c04ebd5&":
+/***/ "./resources/js/components/MercanciaComponent.vue?vue&type=template&id=3b36423a&":
 /*!***************************************************************************************!*\
-  !*** ./resources/js/components/ProductosComponent.vue?vue&type=template&id=0c04ebd5& ***!
+  !*** ./resources/js/components/MercanciaComponent.vue?vue&type=template&id=3b36423a& ***!
   \***************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductosComponent_vue_vue_type_template_id_0c04ebd5___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ProductosComponent.vue?vue&type=template&id=0c04ebd5& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProductosComponent.vue?vue&type=template&id=0c04ebd5&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductosComponent_vue_vue_type_template_id_0c04ebd5___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MercanciaComponent_vue_vue_type_template_id_3b36423a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./MercanciaComponent.vue?vue&type=template&id=3b36423a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/MercanciaComponent.vue?vue&type=template&id=3b36423a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MercanciaComponent_vue_vue_type_template_id_3b36423a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProductosComponent_vue_vue_type_template_id_0c04ebd5___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MercanciaComponent_vue_vue_type_template_id_3b36423a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

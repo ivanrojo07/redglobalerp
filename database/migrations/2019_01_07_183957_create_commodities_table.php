@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNatProductosTable extends Migration
+class CreateCommoditiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateNatProductosTable extends Migration
      */
     public function up()
     {
-        Schema::create('nat_productos', function (Blueprint $table) {
+        Schema::create('commodities', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
             $table->string('descripcion')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +29,6 @@ class CreateNatProductosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nat_productos');
+        Schema::dropIfExists('commodities');
     }
 }

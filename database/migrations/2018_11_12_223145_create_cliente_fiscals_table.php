@@ -31,6 +31,7 @@ class CreateClienteFiscalsTable extends Migration
             $table->string('calle1')->nullable();
             $table->string('calle2')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

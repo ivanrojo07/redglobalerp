@@ -46,6 +46,7 @@ class CreateEmpleadosTable extends Migration
             $table->string('calles')->nullable();
             $table->string('referencia')->nullable();          
             $table->timestampsTz();
+            $table->softDeletes();
         });
     }
 

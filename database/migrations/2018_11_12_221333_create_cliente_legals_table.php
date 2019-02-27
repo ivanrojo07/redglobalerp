@@ -23,6 +23,7 @@ class CreateClienteLegalsTable extends Migration
             $table->string('rfc')->nullable();
             $table->date('fecha_l');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

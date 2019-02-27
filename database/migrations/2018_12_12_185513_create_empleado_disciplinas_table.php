@@ -21,6 +21,7 @@ class CreateEmpleadoDisciplinasTable extends Migration
             $table->string('tipoindisciplina');
             $table->text('motivo');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

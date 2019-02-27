@@ -37,6 +37,7 @@ class CreateClientesTable extends Migration
             $table->foreign('cliente_credential_id')->references('id')->on('cliente_credentials');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

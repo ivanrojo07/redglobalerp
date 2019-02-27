@@ -25,6 +25,7 @@ class CreateEmpleadoVacacionsTable extends Migration
             // $table->string('periodo2')->nullable();
             // $table->string('diastotal')->nullable();
             $table->timestampsTz();
+            $table->softDeletes();
         });
     }
 

@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class EmpleadoDatoslab extends Model
 {
+    use SoftDeletes;
     //
      protected $table='empleado_datoslabs';
     protected $fillable=['id',
@@ -33,7 +35,12 @@ class EmpleadoDatoslab extends Model
                      ];
         
     protected $hidden=['created_at','updated_at'];
-    public $sortable=['id'];
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
     public function empleado(){
     	return $this->belongsTo('App\Empleado');

@@ -110,11 +110,6 @@
                                         <i class="fas fa-upload"></i> Tipo de licencias
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/nat_productos')}}','Naturaleza del producto')">
-                                        <i class="fas fa-upload"></i> Naturaleza del producto
-                                    </a>
-                                </li>
                             </ul>
                         </li>
                         {{-- CLIENTES --}}
@@ -141,22 +136,6 @@
                                                 <i class="far fa-id-card"></i> Ver credenciales
                                             </a>
                                         </li>
-                                        {{-- <li class="dropdown-submenu">
-                                          <a class="dropdown-item" href="#">Even More..</a>
-                                          <ul class="dropdown-menu">
-                                              <li class="dropdown-item"><a href="#">3rd level</a></li>
-                                                <li class="dropdown-submenu"><a class="dropdown-item" href="#">another level</a>
-                                                <ul class="dropdown-menu">
-                                                    <li class="dropdown-item"><a href="#">4th level</a></li>
-                                                    <li class="dropdown-item"><a href="#">4th level</a></li>
-                                                    <li class="dropdown-item"><a href="#">4th level</a></li>
-                                                </ul>
-                                              </li>
-                                                <li class="dropdown-item"><a href="#">3rd level</a></li>
-                                          </ul>
-                                        </li>
-                                        <li class="dropdown-item"><a href="#">Second level</a></li>
-                                        <li class="dropdown-item"><a href="#">Second level</a></li> --}}
                                     </ul>
                                 </li>
                             </ul>
@@ -164,11 +143,21 @@
 
                         {{-- PROYECTOS --}}
                         <li class="dropdown">
-                            <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"> <i class="fas fa-truck-loading"></i> Proyectos</a>
+                            <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"> <i class="fas fa-truck-loading"></i> Cotizaciones</a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
                                     <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/proyectos') }}','Proyectos')">
-                                       <i class="fas fa-people-carry"></i> Proyectos
+                                       <i class="fas fa-people-carry"></i> Cotizaciones
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/commodities')}}','Naturaleza del producto')">
+                                        <i class="fas fa-upload"></i> Naturaleza del producto/Commodities
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/servicios')}}','Servicios extras')">
+                                        <i class="fas fa-upload"></i> Servicios Extras
                                     </a>
                                 </li>
                             </ul>

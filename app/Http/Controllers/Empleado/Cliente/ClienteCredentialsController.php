@@ -20,6 +20,7 @@ class ClienteCredentialsController extends Controller
     {
         //
         $credenciales = ClienteCredential::orderBy('created_at','desc')->paginate(10);
+        return view('empleado.cliente.credential.index',['credenciales'=>$credenciales]);
     }
 
     /**
@@ -44,7 +45,7 @@ class ClienteCredentialsController extends Controller
         //
         $rules = [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:cliente_credentials',
             'password' => 'required|string|min:6|confirmed'
         ];
         $this->validate($request, $rules);
@@ -66,45 +67,67 @@ class ClienteCredentialsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ClienteCredential  $clienteCredential
+     * @param  \App\ClienteCredential  $credencial
      * @return \Illuminate\Http\Response
      */
-    public function show(ClienteCredential $clienteCredential)
+    public function show(ClienteCredential $credencial)
     {
         //
+        // dd($credencial);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ClienteCredential  $clienteCredential
+     * @param  \App\ClienteCredential  $credencial
      * @return \Illuminate\Http\Response
      */
-    public function edit(ClienteCredential $clienteCredential)
+    public function edit(ClienteCredential $credencial)
     {
         //
+        return view('empleado.cliente.credential.form',['credencial'=>$credencial,'edit'=>true]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ClienteCredential  $clienteCredential
+     * @param  \App\ClienteCredential  $credencial
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ClienteCredential $clienteCredential)
+    public function update(Request $request, ClienteCredential $credencial)
     {
         //
+        $rules = [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:cliente_credentials,id,'.$credencial->id,
+        ];
+        $this->validate($request, $rules);
+        $credencial->update([
+            'name' =>$request->name,
+            'email'=>$request->email,
+            'password'=>Hash::make($request->password)
+        ]);
+        if ($credencial) {
+            // $credencial->sendCredentialNotification($request->password);
+            Alert::success('Registro guardado');
+            return redirect()->route('credencials.index');
+        } else {
+            Alert::danger('Error al guardar el registro');
+            return redirect()->route('credencials.index');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ClienteCredential  $clienteCredential
+     * @param  \App\ClienteCredential  $credencial
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ClienteCredential $clienteCredential)
+    public function destroy(ClienteCredential $credencial)
     {
-        //
+        $credencial->delete();
+        Alert::success('Registro eliminado');
+        return redirect()->route('credencials.index');
     }
 }

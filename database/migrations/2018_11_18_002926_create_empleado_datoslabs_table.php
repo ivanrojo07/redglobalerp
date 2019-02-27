@@ -42,6 +42,7 @@ class CreateEmpleadoDatoslabsTable extends Migration
             $table->text('comentariobaja')->nullable();
             $table->boolean('bonopuntualidad')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

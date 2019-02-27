@@ -22,6 +22,7 @@ class CreateEmpleadoAccidentesTable extends Migration
             $table->string('lugar');
             $table->text('comentarios')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

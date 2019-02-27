@@ -36,6 +36,7 @@ class CreateClienteBancosTable extends Migration
             $table->string('uso_cfdi')->nullable();
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

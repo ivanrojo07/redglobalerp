@@ -43,6 +43,7 @@ Route::prefix('client')->group(function(){
 	Route::get('/password/reset','Auth\ClienteForgotPasswordController@showLinkRequestForm')->name('cliente.password.request');
 	Route::post('/password/reset','Auth\ClienteResetPasswordController@reset');
 	Route::get('/password/reset/{token}','Auth\ClienteResetPasswordController@showResetForm')->name('cliente.password.reset');
+	Route::resource('cotizacions','Cliente\CotizacionController');
 
 });
 
@@ -80,7 +81,7 @@ Route::resource('empleados.beneficiario','Empleado\EmpleadoBeneficiarioControlle
 
 // EMPLEADOS VER CLIENTES
 Route::prefix('empleado')->group(function(){
-	Route::resource('credencials','Empleado\Cliente\ClienteCredentialsController');
+	Route::resource('credencials','Empleado\Cliente\ClienteCredentialsController',['except'=>['show']]);
 });
 
 
@@ -106,10 +107,13 @@ Route::get('{proyecto}/aereo','Tarifas\AereoController@create')->name('proyectos
 Route::get('{proyecto}/terrestre','Tarifas\TerrestreController@create')->name('proyectos.terrestres.create');
 //	ajax
 Route::get('buscarDL/{datoslab}','Empleado\EmpleadoDatosLabController@show'); 
+Route::get('getCommodities','Precargas\CommodityController@getCommodities');
+Route::get('getServicios/{servicio}','Precargas\ServiciosController@getServicios');
 // PRECARGAS
 Route::resource('puestos','Precargas\TipoPuestoController');
 Route::resource('contratos','Precargas\TipoContratoController');
 Route::resource('bajas','Precargas\TipoBajasController');
 Route::resource('licencias','Precargas\TipoLicenciaController');
-Route::resource('nat_productos','Precargas\NatProductoController');
+Route::resource('commodities','Precargas\CommodityController');
+Route::resource('servicios','Precargas\ServiciosController');
 // Route::get('/home', 'HomeController@index')->name('home');

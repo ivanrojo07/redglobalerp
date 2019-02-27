@@ -2,21 +2,21 @@
 
 namespace App\Http\Controllers\Precargas;
 
-use App\NatProducto;
+use App\Servicio;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use UxWeb\SweetAlert\SweetAlert as Alert;
 
-class NatProductoController extends Controller
+class ServiciosController extends Controller
 {
     public function __construct() {
-        $this->titulo = 'Tipo de naturaleza del producto';
-        $this->agregar = 'nat_productos.create';
-        $this->guardar = 'nat_productos.store';
-        $this->editar ='nat_productos.edit';
-        $this->actualizar = 'nat_productos.update';
-        $this->borrar ='nat_productos.destroy';
-        $this->buscar = 'buscarnat_producto';
+        $this->titulo = 'Servicios';
+        $this->agregar = 'servicios.create';
+        $this->guardar = 'servicios.store';
+        $this->editar ='servicios.edit';
+        $this->actualizar = 'servicios.update';
+        $this->borrar ='servicios.destroy';
+        $this->buscar = 'buscarservicios';
         // $this->middleware(function ($request, $next) {
         //     if(Auth::check()) {
         //         foreach (Auth::user()->perfil->componentes as $componente)
@@ -35,8 +35,8 @@ class NatProductoController extends Controller
     public function index()
     {
         //
-        $nat_producto = NatProducto::paginate(10);
-        return view('precargas.index',['precargas'=>$nat_producto, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
+        $servicios = Servicio::paginate(10);
+        return view('servicio.index',['servicios'=>$servicios, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 
     /**
@@ -47,7 +47,7 @@ class NatProductoController extends Controller
     public function create()
     {
         //
-         return view('precargas.create',['titulo'=>$this->titulo,'guardar'=>$this->guardar]);
+         return view('servicio.create',['titulo'=>$this->titulo,'guardar'=>$this->guardar]);
     }
 
     /**
@@ -59,18 +59,18 @@ class NatProductoController extends Controller
     public function store(Request $request)
     {
         //
-        NatProducto::create($request->all());
+        Servicio::create($request->all());
         Alert::success('Información Agregada', 'Se ha registrado correctamente la información');
-        return redirect()->route('nat_productos.index');
+        return redirect()->route('servicios.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\NatProducto  $NatProducto
+     * @param  \App\Servicio  $Servicio
      * @return \Illuminate\Http\Response
      */
-    public function show(NatProducto $NatProducto)
+    public function show(Servicio $Servicio)
     {
         //
     }
@@ -78,59 +78,60 @@ class NatProductoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\NatProducto  $NatProducto
+     * @param  \App\Servicio  $Servicio
      * @return \Illuminate\Http\Response
      */
-    public function edit(NatProducto $nat_producto)
+    public function edit(Servicio $servicio)
     {
         //
-        // dd($nat_producto);
-        return view('precargas.edit',['precarga'=>$nat_producto, 'titulo'=>$this->titulo,'actualizar'=>$this->actualizar]);
+        // dd($servicio);
+        return view('servicio.edit',['servicio'=>$servicio, 'titulo'=>$this->titulo,'actualizar'=>$this->actualizar]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\NatProducto  $NatProducto
+     * @param  \App\Servicio  $servicio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NatProducto $nat_producto)
+    public function update(Request $request, Servicio $servicio)
     {
         //
-        $nat_producto->update($request->all());
+        $servicio->update($request->all());
         Alert::success('Información actualizada', 'Se ha actualizado correctamente la información');
-        return redirect()->route('nat_productos.index');
+        return redirect()->route('servicios.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\NatProducto  $NatProducto
+     * @param  \App\Servicio  $servicio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(NatProducto $nat_producto)
+    public function destroy(Servicio $servicio)
     {
         //
-        $nat_producto->delete();
+        $servicio->delete();
         Alert::success('Información eliminada', 'Se ha eliminado correctamente la información');
-        return redirect()->route('nat_productos.index');
+        return redirect()->route('servicios.index');
     }
     public function buscar(Request $request){
         $query = $request->input('query');
         $wordsquery = explode(' ',$query);
-        $NatProducto = NatProducto::where(function ($q) use($wordsquery){
+        $servicio = Servicio::where(function ($q) use($wordsquery){
             foreach ($wordsquery as $word) {
                 # code...
                 $q->orWhere('nombre','LIKE',"%$word%")
                     ->orWhere('descripcion','LIKE',"%$word%");
             }
         })->paginate(50);
-        return view('precargas.index',['precargas'=>$NatProducto, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
+        return view('servicio.index',['servicio'=>$servicio, 'agregar'=>$this->agregar, 'editar'=>$this->editar,'borrar'=>$this->borrar,'titulo'=>$this->titulo,'buscar'=>$this->buscar]);
     }
 
-     public function getnat_producto(){
-        $nat_producto = NatProducto::get();
-        return view('precargas.select',['precargas'=>$nat_producto]);
+     public function getServicios($servicio){
+        // return $servicio;
+        $servicios = Servicio::where('tipo_servicio',$servicio)->get();
+        return response()->json(['servicios'=>$servicios],201);
     }
 }

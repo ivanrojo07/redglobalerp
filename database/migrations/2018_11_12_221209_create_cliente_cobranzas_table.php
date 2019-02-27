@@ -24,6 +24,7 @@ class CreateClienteCobranzasTable extends Migration
             $table->string('dia_revision_factura');
             $table->string('dia_pago');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -28,6 +28,7 @@ class CreateCrmTable extends Migration
             $table->text('comentario')->nullable();
             $table->text('acuerdos')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -32,6 +32,7 @@ class CreateEmpleadoBeneficiariosTable extends Migration
             $table->string('unidad_medica');
             $table->string('turno_atencion');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

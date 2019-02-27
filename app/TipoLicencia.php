@@ -12,7 +12,12 @@ class TipoLicencia extends Model
 
     protected $fillable=['id','nombre','descripcion'];
     protected $hidden=['created_at','updated_at'];
-    public $sortable=['id','nombre','descripcion'];
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
     public function licencia(){
     	return $this->hasMany('App\EmpleadoLicencia', 'tipo_licencia_id');

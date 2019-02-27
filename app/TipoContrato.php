@@ -13,8 +13,13 @@ class TipoContrato extends Model
     protected $table = 'tipo_contratos';
     protected $fillable=['id','nombre','descripcion'];
     protected $hidden=['created_at','updated_at'];
-    public $sortable=['id','nombre','descripcion'];
-
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+    
     public function datosLab(){
     	return $this->hasMany('App\EmpleadoDatosLab');
     }

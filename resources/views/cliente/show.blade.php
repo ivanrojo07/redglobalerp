@@ -11,7 +11,7 @@
 				<li class="nav-item"><a href="#fiscales" class="nav-link" id="fiscalTab" data-toggle="tab" role="tab" aria-controls="fiscales" aria-selected="true">Datos Fiscales</a></li>
 				<li class="nav-item"><a href="#contactos" class="nav-link" id="contactoTab" data-toggle="tab" role="tab" aria-controls="contactos" aria-selected="true">Datos de Contacto</a></li>
 				<li class="nav-item"><a href="#comerciales" class="nav-link" id="comercialTab" data-toggle="tab" role="tab" aria-controls="comerciales" aria-selected="true">Condiciones Comerciales</a></li>
-				<li class="nav-item"><a href="#proyectos" class="nav-link" id="proyectoTab" data-toggle="tab" role="tab" aria-controls="proyectos" aria-selected="true">Proyectos</a></li>
+				<li class="nav-item"><a href="#proyectos" class="nav-link" id="proyectoTab" data-toggle="tab" role="tab" aria-controls="proyectos" aria-selected="true">Solicitud de cotización</a></li>
 				{{-- <li class="nav-item"><a href="#seguimiento" class="nav-link" id="seguimientoTab" data-toggle="tab" role="tab" aria-controls="seguimiento" aria-selected="true">Seguimiento</a></li> --}}
 				<li class="nav-item"><a href="#crm" class="nav-link" id="crmTab" data-toggle="tab" role="tab" aria-controls="crm" aria-selected="true">C.R.M.</a></li>
 			</ul>
@@ -205,7 +205,7 @@
 			<div class="tab-pane fade" id="proyectos" role="tabpanel" aria-labelledby="proyectos-tab" >
 				{{-- @component('cliente.proyecto.index',['cliente'=>$cliente]) --}}
 				{{-- @endcomponent --}}
-				<iframe src="{{ route('clientes.proyectos.index',['cliente'=>$cliente]) }}" id="proyectosFrame" style="height: 650px!important;" onload="this.height = this.contentWindow.document.body.scrollHeight + 'px';"></iframe>
+				<iframe src="{{ route('cotizacions.index',['cliente'=>$cliente]) }}" id="proyectosFrame" style="height: 650px!important;" onload="this.height = this.contentWindow.document.body.scrollHeight + 'px';"></iframe>
 			</div>
 			<div class="tab-pane fade" id="seguimiento" role="tabpanel" aria-labelledby="seguimiento-tab">
 				{{-- <iframe src="{{ route('clientes.crms.index',['cliente'=>$cliente]) }}" style="height: 650px!important;" id="seguimientoFrame"></iframe> --}}

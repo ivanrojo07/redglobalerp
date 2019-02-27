@@ -7,10 +7,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ClienteResetPasswordNotification;
 use App\Notifications\ClienteCredentialNotification;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ClienteCredential extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes;
 
     protected $guard = "cliente";
 
@@ -33,6 +34,12 @@ class ClienteCredential extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
 
     public function cliente()

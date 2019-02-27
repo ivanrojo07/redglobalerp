@@ -28,6 +28,7 @@ class CreateEmpleadoPermisosTable extends Migration
             $table->unsignedDecimal('horastotales',4,2)->nullable();
             $table->text('motivo');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

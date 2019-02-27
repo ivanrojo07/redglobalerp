@@ -3,10 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cliente extends Model
 {
     //
+    use SoftDeletes;
+
     protected $fillable = [
     	'tipo_cliente',
     	'razon_social',
@@ -26,6 +29,15 @@ class Cliente extends Model
     	'telefono',
     	'email'
     ];
+
+    protected $hidden=['created_at','updated_at'];
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
     public function banco()
     {
     	return $this->hasOne('App\ClienteBanco');
@@ -61,6 +73,10 @@ class Cliente extends Model
 
     public function credential(){
         return $thhis->belongsTo('App\ClienteCredential');
+    }
+
+    public function cotizacions(){
+        return $this->hasMany('App\Cotizacion');
     }
 
 }

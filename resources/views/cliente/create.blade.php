@@ -56,8 +56,6 @@
 								<option value="616 Sin obligaciones fiscales">616 Sin obligaciones fiscales</option>
 								<option value="620 Sicuedades Coperativas de Produccion que optan por diferir sus ingresos">620 Sicuedades Coperativas de Produccion que optan por diferir sus ingresos</option>
 								<option value="621 Incorporación Fiscal">621 Incorporación Fiscal</option>
-								<option value="621 Incorporación Fiscal">621 Incorporación Fiscal</option>
-								<option value="622 Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras">622 Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras</option>
 								<option value="622 Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras">622 Actividades Agrícolas, Ganaderas, Silvícolas y Pesqueras</option>
 								<option value="623 Opcional para Grupos de Sociedades">623 Opcional para Grupos de Sociedades</option>
 								<option value="624 Coordinados">624 Coordinados</option>
@@ -125,7 +123,7 @@
 						<input class="form-control" type="text" name="telefono">
 					</div>
 					<div class="col-4">
-						<label class="control-label">{{ __('Correo electronico') }}</label>
+						<label class="control-label">{{ __('Correo electronico (conforme a su registro fiscal)') }}</label>
 						<input class="form-control" type="email" name="email">
 					</div>
 				</div>
@@ -149,7 +147,7 @@
 				</div>
 				<div class="row form-group">
 					<div class="col-4">
-						<label class="control-label">{{ __('Correo electronico') }}</label>
+						<label class="control-label">{{ __('Correo electronico (para aclaración de pagos)') }}</label>
 						<input class="form-control" type="email" name="correo">
 					</div>
 					<div class="col-4">

@@ -36,6 +36,7 @@ class CreateEmpleadoEstudiosTable extends Migration
             $table->string('curso3')->nullable();
             $table->boolean('certificado3')->nullable();
             $table->timestampsTz();
+            $table->softDeletes();
         });
     }
 

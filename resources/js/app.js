@@ -19,7 +19,7 @@ window.Vue = require('vue');
 //  */
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('productos-component', require('./components/ProductosComponent.vue').default);
+Vue.component('mercancias-component', require('./components/MercanciaComponent.vue').default);
 
 // SERVICIO AEREO
 Vue.component('servaereo-component', require('./components/ServaereoComponent.vue').default);

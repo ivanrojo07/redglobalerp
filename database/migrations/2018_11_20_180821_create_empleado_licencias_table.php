@@ -23,6 +23,7 @@ class CreateEmpleadoLicenciasTable extends Migration
             $table->string('vehiculos')->nullable();
             $table->decimal('experiencia',3,1)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

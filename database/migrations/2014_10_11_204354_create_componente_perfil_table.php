@@ -20,6 +20,7 @@ class CreateComponentePerfilTable extends Migration
             $table->foreign('componente_id')->references('id')->on('componentes');
             $table->primary(['componente_id', 'perfil_id']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

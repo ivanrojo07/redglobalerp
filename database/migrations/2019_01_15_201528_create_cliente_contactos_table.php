@@ -30,6 +30,7 @@ class CreateClienteContactosTable extends Migration
             $table->string('celular')->nullable();
             $table->text('observaciones')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
