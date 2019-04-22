@@ -43,7 +43,9 @@
                             <i class="fas fa-asterisk"></i> Naturaleza del producto/Commodity:
                         </label>
                         <select class="form-control" id="naturaleza" :name="'naturaleza['+index+']'" v-model="mercancia.naturaleza" required>
-                            <option value="">Seleccione una opción</option>                            
+                            <option value="">Seleccione una opción</option>
+
+                                                       
                             <option v-for="commodity in commodities" :value="commodity.nombre" :title="commodity.descripcion">{{commodity.nombre}}</option>
                         </select>
                     </div>
@@ -278,7 +280,7 @@
                 }
             },
             getCommodities(){
-                let url = "../getCommodities";
+                let url = "/../getCommodities";
                 // let url = "../../getCommodities";
                 axios.get(url).then(res=>{
                     this.commodities = res.data.commodities;
@@ -287,7 +289,7 @@
                 });
             },
             getServicios(servicio){
-                let url=`../getServicios/${servicio}`;
+                let url=`/../getServicios/${servicio}`;
                 // let url=`../../getServicios/${servicio}`;
                 axios.get(url).then(res=>{
                     this.servicios=res.data.servicios;
