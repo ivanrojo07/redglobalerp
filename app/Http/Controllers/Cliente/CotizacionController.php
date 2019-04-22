@@ -27,7 +27,7 @@ class CotizacionController extends Controller
         //     dd('no');
         // }
         // dd('index');
-         $cotizaciones=Cotizacion::paginate(10);
+         $cotizaciones=$cliente->cotizacions;
         return view('Cliente.cotizacion.index',['cotizaciones' => $cotizaciones,'cliente'=>$cliente]);
     }
 
@@ -97,7 +97,7 @@ class CotizacionController extends Controller
         }
         //return view();
         // $mercancia=new Mercancia($request->all());
-        return 'guardado';
+        return $this->index($cliente);
     }
 
     /**
