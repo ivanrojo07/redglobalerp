@@ -280,7 +280,7 @@
                 }
             },
             getCommodities(){
-                let url = "/../getCommodities";
+                let url = "../../getCommodities";
                 // let url = "../../getCommodities";
                 axios.get(url).then(res=>{
                     this.commodities = res.data.commodities;

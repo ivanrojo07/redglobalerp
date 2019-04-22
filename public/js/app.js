@@ -2653,7 +2653,7 @@ __webpack_require__.r(__webpack_exports__);
     getCommodities: function getCommodities() {
       var _this = this;
 
-      var url = "/../getCommodities"; // let url = "../../getCommodities";
+      var url = "../../getCommodities"; // let url = "../../getCommodities";
 
       axios.get(url).then(function (res) {
         _this.commodities = res.data.commodities;
