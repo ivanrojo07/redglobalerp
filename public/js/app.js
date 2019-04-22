@@ -2653,7 +2653,7 @@ __webpack_require__.r(__webpack_exports__);
     getCommodities: function getCommodities() {
       var _this = this;
 
-      var url = "../../getCommodities"; // let url = "../../getCommodities";
+      var url = "/rgc/getCommodities"; //let url = "/getCommodities";
 
       axios.get(url).then(function (res) {
         _this.commodities = res.data.commodities;
@@ -2664,7 +2664,7 @@ __webpack_require__.r(__webpack_exports__);
     getServicios: function getServicios(servicio) {
       var _this2 = this;
 
-      var url = "/../getServicios/".concat(servicio); // let url=`../../getServicios/${servicio}`;
+      var url = "/rgc/getServicios/".concat(servicio); //let url=`/getServicios/${servicio}`;
 
       axios.get(url).then(function (res) {
         _this2.servicios = res.data.servicios;
