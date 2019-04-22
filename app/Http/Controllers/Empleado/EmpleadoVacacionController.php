@@ -33,9 +33,18 @@ class EmpleadoVacacionController extends Controller
     {
         //
         $vacaciones = $empleado->vacaciones;
-        $fecha_contratacion=$empleado->datosLab->first()->fechacontratacion;
-        $antiguedad= new Carbon($fecha_contratacion);
-        $antiguedad= $antiguedad->age;
+        if($empleado->datosLab->isEmpty())
+        {
+
+            $antiguedad=0;
+        }
+        else
+        {
+            $fecha_contratacion=$empleado->datosLab->first()->fechacontratacion;
+            $antiguedad= new Carbon($fecha_contratacion);
+            $antiguedad= $antiguedad->age;    
+        }
+        
         
         $diastotales = 0;
         if ($antiguedad == 1) {
