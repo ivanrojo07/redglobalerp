@@ -280,8 +280,8 @@
                 }
             },
             getCommodities(){
-                let url = "/../getCommodities";
-                // let url = "../../getCommodities";
+                let url = "/rgc/getCommodities";
+                //let url = "/getCommodities";
                 axios.get(url).then(res=>{
                     this.commodities = res.data.commodities;
                 }).catch(err=>{
@@ -289,8 +289,8 @@
                 });
             },
             getServicios(servicio){
-                let url=`/../getServicios/${servicio}`;
-                // let url=`../../getServicios/${servicio}`;
+                let url=`/rgc/getServicios/${servicio}`;
+                 //let url=`/getServicios/${servicio}`;
                 axios.get(url).then(res=>{
                     this.servicios=res.data.servicios;
                 }).catch(err=>{
