@@ -12,11 +12,9 @@ class Mercancia extends Model
 
     protected $fillable=[
     	'nombre',
-    	'line1_origen',
-        'line2_origen',
+    	'line1_origen',        
         'cp_origen',
-        'line1_destino',
-    	'line2_destino',
+        'line1_destino',    	
     	'cp_destino',
     	'naturaleza',
     	'alto',

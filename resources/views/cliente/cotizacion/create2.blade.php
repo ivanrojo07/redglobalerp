@@ -1,8 +1,7 @@
 @extends('layouts.blank')
 @section('content')
 	<div class="card">
-		<form method="POST" action="{{url('clientes/'.$cliente->id.'/cotizacion/store')  }}">
-			@csrf
+		<form method="POST" action="{{ route('cotizacions.store') }}">
 			<div class="card-header">
 				<h4>Solicitud de cotización: <span class="badge badge-secondary"><i class="fas fa-asterisk"></i> Campos obligatorios</span></h4>
 			</div>
@@ -10,7 +9,7 @@
 				@csrf
 				<div class="form-row">
 					<div class="form-group col-4">
-						<label class="control-label"><i class="fas fa-asterisk"></i> Nombre completo del responsable:</label>
+						<label class="control-label"><i class="fas fa-asterisk"></i> Nombre completo del responsable1:</label>
 						<input class="form-control" type="text" name="responsable" required="">
 					</div>
 					<div class="form-group col-4">
@@ -26,7 +25,7 @@
 			
 			<mercancias-component></mercancias-component>
 			<div class="d-flex justify-content-center mb-3">
-				<button type="submit" class="btn btn-success btn-lg" >>
+				<button type="submit" class="btn btn-success btn-lg">
 					<strong>
 						<i class="far fa-save"></i>
 						Guardar

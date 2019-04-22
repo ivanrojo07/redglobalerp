@@ -73,11 +73,17 @@ Route::resource('empleados.licencias','Empleado\EmpleadoLicenciaController');
 Route::resource('empleados.accidentes','Empleado\EmpleadoAccidenteController');
 Route::resource('empleados.permisos','Empleado\EmpleadoPermisoController');
 Route::resource('empleados.disciplinas','Empleado\EmpleadoDisciplinaController');
+//Route::resource('cotizacions','Cliente\CotizacionController');
 Route::resource('empleados.beneficiario','Empleado\EmpleadoBeneficiarioController',['only'=>['index','create','store','edit','update']]);
 // Route::resource('empleados.estudios', 'Empleado\EmpleadosEstudiosController');
 // Route::resource('empleados.emergencias', 'Empleado\EmpleadosEmergenciasController');
 // Route::resource('empleados.vacaciones', 'Empleado\EmpleadosVacacionesController');
 // Route::resource('empleados.faltas', 'Empleado\EmpleadosFaltasAdministrativasController');
+Route::get('cotizaciones/index','Empleado\CotizacionesController@index');
+Route::get('cotizaciones/create','Empleado\CotizacionesController@create');
+Route::get('cotizaciones/show','Empleado\CotizacionesController@show');
+//Route::post('cotizaciones/store','Empleado\CotizacionesController@store');
+
 
 // EMPLEADOS VER CLIENTES
 Route::prefix('empleado')->group(function(){
@@ -86,6 +92,10 @@ Route::prefix('empleado')->group(function(){
 
 
 // CLIENTES
+route::get('clientes/{cliente}/cotizacion/index','Cliente\CotizacionController@index');
+Route::get('clientes/{cliente}/cotizacion/create','Cliente\CotizacionController@create');
+Route::post('clientes/{cliente}/cotizacion/store','Cliente\CotizacionController@store');
+Route::get('clientes/{cliente}/{cotizacion}/cotizacion/show','Cliente\CotizacionController@show');
 Route::resource('clientes','Cliente\ClienteController');
 Route::resource('clientes.proyectos','Cliente\ClienteProyectosController');
 Route::resource('clientes.crms','Cliente\ClienteCRMController');

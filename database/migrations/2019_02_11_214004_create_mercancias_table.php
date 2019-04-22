@@ -19,12 +19,10 @@ class CreateMercanciasTable extends Migration
             $table->unsignedInteger('cotizacion_id');
             $table->foreign('cotizacion_id')->references('id')->on('cotizacions');
             // DIRECCION ORIGEN
-            $table->string('line1_origen');
-            $table->string('line2_origen')->nullable();
+            $table->text('line1_origen');
             $table->string('cp_origen');
             // DIRECCION DESTINO
-            $table->string('line1_destino');
-            $table->string('line2_destino')->nullable();
+            $table->text('line1_destino');
             $table->string('cp_destino');
             // Naturaleza
             $table->string('naturaleza');

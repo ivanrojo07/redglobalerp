@@ -141,12 +141,12 @@
                             </ul>
                         </li>
 
-                        {{-- PROYECTOS --}}
+                        {{-- Cotizaciones --}}
                         <li class="dropdown">
                             <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"> <i class="fas fa-truck-loading"></i> Cotizaciones</a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/proyectos') }}','Proyectos')">
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/cotizaciones/index') }}','Cotizaciones')">
                                        <i class="fas fa-people-carry"></i> Cotizaciones
                                     </a>
                                 </li>

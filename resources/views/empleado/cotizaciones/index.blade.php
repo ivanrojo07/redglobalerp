@@ -17,13 +17,13 @@
 							  </div>
 						</div>
 					</div>
-					<div class="col mt-3">
+					{{-- <div class="col mt-3">
 						<div class="col-sm-3">
-							 <a class="btn btn-info" href="{{ url('clientes/'.$cliente->id.'/cotizacion/create') }}">							        
+							 <a class="btn btn-info" href="{{ url('/cotizaciones/create') }}">							        
 							   Agregar Cotizacion
 							</a>
 						</div>
-					</div>
+					</div> --}}
 				</div>
 			</form>
 		</div>
@@ -31,12 +31,12 @@
 			<div id="datos" name="datos" class="container">
 				<table class="table table-striped table-bordered table-hover" style="color:rgb(51,51,51); border-collapse: collapse; margin-bottom: 0px;">
 					<thead>
-						<tr class="info">							
+						<tr class="info">											
 							<th>Nombre</th>
 							<th>Responsable</th>
 							<th>Telefono</th>
 							<th>Correo</th>
-							<th>Acciones</th>	
+							<th>Acciones</th>									
 						</tr>
 					</thead>
 					@foreach ($cotizaciones as $cotizacion)
@@ -46,15 +46,14 @@
 							style="cursor: pointer"
 							href="#{{$cotizacion->id}}"
 							>
-							
 							<td>{{$cotizacion->cliente->razon_social}}</td>
 							<td>{{$cotizacion->responsable}}</td>
 							<td>{{$cotizacion->telefono}}</td>
 							<td>{{$cotizacion->correo}}</td>
 							<td>
-								<a class="btn btn-success btn-sm" href="{{ url('clientes/'.$cliente->id.'/'.$cotizacion->id.'/cotizacion/show') }}"/><i class="fa fa-eye" aria-hidden="true"></i> 
+								<a class="btn btn-success btn-sm" href="{{ url('clientes/'.$cotizacion->cliente->id.'/'.$cotizacion->id.'/cotizacion/show') }}"/><i class="fa fa-eye" aria-hidden="true"></i> 
 								<strong>Ver</strong>	</a>
-							</td>							
+							</td>						
 							
 								{{-- <a class="btn btn-success btn-sm" href="{{ route('empleados.show',['empleado'=>$empleado]) }}"><i class="fa fa-eye" aria-hidden="true"></i> 
 							<strong>Ver</strong>	</a>

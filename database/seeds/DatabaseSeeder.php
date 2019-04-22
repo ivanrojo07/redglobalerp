@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             // ContratosTableSeeder::class,
             EmpleadoTableSeeder::class,
             // DatosLaboralesTableSeeder::class,
-            UserTableSeeder::class
+            UserTableSeeder::class,
+            CotizacionTableSeeder::class
         ]);
     }
 }

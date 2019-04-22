@@ -29,6 +29,12 @@ class Cotizacion extends Model
     {
         return $this->belongsTo('App\Cliente');
     }
+
+    public function Empleado()
+    {
+        return $this->belongsTo('App\Empleado');
+    }
+
     public function mercancias()
     {
         return $this->hasMany('App\Mercancia');

@@ -43,7 +43,7 @@
                             <i class="fas fa-asterisk"></i> Naturaleza del producto/Commodity:
                         </label>
                         <select class="form-control" id="naturaleza" :name="'naturaleza['+index+']'" v-model="mercancia.naturaleza" required>
-                            <option value="">Seleccione una opción</option>
+                            <option value="">Seleccione una opción</option>                            
                             <option v-for="commodity in commodities" :value="commodity.nombre" :title="commodity.descripcion">{{commodity.nombre}}</option>
                         </select>
                     </div>
@@ -67,11 +67,7 @@
                     </div>
                     <div class="col-4 form-group">
                         <label><i class="fas fa-asterisk"></i> Linea 1</label>
-                        <input type="text" class="form-control" v-model="mercancia.linea1_origen" :name="'linea1_origen['+index+']'" required="">
-                    </div>
-                    <div class="col-4 form-group">
-                        <label>Linea 2</label>
-                        <input type="text" class="form-control" v-model="mercancia.linea2_destino" :name="'linea2_origen['+index+']'">
+                        <textarea rows="1" type="text" class="form-control" v-model="mercancia.linea1_origen" :name="'linea1_origen['+index+']'" required=""></textarea>
                     </div>
                     <div class="col-4 form-group">
                         <label><i class="fas fa-asterisk"></i> Código Postal</label>
@@ -84,11 +80,7 @@
                     </div>
                     <div class="col-4 form-group">
                         <label><i class="fas fa-asterisk"></i> Linea 1</label>
-                        <input type="text" class="form-control" v-model="mercancia.linea1_destino" :name="'linea1_destino['+index+']'" required="">
-                    </div>
-                    <div class="col-4 form-group">
-                        <label>Linea 2</label>
-                        <input type="text" class="form-control" v-model="mercancia.linea2_destino" :name="'linea2_destino['+index+']'" >
+                        <textarea rows="1" type="text" class="form-control" v-model="mercancia.linea1_destino" :name="'linea1_destino['+index+']'" required=""></textarea>
                     </div>
                     <div class="col-4 form-group">
                         <label><i class="fas fa-asterisk"></i> Código Postal</label>
@@ -286,7 +278,8 @@
                 }
             },
             getCommodities(){
-                let url = "../../getCommodities";
+                let url = "../getCommodities";
+                // let url = "../../getCommodities";
                 axios.get(url).then(res=>{
                     this.commodities = res.data.commodities;
                 }).catch(err=>{
@@ -294,7 +287,8 @@
                 });
             },
             getServicios(servicio){
-                let url=`../../getServicios/${servicio}`;
+                let url=`../getServicios/${servicio}`;
+                // let url=`../../getServicios/${servicio}`;
                 axios.get(url).then(res=>{
                     this.servicios=res.data.servicios;
                 }).catch(err=>{

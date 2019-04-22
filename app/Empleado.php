@@ -103,4 +103,8 @@ class Empleado extends Model
     public function beneficiario(){
         return $this->hasOne('App\EmpleadoBeneficiario');
     }
+
+    public function cotizaciones(){
+        return $this->hasMany('App\Cotizacion');
+    }
 }

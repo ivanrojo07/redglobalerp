@@ -2588,14 +2588,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2659,7 +2651,8 @@ __webpack_require__.r(__webpack_exports__);
     getCommodities: function getCommodities() {
       var _this = this;
 
-      var url = "../../getCommodities";
+      var url = "../getCommodities"; // let url = "../../getCommodities";
+
       axios.get(url).then(function (res) {
         _this.commodities = res.data.commodities;
       }).catch(function (err) {
@@ -2669,7 +2662,8 @@ __webpack_require__.r(__webpack_exports__);
     getServicios: function getServicios(servicio) {
       var _this2 = this;
 
-      var url = "../../getServicios/".concat(servicio);
+      var url = "../getServicios/".concat(servicio); // let url=`../../getServicios/${servicio}`;
+
       axios.get(url).then(function (res) {
         _this2.servicios = res.data.servicios;
       }).catch(function (err) {
@@ -39241,7 +39235,7 @@ var render = function() {
                 _c("div", { staticClass: "col-4 form-group" }, [
                   _vm._m(6, true),
                   _vm._v(" "),
-                  _c("input", {
+                  _c("textarea", {
                     directives: [
                       {
                         name: "model",
@@ -39252,6 +39246,7 @@ var render = function() {
                     ],
                     staticClass: "form-control",
                     attrs: {
+                      rows: "1",
                       type: "text",
                       name: "linea1_origen[" + index + "]",
                       required: ""
@@ -39265,39 +39260,6 @@ var render = function() {
                         _vm.$set(
                           mercancia,
                           "linea1_origen",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-4 form-group" }, [
-                  _c("label", [_vm._v("Linea 2")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: mercancia.linea2_destino,
-                        expression: "mercancia.linea2_destino"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      name: "linea2_origen[" + index + "]"
-                    },
-                    domProps: { value: mercancia.linea2_destino },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          mercancia,
-                          "linea2_destino",
                           $event.target.value
                         )
                       }
@@ -39340,7 +39302,7 @@ var render = function() {
                 _c("div", { staticClass: "col-4 form-group" }, [
                   _vm._m(9, true),
                   _vm._v(" "),
-                  _c("input", {
+                  _c("textarea", {
                     directives: [
                       {
                         name: "model",
@@ -39351,6 +39313,7 @@ var render = function() {
                     ],
                     staticClass: "form-control",
                     attrs: {
+                      rows: "1",
                       type: "text",
                       name: "linea1_destino[" + index + "]",
                       required: ""
@@ -39364,39 +39327,6 @@ var render = function() {
                         _vm.$set(
                           mercancia,
                           "linea1_destino",
-                          $event.target.value
-                        )
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-4 form-group" }, [
-                  _c("label", [_vm._v("Linea 2")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: mercancia.linea2_destino,
-                        expression: "mercancia.linea2_destino"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "text",
-                      name: "linea2_destino[" + index + "]"
-                    },
-                    domProps: { value: mercancia.linea2_destino },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          mercancia,
-                          "linea2_destino",
                           $event.target.value
                         )
                       }
@@ -64245,8 +64175,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;function _type
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\RGC\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\RGC\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\redglobal\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\redglobal\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
