@@ -156,7 +156,8 @@
 						<label class="control-label" for="identificador">  Observaciones :</label>
 						<dd>{{ $valor->observaciones}}</dd>	
 					</div>
-			 	</div>			 									
+			 	</div>
+			 	<hr style="border:solid black 1px">
 		@endforeach
 	</div>
 			
