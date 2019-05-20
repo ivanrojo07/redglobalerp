@@ -27,7 +27,7 @@ class CotizacionController extends Controller
         //     dd('no');
         // }
         // dd('index');
-         $cotizaciones=Cotizacion::paginate(10);
+         $cotizaciones=$cliente->cotizacions;
         return view('Cliente.cotizacion.index',['cotizaciones' => $cotizaciones,'cliente'=>$cliente]);
     }
 
@@ -63,6 +63,7 @@ class CotizacionController extends Controller
         $cotizacion->cliente_id=$cliente->id;
         $cotizacion->save();        
         // $cotizacion=[];
+
         foreach ($request->nombre as $key => $nombre) {
             $mercancia= new Mercancia([
                 'nombre'=>$nombre,
@@ -97,7 +98,7 @@ class CotizacionController extends Controller
         }
         //return view();
         // $mercancia=new Mercancia($request->all());
-        return 'guardado';
+        return $this->index($cliente);
     }
 
     /**
@@ -119,9 +120,9 @@ class CotizacionController extends Controller
      * @param  \App\Cotizacion  $cotizacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cotizacion $cotizacion)
+    public function edit(Cliente $cliente,Cotizacion $cotizacion)
     {
-        //
+        return view('cliente.cotizacion.edit',['cotizacion'=>$cotizacion]);
     }
 
     /**
@@ -133,7 +134,83 @@ class CotizacionController extends Controller
      */
     public function update(Request $request, Cotizacion $cotizacion)
     {
-        //
+        //dd($cotizacion);
+        $cotizacion_nueva=new Cotizacion([
+                'responsable'=>$request->responsable,
+                'telefono'=>$request->telefono,
+                'correo'=>$request->correo                
+            ]);
+        //dd($cotizacion);
+        $cotizacion_nueva->cliente_id=$cotizacion->cliente_id;        
+        $cotizacion_nueva->folio_consecutivo=$this->Folio($cotizacion->folio_consecutivo,$cotizacion->id);  
+        //dd($cotizacion_nueva);
+        $cotizacion_nueva->save();
+
+        //if(is_array || is_object)
+        foreach ($request->nombre as $key => $nombre) {            
+            $mercancia= new Mercancia([
+
+                'nombre'=>$nombre,
+                'line1_origen'=>$request->linea1_origen[$key],                
+                'cp_origen'=>$request->cp_origen[$key],
+                'line1_destino'=>$request->linea1_destino[$key],                
+                'cp_destino'=>$request->cp_destino[$key],
+                'naturaleza'=>$request->naturaleza[$key],
+                'alto'=>$request->alto[$key],
+                'ancho'=>$request->ancho[$key],
+                'profundo'=>$request->profundo[$key],
+                'medidas'=>$request->medidas[$key],
+                'peso_br'=>$request->peso_br[$key],
+                'medida_peso'=>$request->medida_peso[$key],
+                'bultos'=>$request->bultos[$key],
+                'peso_total'=>$request->peso_total[$key],
+                'volumen_total'=>$request->volumen_total[$key],
+                'tipo_servicio'=>$request->tipo_servicio[$key],
+                'observaciones'=>$request->observaciones[$key],
+                'eta'=>$request->eta[$key]
+            ]);
+            if($request->despacho_aduanal[$key]) 
+            {
+                $mercancia->despacho_aduanal=true;
+            } 
+            else
+            {
+                $mercancia->despacho_aduanal=false;
+            }
+            $mercancia->cotizacion_id=$cotizacion_nueva->id;
+            $mercancia->save();
+        }
+
+        return $this->show($cotizacion_nueva->cliente,$cotizacion_nueva);
+    }
+
+    public function VerificarFolio($folio_final,$id)
+    {
+        $comparar=Cotizacion::where('folio_consecutivo',$folio_final)->get();        
+        if(sizeof($comparar))
+        {           
+            return $this->Folio($folio_final,$id); 
+        }
+        else
+        {
+            return $folio_final;
+        }
+    }
+
+    public function Folio($folio_consecutivo,$id)
+    {        
+        if($folio_consecutivo)
+        {
+            
+            $num=substr(''.$folio_consecutivo.'',0,-1);            
+            $folio=ord(substr(''.$folio_consecutivo.'',-1));
+            $folioFinal=$num.chr($folio+1);            
+        }
+        else
+        {
+            $folioFinal=''.$id.'A';
+        }       
+       return $this->VerificarFolio($folioFinal, $id);
     }
 
     /**

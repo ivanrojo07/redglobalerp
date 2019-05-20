@@ -22,7 +22,7 @@ class CotizacionesController extends Controller
 
     public function index()
     {
-        $cotizaciones=Cotizacion::paginate(10);
+        $cotizaciones=Cotizacion::get();
         return view('empleado.cotizaciones.index',['cotizaciones' => $cotizaciones,]);
         
     }

@@ -7,6 +7,7 @@ use App\ClienteBanco;
 use App\ClienteCobranza;
 use App\ClienteDocumento;
 use App\ClienteLegal;
+use App\Prospecto;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -46,6 +47,7 @@ class ClienteController extends Controller
     public function create()
     {
         //
+        
         $edit = false;
         $tipo = null;
         $cliente = new Cliente;

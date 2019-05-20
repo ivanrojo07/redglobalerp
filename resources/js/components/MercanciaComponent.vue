@@ -43,9 +43,7 @@
                             <i class="fas fa-asterisk"></i> Naturaleza del producto/Commodity:
                         </label>
                         <select class="form-control" id="naturaleza" :name="'naturaleza['+index+']'" v-model="mercancia.naturaleza" required>
-                            <option value="">Seleccione una opción</option>
-
-                                                       
+                            <option value="">Seleccione una opción</option>                            
                             <option v-for="commodity in commodities" :value="commodity.nombre" :title="commodity.descripcion">{{commodity.nombre}}</option>
                         </select>
                     </div>
@@ -60,7 +58,21 @@
                             <option value="Maritimo FCL">Maritimo FCL</option>
                             <option value="Maritimo LCL">Maritimo LCL</option>
                             <option value="Aereo">Aereo</option>
+                            <option value="Ferroviario">Ferroviario</option>
                         </select>
+                    </div>
+                    <div class="col-12 mb-2">
+                        <h4 class="title">
+                            Material peligroso <input type="checkbox" id="Peligroso">
+                        </h4>
+                    </div>
+                    <div class="col-4 form-group" id="clase_peligrosa" style="display: none">
+                        <label><i class="fas fa-asterisk"></i> Clase</label>
+                        <input type="number" class="form-control" v-model="mercancia.peligroso_clase" :name="'peligroso_clase['+index+']'" max="9" min="1"></input>
+                    </div>
+                    <div class="col-4 form-group" id="nu_peligroso" style="display: none">
+                        <label><i class="fas fa-asterisk"></i> NU</label>
+                        <input type="text" class="form-control" v-model="mercancia.peligroso_nu" :name="'peligroso_nu['+index+']'">
                     </div>
                     <div class="col-12 mb-2">
                         <h4 class="title">
@@ -75,6 +87,7 @@
                         <label><i class="fas fa-asterisk"></i> Código Postal</label>
                         <input type="text" class="form-control" v-model="mercancia.cp_origen" :name="'cp_origen['+index+']'" required="">
                     </div>
+
                     <div class="col-12 mb-2">
                         <h4 class="title">
                             Dirección de destino
@@ -87,6 +100,15 @@
                     <div class="col-4 form-group">
                         <label><i class="fas fa-asterisk"></i> Código Postal</label>
                         <input type="text" class="form-control" v-model="mercancia.cp_destino" :name="'cp_destino['+index+']'" required="">
+                    </div>
+
+                    <div class="col-4 form-group">
+                        <label><i class="fas fa-asterisk"></i> eta</label>
+                        <input type="date" class="form-control" v-model="mercancia.eta" :name="'eta['+index+']'" required="">
+                    </div>
+                    <div class="col-4 form-group">
+                        <label><i class="fas fa-question-circle"></i>Requiere despacho aduanal</label>
+                        <input type="checkbox" v-model="mercancia.despacho_aduanal" :name="'despacho_aduanal['+index+']'">
                     </div>
                     <div class="col-12 mb-2">
                         <h4 class="title">
@@ -220,6 +242,26 @@
 </template>
 
 <script>
+
+    $(document).ready(function() {
+        //set initial state.
+        //$('#textbox1').val($(this).is(':checked'));
+
+        $('#Peligroso').change(function() {
+            if(this.checked) {
+                //alert('checked');
+                $('#clase_peligrosa').show();
+                $('#nu_peligroso').show();
+            }
+            else{
+                $('#clase_peligrosa').hide();
+                $('#nu_peligroso').hide();
+            }
+            //$('#textbox1').val($(this).is(':checked'));        
+        });
+    });
+
+
     export default {
         data(){
             return{

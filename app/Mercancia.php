@@ -27,7 +27,12 @@ class Mercancia extends Model
     	'peso_total',
     	'volumen_total',
     	'tipo_servicio',
-    	'observaciones'
+    	'observaciones',
+        //agregado
+        'eta',
+        'despacho_aduanal',
+        'peligroso_clase',
+        'peligroso_nu'
     ];
     protected $hidden=[
     	'created_at',

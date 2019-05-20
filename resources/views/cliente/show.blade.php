@@ -114,91 +114,98 @@
 					</div>
 					<div class="card-body">
 						<div class="row">
-							<div class="col-4 mb-2">
-								<label class="control-label">Nombre completo del contacto:</label>
-    							<span class="input-group-text" id="addon-wrapping">{{$cliente->cobranza->nombre}}</span>
-							</div>
-							<div class="col-4 mb-2">
-								<label class="control-label">Puesto:</label>
-    							<span class="input-group-text" id="addon-wrapping">{{$cliente->cobranza->puesto}}</span>
-							</div>
-							<div class="col-4 mb-2">
-								<label class="control-label">Telefono de cobro:</label>
-    							<span class="input-group-text" id="addon-wrapping">{{$cliente->cobranza->telefono_cobro}}</span>
-							</div>
-							<div class="col-4 mb-2">
-								<label class="control-label">Correo electronico:</label>
-    							<span class="input-group-text" id="addon-wrapping">{{$cliente->cobranza->correo}}</span>
-							</div>
-							<div class="col-4 mb-2">
-								<label class="control-label">Día de revision de factura:</label>
-    							<span class="input-group-text" id="addon-wrapping">{{$cliente->cobranza->dia_revision_factura}}</span>
-							</div>
-							<div class="col-4 mb-2">
-								<label class="control-label">Día de pago:</label>
-    							<span class="input-group-text" id="addon-wrapping">{{$cliente->cobranza->dia_pago}}</span>
-							</div>
+							@isset ($cliente->cobranza)
+								 <div class="col-4 mb-2">
+									<label class="control-label">Nombre completo del contacto:</label>
+	    							<span class="input-group-text" id="addon-wrapping">{{$cliente->cobranza->nombre}}</span>
+								</div>
+								<div class="col-4 mb-2">
+									<label class="control-label">Puesto:</label>
+	    							<span class="input-group-text" id="addon-wrapping">{{$cliente->cobranza->puesto}}</span>
+								</div>
+								<div class="col-4 mb-2">
+									<label class="control-label">Telefono de cobro:</label>
+	    							<span class="input-group-text" id="addon-wrapping">{{$cliente->cobranza->telefono_cobro}}</span>
+								</div>
+								<div class="col-4 mb-2">
+									<label class="control-label">Correo electronico:</label>
+	    							<span class="input-group-text" id="addon-wrapping">{{$cliente->cobranza->correo}}</span>
+								</div>
+								<div class="col-4 mb-2">
+									<label class="control-label">Día de revision de factura:</label>
+	    							<span class="input-group-text" id="addon-wrapping">{{$cliente->cobranza->dia_revision_factura}}</span>
+								</div>
+								<div class="col-4 mb-2">
+									<label class="control-label">Día de pago:</label>
+	    							<span class="input-group-text" id="addon-wrapping">{{$cliente->cobranza->dia_pago}}</span>
+								</div>  
+							@endisset
+							
+							
 						</div>
 					</div>
-					<div class="card-header">
-						<h5>Banco:</h5>
-					</div>
-					<div class="card-body">
-						<div class="row">
-							<div class="col-4 mb-2">
-								<label class="control-label">Nombre del banco:</label>
-								<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->nombre_b}}</span>
-							</div>
-							<div class="col-4 mb-2">
-								<label class="control-label">Plaza:</label>
-								<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->plaza}}</span>
-							</div>
-							<div class="col-4 mb-2">
-								<label class="control-label">Sucursal:</label>
-								<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->sucursal}}</span>
-							</div>
-							<div class="col-4 mb-2">
-								<label class="control-label">Número de Cuenta:</label>
-								<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->cuenta}}</span>
-							</div>
-							@if ($cliente->tipo_cliente == "extranjero")
-							<div class="col-4 mb-2">
-								<label class="control-label">Número de Cuenta:</label>
-								<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->cuenta}}</span>
-							</div>
-							<div class="col-4 mb-2">
-								<label class="control-label">ABA:</label>
-								<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->aba}}</span>
-							</div>
-							<div class="col-4 mb-2">
-								<label class="control-label">SWIFT:</label>
-								<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->swift}}</span>
-							</div>
-							@endif
-							@if ($cliente->tipo_cliente == "nacional")
-							<div class="col-4 mb-2">
-								<label class="control-label">RFC del banco:</label>
-								<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->rfc_banco}}</span>
-							</div>
-							<div class="col-4 mb-2">
-								<label class="control-label">CLABE Interbancaria:</label>
-								<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->clabe_inter}}</span>
-							</div>
-							<div class="col-4 mb-2">
-								<label class="control-label">Metodo de pago:</label>
-								<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->metodo_pago}}</span>
-							</div>
-							<div class="col-4 mb-2">
-								<label class="control-label">Forma de pago:</label>
-								<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->forma_pago}}</span>
-							</div>
-							<div class="col-4 mb-2">
-								<label class="control-label">Uso del CFDI:</label>
-								<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->uso_cfdi}}</span>
-							</div>
-							@endif
+					@isset ($cliente->banco)
+					    <div class="card-header">
+							<h5>Banco:</h5>
 						</div>
-					</div>
+						<div class="card-body">
+							<div class="row">
+								<div class="col-4 mb-2">
+									<label class="control-label">Nombre del banco:</label>
+									<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->nombre_b}}</span>
+								</div>
+								<div class="col-4 mb-2">
+									<label class="control-label">Plaza:</label>
+									<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->plaza}}</span>
+								</div>
+								<div class="col-4 mb-2">
+									<label class="control-label">Sucursal:</label>
+									<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->sucursal}}</span>
+								</div>
+								<div class="col-4 mb-2">
+									<label class="control-label">Número de Cuenta:</label>
+									<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->cuenta}}</span>
+								</div>
+								@if ($cliente->tipo_cliente == "extranjero")
+								<div class="col-4 mb-2">
+									<label class="control-label">Número de Cuenta:</label>
+									<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->cuenta}}</span>
+								</div>
+								<div class="col-4 mb-2">
+									<label class="control-label">ABA:</label>
+									<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->aba}}</span>
+								</div>
+								<div class="col-4 mb-2">
+									<label class="control-label">SWIFT:</label>
+									<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->swift}}</span>
+								</div>
+								@endif
+								@if ($cliente->tipo_cliente == "nacional")
+								<div class="col-4 mb-2">
+									<label class="control-label">RFC del banco:</label>
+									<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->rfc_banco}}</span>
+								</div>
+								<div class="col-4 mb-2">
+									<label class="control-label">CLABE Interbancaria:</label>
+									<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->clabe_inter}}</span>
+								</div>
+								<div class="col-4 mb-2">
+									<label class="control-label">Metodo de pago:</label>
+									<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->metodo_pago}}</span>
+								</div>
+								<div class="col-4 mb-2">
+									<label class="control-label">Forma de pago:</label>
+									<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->forma_pago}}</span>
+								</div>
+								<div class="col-4 mb-2">
+									<label class="control-label">Uso del CFDI:</label>
+									<span class="input-group-text" id="addon-wrapping">{{$cliente->banco->uso_cfdi}}</span>
+								</div>
+								@endif
+							</div>
+						</div>
+					@endisset
+					
 				</div>
 				{{-- <iframe src="#" id="comercialesFrame"></iframe> --}}
 			</div>

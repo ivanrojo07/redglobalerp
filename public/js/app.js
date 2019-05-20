@@ -2369,6 +2369,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function($) {//
 //
 //
 //
@@ -2590,6 +2591,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+$(document).ready(function () {
+  //set initial state.
+  //$('#textbox1').val($(this).is(':checked'));
+  $('#Peligroso').change(function () {
+    if (this.checked) {
+      //alert('checked');
+      $('#clase_peligrosa').show();
+      $('#nu_peligroso').show();
+    } else {
+      $('#clase_peligrosa').hide();
+      $('#nu_peligroso').hide();
+    } //$('#textbox1').val($(this).is(':checked'));        
+
+  });
+});
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2711,6 +2748,7 @@ __webpack_require__.r(__webpack_exports__);
     console.log('Component mounted.');
   }
 });
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
 
@@ -39227,6 +39265,10 @@ var render = function() {
                       _vm._v(" "),
                       _c("option", { attrs: { value: "Aereo" } }, [
                         _vm._v("Aereo")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "Ferroviario" } }, [
+                        _vm._v("Ferroviario")
                       ])
                     ]
                   )
@@ -39234,8 +39276,94 @@ var render = function() {
                 _vm._v(" "),
                 _vm._m(5, true),
                 _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-4 form-group",
+                    staticStyle: { display: "none" },
+                    attrs: { id: "clase_peligrosa" }
+                  },
+                  [
+                    _vm._m(6, true),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: mercancia.peligroso_clase,
+                          expression: "mercancia.peligroso_clase"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "number",
+                        name: "peligroso_clase[" + index + "]",
+                        max: "9",
+                        min: "1"
+                      },
+                      domProps: { value: mercancia.peligroso_clase },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            mercancia,
+                            "peligroso_clase",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-4 form-group",
+                    staticStyle: { display: "none" },
+                    attrs: { id: "nu_peligroso" }
+                  },
+                  [
+                    _vm._m(7, true),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: mercancia.peligroso_nu,
+                          expression: "mercancia.peligroso_nu"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "peligroso_nu[" + index + "]"
+                      },
+                      domProps: { value: mercancia.peligroso_nu },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            mercancia,
+                            "peligroso_nu",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(8, true),
+                _vm._v(" "),
                 _c("div", { staticClass: "col-4 form-group" }, [
-                  _vm._m(6, true),
+                  _vm._m(9, true),
                   _vm._v(" "),
                   _c("textarea", {
                     directives: [
@@ -39270,7 +39398,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-4 form-group" }, [
-                  _vm._m(7, true),
+                  _vm._m(10, true),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -39299,10 +39427,10 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _vm._m(8, true),
+                _vm._m(11, true),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-4 form-group" }, [
-                  _vm._m(9, true),
+                  _vm._m(12, true),
                   _vm._v(" "),
                   _c("textarea", {
                     directives: [
@@ -39337,7 +39465,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-4 form-group" }, [
-                  _vm._m(10, true),
+                  _vm._m(13, true),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -39366,10 +39494,92 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _vm._m(11, true),
+                _c("div", { staticClass: "col-4 form-group" }, [
+                  _vm._m(14, true),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: mercancia.eta,
+                        expression: "mercancia.eta"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "date",
+                      name: "eta[" + index + "]",
+                      required: ""
+                    },
+                    domProps: { value: mercancia.eta },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(mercancia, "eta", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-4 form-group" }, [
+                  _vm._m(15, true),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: mercancia.despacho_aduanal,
+                        expression: "mercancia.despacho_aduanal"
+                      }
+                    ],
+                    attrs: {
+                      type: "checkbox",
+                      name: "despacho_aduanal[" + index + "]"
+                    },
+                    domProps: {
+                      checked: Array.isArray(mercancia.despacho_aduanal)
+                        ? _vm._i(mercancia.despacho_aduanal, null) > -1
+                        : mercancia.despacho_aduanal
+                    },
+                    on: {
+                      change: function($event) {
+                        var $$a = mercancia.despacho_aduanal,
+                          $$el = $event.target,
+                          $$c = $$el.checked ? true : false
+                        if (Array.isArray($$a)) {
+                          var $$v = null,
+                            $$i = _vm._i($$a, $$v)
+                          if ($$el.checked) {
+                            $$i < 0 &&
+                              _vm.$set(
+                                mercancia,
+                                "despacho_aduanal",
+                                $$a.concat([$$v])
+                              )
+                          } else {
+                            $$i > -1 &&
+                              _vm.$set(
+                                mercancia,
+                                "despacho_aduanal",
+                                $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                              )
+                          }
+                        } else {
+                          _vm.$set(mercancia, "despacho_aduanal", $$c)
+                        }
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _vm._m(16, true),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-6" }, [
-                  _vm._m(12, true),
+                  _vm._m(17, true),
                   _vm._v(" "),
                   _c("div", { staticClass: "input-group mb-3" }, [
                     _c("input", {
@@ -39403,7 +39613,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm._m(13, true),
+                    _vm._m(18, true),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -39436,7 +39646,7 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
-                    _vm._m(14, true),
+                    _vm._m(19, true),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
@@ -39472,7 +39682,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-3" }, [
-                  _vm._m(15, true),
+                  _vm._m(20, true),
                   _vm._v(" "),
                   _c(
                     "select",
@@ -39544,7 +39754,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-3" }, [
-                  _vm._m(16, true),
+                  _vm._m(21, true),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -39576,7 +39786,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-3" }, [
-                  _vm._m(17, true),
+                  _vm._m(22, true),
                   _vm._v(" "),
                   _c(
                     "select",
@@ -39651,7 +39861,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-3" }, [
-                  _vm._m(18, true),
+                  _vm._m(23, true),
                   _vm._v(" "),
                   _c("input", {
                     directives: [
@@ -39683,7 +39893,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-2" }, [
-                  _vm._m(19, true),
+                  _vm._m(24, true),
                   _vm._v(" "),
                   _c("div", { staticClass: "input-group mb-3" }, [
                     _c("input", {
@@ -39728,7 +39938,7 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-2" }, [
-                  _vm._m(20, true),
+                  _vm._m(25, true),
                   _vm._v(" "),
                   _c("div", { staticClass: "input-group mb-3" }, [
                     _c("input", {
@@ -39785,7 +39995,7 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _vm._m(21, true),
+                _vm._m(26, true),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-12" }, [
                   _c("label", [_vm._v("Observaciones:")]),
@@ -39857,7 +40067,7 @@ var render = function() {
               return _c("div", { staticClass: "card-body" }, [
                 _c("div", { staticClass: "row" }, [
                   _c("div", { staticClass: "col-4 form-group" }, [
-                    _vm._m(22, true),
+                    _vm._m(27, true),
                     _vm._v(" "),
                     _c(
                       "select",
@@ -40029,6 +40239,35 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-12 mb-2" }, [
       _c("h4", { staticClass: "title" }, [
+        _vm._v("\n                        Material peligroso "),
+        _c("input", { attrs: { type: "checkbox", id: "Peligroso" } })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" Clase")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" NU")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 mb-2" }, [
+      _c("h4", { staticClass: "title" }, [
         _vm._v(
           "\n                        Dirección de origen\n                    "
         )
@@ -40081,6 +40320,24 @@ var staticRenderFns = [
     return _c("label", [
       _c("i", { staticClass: "fas fa-asterisk" }),
       _vm._v(" Código Postal")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fas fa-asterisk" }),
+      _vm._v(" eta")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("i", { staticClass: "fas fa-question-circle" }),
+      _vm._v("Requiere despacho aduanal")
     ])
   },
   function() {

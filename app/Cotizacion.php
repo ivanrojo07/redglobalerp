@@ -15,7 +15,10 @@ class Cotizacion extends Model
     	'nombre',
     	'responsable',
     	'telefono',
-    	'correo'
+    	'correo',
+        //añadido
+        'folio_consecutivo',        
+        'prospecto_id'
     ];
     protected $hidden = ['created_at', 'updated_at'];
     /**
@@ -24,6 +27,11 @@ class Cotizacion extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
+
+    public function prospecto()
+    {
+        return $this->belongsTo('App\Prospecto');
+    }
 
     public function cliente()
     {

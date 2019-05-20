@@ -10,17 +10,6 @@
 				@csrf
 				<div class="row mt-3">
 					<div class="form-group col-sm-3">
-						<label class="control-label" for="identificador">Folio:</label>
-						@isset ($cotizacion->folio_consecutivo)
-					    	<dd>{{ $cotizacion->folio_consecutivo}}</dd>
-						@endisset
-						@empty ($cotizacion->folio_consecutivo)
-						    <dd>{{ $cotizacion->id}}</dd>
-						@endempty
-						
-					</div>
-					
-					<div class="form-group col-sm-3">
 						<label class="control-label" for="identificador">Nombre completo del responsable:</label>
 						<dd>{{ $cotizacion->responsable}}</dd>
 					</div>
@@ -58,28 +47,6 @@
 					</div>
 
 			 	</div>
-			 	@if ($valor->peligroso_clase || $valor->peligroso_nu)
-				 	<h4><span class="badge badge-secondary">Clasificado como material peligroso</span></h4>
-				 	<div class="row mt-3">
-				 		@isset ($valor->peligroso_clase)
-					 		<div class="form-group col-sm-3">
-								<label class="control-label" for="identificador">  Clase :</label>
-								<dd>{{ $valor->peligroso_clase}}</dd>	
-							</div>
-				 		@endisset
-				 		
-						@isset ($valor->peligroso_nu)
-							<div class="form-group col-sm-3">
-								<label class="control-label" for="identificador">  
-								NU :</label>
-								<dd>{{ $valor->peligroso_nu}}</dd>	
-							</div>  
-						@endisset
-						
-				 	</div>
-			 	@endif
-			 	
-
 			 	<h4><span class="badge badge-secondary">Datos de origen</span></h4>
 			 	<div class="row mt-3">
 			 		<div class="form-group col-sm-3">
@@ -102,18 +69,6 @@
 					<div class="form-group col-sm-3">
 						<label class="control-label" for="identificador">  Codigo Postal de destino :</label>
 						<dd>{{ $valor->cp_destino}}</dd>	
-					</div>
-					<div class="form-group col-sm-3">
-						<label class="control-label" for="identificador">eta :</label>
-						<dd>{{$valor->eta}}</dd>	
-					</div>
-					<div class="form-group col-sm-3">
-						<label class="control-label" for="identificador">Requiere despacho aduanal :</label>
-						@if ($valor->despacho_aduanal)
-							<dd>si</dd>
-						@else
-							<dd>no</dd>
-						@endif
 					</div>
 			 	</div>
 

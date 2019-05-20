@@ -96,6 +96,12 @@ route::get('clientes/{cliente}/cotizacion/index','Cliente\CotizacionController@i
 Route::get('clientes/{cliente}/cotizacion/create','Cliente\CotizacionController@create');
 Route::post('clientes/{cliente}/cotizacion/store','Cliente\CotizacionController@store');
 Route::get('clientes/{cliente}/{cotizacion}/cotizacion/show','Cliente\CotizacionController@show');
+
+
+Route::get('clientes/{cliente}/{cotizacion}/edit','Cliente\cotizacionController@edit');
+Route::post('clientes/{cotizacion}/update','Cliente\cotizacionController@update');
+
+
 Route::resource('clientes','Cliente\ClienteController');
 Route::resource('clientes.proyectos','Cliente\ClienteProyectosController');
 Route::resource('clientes.crms','Cliente\ClienteCRMController');
@@ -107,6 +113,18 @@ Route::get('compdom/{cliente}','Cliente\ClienteController@compDom')->name('compd
 Route::get('actacons/{cliente}','Cliente\ClienteController@actaCons')->name('actacons');
 Route::get('idrepresentante/{cliente}','Cliente\ClienteController@repLeg')->name('idrepresentante');
 Route::get('cartapoder/{cliente}','Cliente\ClienteController@cartaPod')->name('cartapoder');
+
+
+//PROSPECTOS
+Route::get('prospectos/{prospecto}/{cotizacion}/show','Cliente\ProspectoController@showCotizacion');
+Route::get('prospectos/{prospecto}/{cotizacion}/edit','Cliente\ProspectoController@editCotizacion');
+Route::post('prospectos/{cotizacion}/update','Cliente\ProspectoController@updateCotizacion');
+Route::get('prospectos/{prospecto}/addCotizacion','Cliente\ProspectoController@addCotizacion');
+Route::post('prospectos/{prospecto}/push','Cliente\ProspectoController@pushCotizacion');
+Route::get('prospectos/{prospecto}/cliente','Cliente\ProspectoController@hacerCliente');
+Route::get('prospectos/{prospecto}/cliente/{tipo}','Cliente\ProspectoController@form');
+Route::post('prospectos/{prospecto}/transformar','Cliente\ProspectoController@cliente');
+Route::resource('prospectos','Cliente\ProspectoController');
 
 // PROYECTOS
 Route::resource('proyectos','Proyecto\ProyectoController');

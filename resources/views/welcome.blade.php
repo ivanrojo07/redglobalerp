@@ -151,6 +151,11 @@
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/prospectos') }}','Prospectos')">
+                                       <i class="fas fa-user-clock"></i> Prospectos
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ url('/commodities')}}','Naturaleza del producto')">
                                         <i class="fas fa-upload"></i> Naturaleza del producto/Commodities
                                     </a>
