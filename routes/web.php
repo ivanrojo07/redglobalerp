@@ -144,4 +144,6 @@ Route::resource('bajas','Precargas\TipoBajasController');
 Route::resource('licencias','Precargas\TipoLicenciaController');
 Route::resource('commodities','Precargas\CommodityController');
 Route::resource('servicios','Precargas\ServiciosController');
+Route::resource('prestaciones','Precargas\PrestacionesController');
+Route::resource('amonestacion','Precargas\TipoAmonestacionController');
 // Route::get('/home', 'HomeController@index')->name('home');

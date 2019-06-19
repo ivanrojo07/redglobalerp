@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Empleado;
 
 use App\Empleado;
+use App\TipoPuesto;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -48,8 +49,9 @@ class EmpleadoController extends Controller
         // Alert::message('Your profile is up to date', 'Wonderful!');
         $edit = false;
         $empleado = new Empleado;
+        $puestos = TipoPuesto::get();
         $numero=Empleado::orderBy('created_at', 'desc')->pluck('id')->first();
-        return view('empleado.create',['empleado'=>$empleado,'numero'=>$numero,'edit'=>$edit]);
+        return view('empleado.create',['empleado'=>$empleado,'numero'=>$numero,'edit'=>$edit, 'puestos'=> $puestos]);
     }
 
     /**

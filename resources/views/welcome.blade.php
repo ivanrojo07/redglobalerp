@@ -110,6 +110,16 @@
                                         <i class="fas fa-upload"></i> Tipo de licencias
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ route('prestaciones.index')}}','Prestaciones')">
+                                        <i class="fas fa-upload"></i> Prestaciones
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ route('amonestacion.index')}}','Amonestaciones')">
+                                        <i class="fas fa-upload"></i> Tipo de Amonestaciones
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         {{-- CLIENTES --}}
