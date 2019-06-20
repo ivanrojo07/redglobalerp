@@ -58,8 +58,10 @@
 						<li class="nav-item"><a href="#faltas" class="nav-link" id="faltasTab" data-toggle="tab" role="tab" aria-controls="faltas" aria-selected="false">Faltas</a></li>
 						<li class="nav-item"><a href="#permisos" class="nav-link" id="permisosTab" data-toggle="tab" role="tab" aria-controls="permisos" aria-selected="false">Permisos</a></li>
 						<li class="nav-item"><a href="#disciplinas" class="nav-link" id="disciplinasTab" data-toggle="tab" role="tab" aria-controls="disciplinas" aria-selected="false">Disciplina</a></li>
-						<li class="nav-item" @if ($empleado->tipo != "Chofer") style="display: none;" @endif id="licenciasT"><a href="#licencias" class="nav-link" id="licenciaTab" data-toggle="tab" role="tab" aria-controls="licencias" aria-selected="false">Licencia de manejo</a></li>
-						<li class="nav-item" @if ($empleado->tipo != "Chofer") style="display: none;" @endif id="accidentesT"><a href="#accidentes" class="nav-link" id="licenciaTab" data-toggle="tab" role="tab" aria-controls="licencias" aria-selected="false">Accidente e incidencias</a></li>
+						<li class="nav-item"><a href="#prestamos" class="nav-link" id="prestamosTab" data-toggle="tab" role="tab" aria-controls="prestamos" aria-selected="false">Prestamos</a></li>
+						<li class="nav-item"><a href="#expediente" class="nav-link" id="expedienteTab" data-toggle="tab" role="tab" aria-controls="expediente" aria-selected="false">Expediente</a></li>
+						<li class="nav-item" @if ($empleado->tipo != "Operadores") style="display: none;" @endif id="licenciasT"><a href="#licencias" class="nav-link" id="licenciaTab" data-toggle="tab" role="tab" aria-controls="licencias" aria-selected="false">Licencia de manejo</a></li>
+						<li class="nav-item" @if ($empleado->tipo != "Operadores") style="display: none;" @endif id="accidentesT"><a href="#accidentes" class="nav-link" id="licenciaTab" data-toggle="tab" role="tab" aria-controls="licencias" aria-selected="false">Accidente e incidencias</a></li>
 					</ul>
 					<div class="tab-content" id="empleadoTabContent">
 						<div class="tab-pane fade show active" id="generales" role="tabpanel" aria-labelledby="generales-tab">
@@ -208,8 +210,14 @@
 						<div class="tab-pane fade" id="disciplinas" style="height: 650px!important;" role="tabpanel" aria-labelledby="disciplinas-tab">
 							<iframe style="height: 650px!important;" src="{{ route('empleados.disciplinas.index',['empleado'=>$empleado]) }}"></iframe>
 						</div>
+						<div class="tab-pane fade" id="prestamos" style="height: 650px!important;" role="tabpanel" aria-labelledby="prestamos-tab">
+							<iframe style="height: 650px!important;" src="{{ route('empleados.prestamos.index',['empleado'=>$empleado]) }}"></iframe>
+						</div>
+						<div class="tab-pane fade" id="expediente" style="height: 650px!important;" role="tabpanel" aria-labelledby="expediente-tab">
+							<iframe style="height: 650px!important;" src="{{ route('empleados.expediente.index',['empleado'=>$empleado]) }}"></iframe>
+						</div>
 						{{-- MOSTRAR ADMINISTRATIVO SOLO SI ES ADMINISTRATIVO --}}
-						@if ($empleado->tipo == "Chofer")
+						@if ($empleado->tipo == "Operadores")
 						<div class="tab-pane fade" id="licencias" style="height: 650px!important;" role="tabpanel" aria-labelledby="licencias-tab">
 							<iframe style="height: 650px!important;" src="{{ route('empleados.licencias.index',['empleados'=>$empleado]) }}"></iframe>
 						</div>

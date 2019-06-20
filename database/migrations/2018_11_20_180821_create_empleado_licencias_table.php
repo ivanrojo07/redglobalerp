@@ -19,6 +19,8 @@ class CreateEmpleadoLicenciasTable extends Migration
             $table->foreign('empleado_id')->references('id')->on('empleados');
             $table->integer('tipo_licencia_id')->unsigned();
             $table->foreign('tipo_licencia_id')->references('id')->on('tipo_licencias');
+            $table->string('num_licencia');
+            $table->string('lugar_expedi');
             $table->date('vencimiento');
             $table->string('vehiculos')->nullable();
             $table->decimal('experiencia',3,1)->nullable();

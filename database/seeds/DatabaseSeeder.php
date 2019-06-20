@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
             // DatosLaboralesTableSeeder::class,
             UserTableSeeder::class,
             CotizacionTableSeeder::class,
-            TipoPuestosTableSeeder::class
+            TipoPuestosTableSeeder::class,
+            TipoAmonestacionTableSeeder::class
         ]);
     }
 }

@@ -177,6 +177,21 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="dropdown">
+                            <a tabindex="-1" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"> <i class="fas fa-truck-loading"></i> Oficinas</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ route('oficinas.index') }}','Busqueda')">
+                                       <i class="fas fa-people-carry"></i> Busqueda
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="dropdown-item" onclick="AgregarNuevoTab('{{ route('oficinas.create') }}','Alta')">
+                                       <i class="fas fa-user-clock"></i> Alta
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
 
 
