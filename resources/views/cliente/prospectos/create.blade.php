@@ -34,7 +34,7 @@
 			
 			<mercancias-component></mercancias-component>
 			<div class="d-flex justify-content-center mb-3">
-				<button type="submit" class="btn btn-success btn-lg" >>
+				<button type="submit" class="btn btn-success btn-lg" >
 					<strong>
 						<i class="far fa-save"></i>
 						Guardar

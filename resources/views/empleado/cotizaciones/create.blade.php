@@ -21,6 +21,11 @@
 						<input class="form-control" type="email" name="correo" required="">
 					</div>
 				</div>
+				<div class="col-12 mb-2">
+                    <h4 class="title">
+                        Material peligroso <input type="checkbox" id="Peligroso">
+                    </h4>
+                </div>
 			</div>
 			
 			<mercancias-component></mercancias-component>
@@ -34,4 +39,25 @@
 			</div>
 		</form>
 	</div>
+@endsection
+@section('script')
+	<script>
+		$(document).ready(function() {
+        //set initial state.
+        //$('#textbox1').val($(this).is(':checked'));
+
+        $('#Peligroso').change(function() {
+            if(this.checked) {
+                //alert('checked');
+                $('#clase_peligrosa').show();
+                $('#nu_peligroso').show();
+            }
+            else{
+                $('#clase_peligrosa').hide();
+                $('#nu_peligroso').hide();
+            }
+            //$('#textbox1').val($(this).is(':checked'));        
+        });
+    });
+	</script>
 @endsection

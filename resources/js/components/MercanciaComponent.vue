@@ -61,11 +61,6 @@
                             <option value="Ferroviario">Ferroviario</option>
                         </select>
                     </div>
-                    <div class="col-12 mb-2">
-                        <h4 class="title">
-                            Material peligroso <input type="checkbox" id="Peligroso">
-                        </h4>
-                    </div>
                     <div class="col-4 form-group" id="clase_peligrosa" style="display: none">
                         <label><i class="fas fa-asterisk"></i> Clase</label>
                         <input type="number" class="form-control" v-model="mercancia.peligroso_clase" :name="'peligroso_clase['+index+']'" max="9" min="1"></input>
@@ -243,23 +238,7 @@
 
 <script>
 
-    $(document).ready(function() {
-        //set initial state.
-        //$('#textbox1').val($(this).is(':checked'));
-
-        $('#Peligroso').change(function() {
-            if(this.checked) {
-                //alert('checked');
-                $('#clase_peligrosa').show();
-                $('#nu_peligroso').show();
-            }
-            else{
-                $('#clase_peligrosa').hide();
-                $('#nu_peligroso').hide();
-            }
-            //$('#textbox1').val($(this).is(':checked'));        
-        });
-    });
+    
 
 
     export default {
