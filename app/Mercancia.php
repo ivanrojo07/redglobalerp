@@ -12,10 +12,10 @@ class Mercancia extends Model
 
     protected $fillable=[
     	'nombre',
-    	'line1_origen',        
-        'cp_origen',
-        'line1_destino',    	
-    	'cp_destino',
+    	// 'line1_origen',        
+        // 'cp_origen',
+        // 'line1_destino',    	
+    	// 'cp_destino',
     	'naturaleza',
     	'alto',
     	'ancho',
@@ -26,13 +26,13 @@ class Mercancia extends Model
     	'bultos',
     	'peso_total',
     	'volumen_total',
-    	'tipo_servicio',
+    	// 'tipo_servicio',
     	'observaciones',
         //agregado
-        'eta',
-        'despacho_aduanal',
-        'peligroso_clase',
-        'peligroso_nu'
+        // 'eta',
+        // 'despacho_aduanal',
+        // 'peligroso_clase',
+        // 'peligroso_nu'
     ];
     protected $hidden=[
     	'created_at',
@@ -49,7 +49,5 @@ class Mercancia extends Model
     {
         return $this->belongsTo('App\Cotizacion');
     }
-    public function servicios (){
-        return $this->belongsToMany('App\Servicio');
-    }
+    
 }

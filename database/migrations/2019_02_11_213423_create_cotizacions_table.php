@@ -21,6 +21,19 @@ class CreateCotizacionsTable extends Migration
             $table->string('responsable');
             $table->string('telefono');
             $table->string('correo');
+            // DIRECCION ORIGEN
+            $table->text('line1_origen');
+            $table->string('cp_origen');
+            // DIRECCION DESTINO
+            $table->text('line1_destino');
+            $table->string('cp_destino');
+            // TIPO DE SERVICIO
+            $table->string('tipo_servicio');
+            $table->date('eta')->nullable();            
+            $table->boolean('despacho_aduanal')->nullable(); 
+            $table->boolean('es_estibable')->nullable(); 
+            $table->integer('peligroso_clase')->nullable();
+            $table->string('peligroso_nu')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

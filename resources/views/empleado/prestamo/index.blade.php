@@ -73,7 +73,7 @@
 								<td>{{$prestamo->numero_pagos}}</td>
 								<td>{{$prestamo->motivo}}</td>
 								<td>{{$prestamo->descuento_nomina}}</td>
-								<td>{{$prestamo->imagen_talon}}</td>
+								<td><a href="{{ url($prestamo->imagen_talon) }}">Ver talon</a></td>
 							</tr>
 						@empty
 							<div class="alert alert-danger" role="alert">

@@ -49,7 +49,13 @@ class ProspectoController extends Controller
         $cotizacion=new Cotizacion([
                 'responsable'=>$request->responsable,
                 'telefono'=>$request->telefono,
-                'correo'=>$request->correo                
+                'correo'=>$request->correo,
+                 'line1_origen'=>$request->linea1_origen,                
+                'cp_origen'=>$request->cp_origen,
+                'line1_destino'=>$request->linea1_destino,                
+                'cp_destino'=>$request->cp_destino,
+                'tipo_servicio'=>$request->tipo_servicio,
+                'eta'=>$request->eta           
             ]);
         $prospecto=new Prospecto([
                 'razon_social'=>$request->razon_social,
@@ -65,10 +71,10 @@ class ProspectoController extends Controller
             $mercancia= new Mercancia([
 
                 'nombre'=>$nombre,
-                'line1_origen'=>$request->linea1_origen[$key],                
-                'cp_origen'=>$request->cp_origen[$key],
-                'line1_destino'=>$request->linea1_destino[$key],                
-                'cp_destino'=>$request->cp_destino[$key],
+                // 'line1_origen'=>$request->linea1_origen[$key],                
+                // 'cp_origen'=>$request->cp_origen[$key],
+                // 'line1_destino'=>$request->linea1_destino[$key],                
+                // 'cp_destino'=>$request->cp_destino[$key],
                 'naturaleza'=>$request->naturaleza[$key],
                 'alto'=>$request->alto[$key],
                 'ancho'=>$request->ancho[$key],
@@ -79,19 +85,19 @@ class ProspectoController extends Controller
                 'bultos'=>$request->bultos[$key],
                 'peso_total'=>$request->peso_total[$key],
                 'volumen_total'=>$request->volumen_total[$key],
-                'tipo_servicio'=>$request->tipo_servicio[$key],
+                // 'tipo_servicio'=>$request->tipo_servicio[$key],
                 'observaciones'=>$request->observaciones[$key],
-                'eta'=>$request->eta[$key],
-                'peligroso_clase'=>$request->peligroso_clase[$key],
-                'peligroso_nu'=>$request->peligroso_nu[$key]
+                // 'eta'=>$request->eta[$key],
+                // 'peligroso_clase'=>$request->peligroso_clase[$key],
+                // 'peligroso_nu'=>$request->peligroso_nu[$key]
             ]);
-            if($request->despacho_aduanal[$key]) 
+            if($request->despacho_aduanal) 
             {
-                $mercancia->despacho_aduanal=true;
+                $cotizacion->despacho_aduanal=true;
             } 
             else
             {
-                $mercancia->despacho_aduanal=false;
+                $cotizacion->despacho_aduanal=false;
             }
             $mercancia->cotizacion_id=$cotizacion->id;
             $mercancia->save();
@@ -112,7 +118,14 @@ class ProspectoController extends Controller
         $cotizacion=new Cotizacion([
                 'responsable'=>$request->responsable,
                 'telefono'=>$request->telefono,
-                'correo'=>$request->correo                
+                'correo'=>$request->correo,
+                 'line1_origen'=>$request->linea1_origen,                
+                'cp_origen'=>$request->cp_origen,
+                'line1_destino'=>$request->linea1_destino,                
+                'cp_destino'=>$request->cp_destino,
+                'tipo_servicio'=>$request->tipo_servicio,
+                'eta'=>$request->eta
+
             ]);
         $cotizacion->prospecto_id=$prospecto->id;                
         $cotizacion->save();
@@ -121,10 +134,10 @@ class ProspectoController extends Controller
             $mercancia= new Mercancia([
 
                 'nombre'=>$nombre,
-                'line1_origen'=>$request->linea1_origen[$key],                
-                'cp_origen'=>$request->cp_origen[$key],
-                'line1_destino'=>$request->linea1_destino[$key],                
-                'cp_destino'=>$request->cp_destino[$key],
+                // 'line1_origen'=>$request->linea1_origen[$key],                
+                // 'cp_origen'=>$request->cp_origen[$key],
+                // 'line1_destino'=>$request->linea1_destino[$key],                
+                // 'cp_destino'=>$request->cp_destino[$key],
                 'naturaleza'=>$request->naturaleza[$key],
                 'alto'=>$request->alto[$key],
                 'ancho'=>$request->ancho[$key],
@@ -135,9 +148,9 @@ class ProspectoController extends Controller
                 'bultos'=>$request->bultos[$key],
                 'peso_total'=>$request->peso_total[$key],
                 'volumen_total'=>$request->volumen_total[$key],
-                'tipo_servicio'=>$request->tipo_servicio[$key],
+                // 'tipo_servicio'=>$request->tipo_servicio[$key],
                 'observaciones'=>$request->observaciones[$key],
-                'eta'=>$request->eta[$key]
+                // 'eta'=>$request->eta[$key]
             ]);
             if($request->despacho_aduanal[$key]) 
             {
