@@ -31,7 +31,7 @@ class EmpleadoAccidenteController extends Controller
     public function index(Empleado $empleado)
     {
         //
-        if($empleado->tipo == "Chofer"){
+        if($empleado->tipo == "Operadores"){
             $accidentes = $empleado->accidentes()->orderBy('created_at','desc')->get();
             return view('empleado.accidente.index',['empleado'=>$empleado,'accidentes'=>$accidentes]);
         }

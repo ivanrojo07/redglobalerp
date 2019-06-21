@@ -12,6 +12,8 @@ class EmpleadoLicencia extends Model
 	protected $fillable=[
 		'tipo_licencia_id',
 		'vencimiento',
+		'num_licencia',
+		'lugar_expedi',
 		'vehiculos',
 		'experiencia'
 	];

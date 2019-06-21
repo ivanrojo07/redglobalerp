@@ -20,6 +20,7 @@ window.Vue = require('vue');
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('mercancias-component', require('./components/MercanciaComponent.vue').default);
+Vue.component('servicios-component', require('./components/ServicioComponent.vue').default);
 
 // SERVICIO AEREO
 Vue.component('servaereo-component', require('./components/ServaereoComponent.vue').default);

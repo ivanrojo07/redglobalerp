@@ -13,10 +13,10 @@ class CreateMercanciaServicioTable extends Migration
      */
     public function up()
     {
-        Schema::create('mercancia_servicio', function (Blueprint $table) {
+        Schema::create('cotizacion_servicio', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('mercancia_id');
-            $table->foreign('mercancia_id')->references('id')->on('mercancias');
+            $table->unsignedInteger('cotizacion_id');
+            $table->foreign('cotizacion_id')->references('id')->on('cotizacions');
             $table->unsignedInteger('servicio_id');
             $table->foreign('servicio_id')->references('id')->on('servicios');
             $table->text('comentario')->nullable();
@@ -34,6 +34,6 @@ class CreateMercanciaServicioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mercancia_servicio');
+        Schema::dropIfExists('cotizacion_servicio');
     }
 }

@@ -47,69 +47,6 @@
                             <option v-for="commodity in commodities" :value="commodity.nombre" :title="commodity.descripcion">{{commodity.nombre}}</option>
                         </select>
                     </div>
-                    <div class="col-4 form-group">
-                        <label>
-                            <i class="fas fa-asterisk"></i> Tipo de servicio:
-                        </label>
-                        <select class="form-control" id="tipo_servicio" :name="'tipo_servicio['+index+']'" v-model="mercancia.tipo_servicio" required>
-                            <option value="">Seleccione una opción</option>
-                            <option value="Terrestre FTL">Terrestre FTL</option>
-                            <option value="Terrestre LTL">Terrestre LTL</option>
-                            <option value="Maritimo FCL">Maritimo FCL</option>
-                            <option value="Maritimo LCL">Maritimo LCL</option>
-                            <option value="Aereo">Aereo</option>
-                            <option value="Ferroviario">Ferroviario</option>
-                        </select>
-                    </div>
-                    <div class="col-12 mb-2">
-                        <h4 class="title">
-                            Material peligroso <input type="checkbox" id="Peligroso">
-                        </h4>
-                    </div>
-                    <div class="col-4 form-group" id="clase_peligrosa" style="display: none">
-                        <label><i class="fas fa-asterisk"></i> Clase</label>
-                        <input type="number" class="form-control" v-model="mercancia.peligroso_clase" :name="'peligroso_clase['+index+']'" max="9" min="1"></input>
-                    </div>
-                    <div class="col-4 form-group" id="nu_peligroso" style="display: none">
-                        <label><i class="fas fa-asterisk"></i> NU</label>
-                        <input type="text" class="form-control" v-model="mercancia.peligroso_nu" :name="'peligroso_nu['+index+']'">
-                    </div>
-                    <div class="col-12 mb-2">
-                        <h4 class="title">
-                            Dirección de origen
-                        </h4>
-                    </div>
-                    <div class="col-4 form-group">
-                        <label><i class="fas fa-asterisk"></i> Linea 1</label>
-                        <textarea rows="1" type="text" class="form-control" v-model="mercancia.linea1_origen" :name="'linea1_origen['+index+']'" required=""></textarea>
-                    </div>
-                    <div class="col-4 form-group">
-                        <label><i class="fas fa-asterisk"></i> Código Postal</label>
-                        <input type="text" class="form-control" v-model="mercancia.cp_origen" :name="'cp_origen['+index+']'" required="">
-                    </div>
-
-                    <div class="col-12 mb-2">
-                        <h4 class="title">
-                            Dirección de destino
-                        </h4>
-                    </div>
-                    <div class="col-4 form-group">
-                        <label><i class="fas fa-asterisk"></i> Linea 1</label>
-                        <textarea rows="1" type="text" class="form-control" v-model="mercancia.linea1_destino" :name="'linea1_destino['+index+']'" required=""></textarea>
-                    </div>
-                    <div class="col-4 form-group">
-                        <label><i class="fas fa-asterisk"></i> Código Postal</label>
-                        <input type="text" class="form-control" v-model="mercancia.cp_destino" :name="'cp_destino['+index+']'" required="">
-                    </div>
-
-                    <div class="col-4 form-group">
-                        <label><i class="fas fa-asterisk"></i> eta</label>
-                        <input type="date" class="form-control" v-model="mercancia.eta" :name="'eta['+index+']'" required="">
-                    </div>
-                    <div class="col-4 form-group">
-                        <label><i class="fas fa-question-circle"></i>Requiere despacho aduanal</label>
-                        <input type="checkbox" v-model="mercancia.despacho_aduanal" :name="'despacho_aduanal['+index+']'">
-                    </div>
                     <div class="col-12 mb-2">
                         <h4 class="title">
                             Dimensiones y peso de la mercancia
@@ -203,41 +140,8 @@
                     </div>
                 </div>
             </div>
-           <div class="card-header">
-               <div class="d-flex bd-highlight">
-                    <div class="p-2 w-75 bd-highlight">
-                        <h5>
-                            <i class="fas fa-truck-loading"></i> Servicios extras para mercancia {{index+1}}:
-                        </h5>
-                    </div>
-                    <div class="p-2 flex-shrink-1 bd-highlight">
-                        <button class="btn btn-secondary" type="button" @click="nuevoServicio(mercancia)"><i class="fas fa-plus"></i> Agregar servicio </button>
-                    </div>
-                </div>   
-           </div>
-           <div class="card-body" v-for="servicio in mercancia.serv_extra">
-                <div class="row">
-                    <div class="col-4 form-group">
-                        <label>
-                            <i class="fas fa-asterisk"></i> Servicio
-                        </label>
-                        <select class="form-control" :name="'servicios['+index+'][]'" v-model="servicio.servicio_id">
-                            <option value="">Seleccione el servicio</option>
-                            <option v-for="serv in servicios" :value="serv.id" title="servicio.descripcion">{{serv.nombre}}</option>
-                        </select>
-                    </div>
-                    <div class="col-6 form-group">
-                        <label>
-                            Comentario
-                        </label>
-                        <textarea class="form-control" :name="'comentario_serv['+index+'][]'" v-model="servicio.comentario"></textarea>
-                    </div>
-                    <div class="col-2 form-group b-2">
-                        <button class="btn btn-danger" type="button" @click="eliminarServicio(mercancia,index)"><i class="far fa-times-circle">Eliminar servicio</i></button>
-                    </div>
-                </div>
-           </div>
         </div>
+    </div>
     </div>
 </template>
 
@@ -259,6 +163,14 @@
             }
             //$('#textbox1').val($(this).is(':checked'));        
         });
+        $("#despacho_aduanal").change(function () {
+            if (this.checked) {
+                $("#estibable").show();
+            }
+            else{
+                $("#estibable").hide();
+            }
+        })
     });
 
 
@@ -323,7 +235,7 @@
             },
             getCommodities(){
 
-                let url = "/rgc/getCommodities";
+                let url = "/RGC/public/getCommodities";
                 //let url = "/getCommodities";
                 axios.get(url).then(res=>{
                     this.commodities = res.data.commodities;
@@ -332,7 +244,7 @@
                 });
             },
             getServicios(servicio){
-                let url=`/rgc/getServicios/${servicio}`;
+                let url=`/RGC/public/getServicios/${servicio}`;
                  //let url=`/getServicios/${servicio}`;
                 axios.get(url).then(res=>{
                     this.servicios=res.data.servicios;

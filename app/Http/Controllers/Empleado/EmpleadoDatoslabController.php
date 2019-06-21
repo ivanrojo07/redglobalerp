@@ -98,42 +98,8 @@ class EmpleadoDatoslabController extends Controller
      */
     public function store(Request $request, Empleado $empleado)
     {
-        // dd($request->all());
         $datoslab = new EmpleadoDatoslab($request->all());
         $empleado->datosLab()->save($datoslab);
-        // $datoslab->empleado_id = $request->empleado_id;
-
-        // $datoslab->fechacontratacion = $request->fechacontratacion;
-        // $datoslab->fechaactualizacion = date("Y-m-d");
-
-        // $datoslab->puesto_id = $request->puesto_id;
-
-        // $datoslab->salarionom = $request->salarionom;
-        // $datoslab->salariodia = $request->salariodia ;
-        
-        // $datoslab->periodopaga = $request->periodopaga ;
-        // $datoslab->prestaciones = $request->prestaciones ;
-        // $datoslab->regimen = $request->regimen ;
-        // $datoslab->hentrada = $request->hentrada ;
-        // $datoslab->hsalida = $request->hsalida ;
-        // $datoslab->hcomida = $request->hcomida ;
-        // $datoslab->lugartrabajo = $request->lugartrabajo ;
-        // $datoslab->banco = $request->banco ;
-        // $datoslab->cuenta = $request->cuenta ;
-        // $datoslab->clabe = $request->clabe ;
-        // $datoslab->fechabaja = $request->fechabaja ;
-        // $datoslab->tipobaja_id = $request->tipobaja_id ;
-        // $datoslab->comentariobaja = $request->comentariobaja ;
-
-        // $datoslab->contrato_id = $request->contrato_id ;
-        // if ($request->bonopuntualidad == 'on') {
-        //     # code...
-        //     $datoslab->bonopuntualidad = true;
-        //     // dd($request->all());
-        // } else {
-        //     # code...
-        //     $datoslab->bonopuntualidad = false;
-        // }
     //--------- BAJA --------------------------------
         if($request->fechabaja!=null){
             // $empleado->delete();

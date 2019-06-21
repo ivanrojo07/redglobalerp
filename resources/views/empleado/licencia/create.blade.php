@@ -24,11 +24,23 @@
 				</div>
 				<div class="col-3">
 					<label class="control-label">
+						*Número de Licencia:
+					</label>
+					<input class="form-control" type="text" name="num_licencia" value="{{$licencia->num_licencia}}" required>
+				</div>
+				<div class="col-3">
+					<label class="control-label">
 						*Fecha de vencimiento:
 					</label>
 					<input class="form-control" type="date" name="vencimiento" value="{{$licencia->vencimiento}}" required>
 				</div>
 				<div class="col-3">
+					<label class="control-label">
+						*Lugar de expedición de Licencia:
+					</label>
+					<input class="form-control" type="text" name="lugar_expedi" value="{{$licencia->lugar_expedi}}" required>
+				</div>
+				{{-- <div class="col-3">
 					<label class="control-label">
 						Vehiculo a conducir:
 					</label>
@@ -39,7 +51,7 @@
 						Años de experiencia:
 					</label>
 					<input class="form-control" type="number" step="0.1" min="0" name="experiencia" value="{{$licencia->experiencia}}">
-				</div>
+				</div> --}}
 			</div>
 			<div class="row">
 				<div class="col-sm-12 text-center">

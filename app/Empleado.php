@@ -89,13 +89,21 @@ class Empleado extends Model
     {
         return $this->hasMany('App\EmpleadoDisciplina');
     }
+    public function prestamos()
+    {
+        return $this->hasMany('App\EmpleadoPrestamo');
+    }
+    public function expediente()
+    {
+        return $this->hasOne('App\EmpleadoExpediente');
+    }
     public function licencias(){
-        if($this->tipo == "Chofer"){
+        if($this->tipo == "Operadores"){
             return $this->hasMany('App\EmpleadoLicencia');
         }
     } 
     public function accidentes(){
-         if($this->tipo == "Chofer"){
+         if($this->tipo == "Operadores"){
             return $this->hasMany('App\EmpleadoAccidente');
         }
     }
@@ -106,5 +114,13 @@ class Empleado extends Model
 
     public function cotizaciones(){
         return $this->hasMany('App\Cotizacion');
+    }
+
+    public function getFullnameAttribute(){
+        return $this->nombre.$this->appaterno.$this->apmaterno;
+    }
+
+    public function getFullnamespaceAttribute(){
+        return $this->nombre. " " .$this->appaterno. " " .$this->apmaterno;
     }
 }

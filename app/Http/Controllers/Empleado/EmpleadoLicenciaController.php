@@ -31,7 +31,7 @@ class EmpleadoLicenciaController extends Controller
     public function index(Empleado $empleado)
     {
         //
-        if ($empleado->tipo == "Chofer") {
+        if ($empleado->tipo == "Operadores") {
             $licencias= $empleado->licencias()->orderBy("created_at",'desc')->get();
             $licencia = $empleado->licencias->last();
             return view('empleado.licencia.index',['empleado'=>$empleado,'licencias'=>$licencias,'licencia'=>$licencia]);

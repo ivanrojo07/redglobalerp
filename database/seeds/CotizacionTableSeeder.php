@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Cotizacion;
 
 class CotizacionTableSeeder extends Seeder
 {

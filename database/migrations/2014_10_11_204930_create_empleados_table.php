@@ -22,6 +22,7 @@ class CreateEmpleadosTable extends Migration
             $table->string('email');
             $table->string('tipo');
             $table->string('nacionalidad')->nullable();
+            $table->string('pais')->nullable();
             $table->string('edo_civil')->nullable();
             $table->string('padre')->nullable();
             $table->string('madre')->nullable();

@@ -29,6 +29,14 @@ Route::get('/home', function () {
 	}
 })->name('home');
 
+Route::get('/prestamos/{empleado}/{file}', function ($empleado, $file) {
+    return Storage::response("public/prestamos/$empleado/$file");
+})->name('viewprestamo');
+
+Route::get('/expedientes/{empleado}/{file}', function ($empleado, $file) {
+    return Storage::response("public/expedientes/$empleado/$file");
+});
+
 // Rutas de autenticación del cliente
 
 
@@ -73,6 +81,8 @@ Route::resource('empleados.licencias','Empleado\EmpleadoLicenciaController');
 Route::resource('empleados.accidentes','Empleado\EmpleadoAccidenteController');
 Route::resource('empleados.permisos','Empleado\EmpleadoPermisoController');
 Route::resource('empleados.disciplinas','Empleado\EmpleadoDisciplinaController');
+Route::resource('empleados.prestamos','Empleado\EmpleadoPrestamosController',['only'=>['index','store']]);
+Route::resource('empleados.expediente','Empleado\EmpleadoExpedienteController');
 //Route::resource('cotizacions','Cliente\CotizacionController');
 Route::resource('empleados.beneficiario','Empleado\EmpleadoBeneficiarioController',['only'=>['index','create','store','edit','update']]);
 // Route::resource('empleados.estudios', 'Empleado\EmpleadosEstudiosController');
@@ -144,4 +154,10 @@ Route::resource('bajas','Precargas\TipoBajasController');
 Route::resource('licencias','Precargas\TipoLicenciaController');
 Route::resource('commodities','Precargas\CommodityController');
 Route::resource('servicios','Precargas\ServiciosController');
+Route::resource('prestaciones','Precargas\PrestacionesController');
+Route::resource('amonestacion','Precargas\TipoAmonestacionController');
 // Route::get('/home', 'HomeController@index')->name('home');
+
+
+// OFICINAS
+Route::resource('oficinas', 'Oficina\OficinaController');

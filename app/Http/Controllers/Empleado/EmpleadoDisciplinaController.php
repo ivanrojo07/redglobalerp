@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Empleado;
 
 use App\Empleado;
+use App\TipoAmonestacion;
 use App\EmpleadoDisciplina;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -18,8 +19,9 @@ class EmpleadoDisciplinaController extends Controller
      */
     public function index(Empleado $empleado)
     {
+        $amonestaciones = TipoAmonestacion::get();
         $disciplinas = $empleado->disciplinas;
-        return view('empleado.disciplina.index',['empleado'=>$empleado,'disciplinas'=>$disciplinas]);
+        return view('empleado.disciplina.index',['empleado'=>$empleado,'disciplinas'=>$disciplinas, 'amonestaciones'=>$amonestaciones]);
     }
 
     /**
