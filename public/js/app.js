@@ -64434,8 +64434,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;function _type
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\redglobal\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\redglobal\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Sitios\RGC_ERP\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Sitios\RGC_ERP\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

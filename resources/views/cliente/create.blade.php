@@ -307,19 +307,19 @@
 				<div class="row form-group mt-3">
 					<div class="col-3">
 						<label class="control-label">{{ __('Constancia de situación fiscal (CIF actualizado):') }}</label>
-						<input id="input-b1" name="cif_tax_nit_rut" type="file" class="file form-control" data-browse-on-zone-click="true">
+						<input id="input-b1" name="cif_tax_nit_rut" type="file" class="file form-control" data-browse-on-zone-click="true" required="">
 					</div>
 					<div class="col-3">
 						<label class="control-label">{{ __('Comprobante de domicilio (Reciente, no más de 3 meses de antigüedad):') }}</label>
-						<input id="input-b1" name="comp_dom" type="file" class="file form-control" data-browse-on-zone-click="true">
+						<input id="input-b1" name="comp_dom" type="file" class="file form-control" data-browse-on-zone-click="true" required="">
 					</div>
 					<div class="col-3">
 						<label class="control-label">{{ __('Acta constitutiva:') }}</label>
-						<input id="input-b1" name="acta_constitutiva" type="file" class="file form-control" data-browse-on-zone-click="true">
+						<input id="input-b1" name="acta_constitutiva" type="file" class="file form-control" data-browse-on-zone-click="true" required="">
 					</div>
 					<div class="col-3">
 						<label class="control-label">{{ __('Identificación del Representante legal de la empresa:') }}</label>
-						<input id="input-b1" name="identificacion_rep_legal" type="file" class="file form-control" data-browse-on-zone-click="true">
+						<input id="input-b1" name="identificacion_rep_legal" type="file" class="file form-control" data-browse-on-zone-click="true" required="">
 					</div>
 					{{-- <div class="col-3">
 						<label class="control-label">{{ __('Carta poder de la empresa:') }}</label>
